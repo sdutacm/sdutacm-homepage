@@ -63,6 +63,7 @@ html {
 
 body {
   min-height: 100vh;
+  min-width: 8rem;
   color: var(--color-text);
   background: var(--color-background);
   transition:
