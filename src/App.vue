@@ -2,6 +2,23 @@
 import { ref } from 'vue'
 
 const isDarkTheme = ref(false)
+const news = ref([
+  {
+    title: '2021年山东省大学生程序设计竞赛（SDUT校赛）',
+    content: '2021年山东省大学生程序设计竞赛（SDUT校赛）将于2021年10月16日在山东理工大学举行。',
+    imgUrl: 'https://images.unsplash.com/photo-1496979551903-46e46589a88b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cda12b505afa1beb06e49d89014cbd65&auto=format&fit=crop&w=634&q=80'
+  },
+  {
+    title: '2022年山东省大学生程序设计竞赛（SDUT校赛）',
+    content: '2022年山东省大学生程序设计竞赛（SDUT校赛）将于2022年10月16日在山东理工大学举行。',
+    imgUrl: 'https://images.unsplash.com/photo-1496979551903-46e46589a88b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cda12b505afa1beb06e49d89014cbd65&auto=format&fit=crop&w=634&q=80'
+  },
+  {
+    title: '2022年山东省大学生程序设计竞赛（SDUT校赛）',
+    content: '2022年山东省大学生程序设计竞赛（SDUT校赛）将于2022年10月16日在山东理工大学举行。',
+    imgUrl: 'https://images.unsplash.com/photo-1496979551903-46e46589a88b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cda12b505afa1beb06e49d89014cbd65&auto=format&fit=crop&w=634&q=80'
+  }
+])
 
 const toggleTheme = () => {
   isDarkTheme.value = !isDarkTheme.value
@@ -38,20 +55,23 @@ const toggleTheme = () => {
   <main>
     <!-- page1: SDUTACM -->
     <div class="page-1">
-      <div class="container">
-        <img class="logo" src="./assets/icon/sdutacm_logo_colorful.svg" alt="logo" />
-        <div class="content">
-          <span class="title">山东理工大学ACM</span>
-          <span class="slogan">NO EFFORT GOES IN VAIN</span>
-          <div class="text">
-            <p>山东理工大学ACM实验室，包含ACM集训队、光锥实验室（原运维技术中心）以及ACM协会（社团）。</p>
-            <p>自2008年成立，我们一直专注于编程竞赛体系的完善，培养拥有计算机专业素养的优秀人才。</p>
-            <p>我们拥有自研的在线评测平台和榜单系统，以及全面的训练计划和培养方案，并提供更多的竞赛机遇和更大的发展平台。</p>
-            <p>我们秉持“宁拙毋巧，功不唐捐”的培养理念，与各位同仁共同推动算法竞赛的发展。</p>
-          </div>
+      <img class="logo" src="./assets/icon/sdutacm_logo_colorful.svg" alt="logo" />
+      <div class="content">
+        <span class="title">山东理工大学ACM</span>
+        <span class="slogan">NO EFFORT GOES IN VAIN</span>
+        <div class="text">
+          <p>山东理工大学ACM实验室，包含ACM集训队、光锥实验室（原运维技术中心）以及ACM协会（社团）。</p>
+          <p>自2008年成立，我们一直专注于编程竞赛体系的完善，培养拥有计算机专业素养的优秀人才。</p>
+          <p>我们拥有自研的在线评测平台和榜单系统，以及全面的训练计划和培养方案，并提供更多的竞赛机遇和更大的发展平台。</p>
+          <p>我们秉持“宁拙毋巧，功不唐捐”的培养理念，与各位同仁共同推动算法竞赛的发展。</p>
         </div>
       </div>
-      <div class="news">news</div>
+      <div class="news">
+        <div class="news-item" v-for="(item, index) in news" :key="index">
+          <div class="bg" :style="{ backgroundImage: `url(${item.imgUrl})` }"></div>
+          <div class="info"></div>
+        </div>
+      </div>
     </div>
     <!-- page2: OJ, RL, Type -->
     <div class="page-2">
@@ -188,78 +208,106 @@ header {
 
 .page-1 {
   .page();
+  height: calc(100vh - 1.6rem);
   background-color: #f5f5f5;
+  position: relative;
 
-  .container {
-    width: 22rem;
+  .logo {
+    width: 10rem;
+    height: 10rem;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 0.2rem;
+    width: 15rem;
 
-    .logo {
-      width: 5rem;
-      height: 5rem;
+    .title {
+      font-size: 1rem;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-weight: 900;
     }
 
-    .content {
+    .slogan {
+      position: relative;
+      font-size: 0.48rem;
+      font-weight: 500;
+      margin: 0 .7rem;
+      color: #666;
+
+      &::after {
+        content: '';
+        width: .5rem;
+        height: .04rem;
+        display: block;
+        background-color: #666;
+        position: absolute;
+        left: -.7rem;
+        top: 50%;
+      }
+
+      &::before {
+        content: '';
+        width: .5rem;
+        height: .04rem;
+        display: block;
+        background-color: #666;
+        position: absolute;
+        right: -.7rem;
+        top: 50%;
+      }
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      p {
+        font-size: .32rem;
+        line-height: .48rem;
+        margin: .1rem 0;
+      }
+    }
+  }
+
+  .news {
+    width: 18rem;
+    height: 6rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    .news-item {
+      width: 6rem;
+      height: 100%;
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 0.2rem;
-      width: 15rem;
 
-      .title {
-        font-size: 1rem;
-        font-family: 'Noto Sans SC', sans-serif;
-        font-weight: 900;
-      }
-
-      .slogan {
-        position: relative;
-        font-size: 0.48rem;
-        font-weight: 500;
-        margin: 0 .7rem;
-        color: #666;
-
-        &::after {
-          content: '';
-          width: .5rem;
-          height: .04rem;
-          display: block;
-          background-color: #666;
-          position: absolute;
-          left: -.7rem;
-          top: 50%;
-        }
-
-        &::before {
-          content: '';
-          width: .5rem;
-          height: .04rem;
-          display: block;
-          background-color: #666;
-          position: absolute;
-          right: -.7rem;
-          top: 50%;
-        }
-      }
-
-      .text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        
-        p {
-          font-size: .32rem;
-          line-height: .48rem;
-          margin: .1rem 0;
-        }
+      .bg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #333;
+        opacity: 0.5;
       }
     }
+
   }
 }
 
