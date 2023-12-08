@@ -6,17 +6,17 @@ const news = ref([
   {
     title: '2021年山东省大学生程序设计竞赛（SDUT校赛）',
     content: '2021年山东省大学生程序设计竞赛（SDUT校赛）将于2021年10月16日在山东理工大学举行。',
-    imgUrl: 'https://images.unsplash.com/photo-1496979551903-46e46589a88b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cda12b505afa1beb06e49d89014cbd65&auto=format&fit=crop&w=634&q=80'
+    imgUrl: '../src/assets/bg-demo.png'
   },
   {
     title: '2022年山东省大学生程序设计竞赛（SDUT校赛）',
     content: '2022年山东省大学生程序设计竞赛（SDUT校赛）将于2022年10月16日在山东理工大学举行。',
-    imgUrl: 'https://images.unsplash.com/photo-1496979551903-46e46589a88b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cda12b505afa1beb06e49d89014cbd65&auto=format&fit=crop&w=634&q=80'
+    imgUrl: '../src/assets/bg-demo.png'
   },
   {
     title: '2022年山东省大学生程序设计竞赛（SDUT校赛）',
     content: '2022年山东省大学生程序设计竞赛（SDUT校赛）将于2022年10月16日在山东理工大学举行。',
-    imgUrl: 'https://images.unsplash.com/photo-1496979551903-46e46589a88b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cda12b505afa1beb06e49d89014cbd65&auto=format&fit=crop&w=634&q=80'
+    imgUrl: '../src/assets/bg-demo.png'
   }
 ])
 
@@ -67,10 +67,12 @@ const toggleTheme = () => {
         </div>
       </div>
       <div class="news">
-        <div class="news-item" v-for="(item, index) in news" :key="index">
-          <div class="bg" :style="{ backgroundImage: `url(${item.imgUrl})` }"></div>
-          <div class="info"></div>
+        <div class="news-container">
+          <div class="news-item" v-for="(item, index) in news" :key="index">
+            <img class="bg" :src="item.imgUrl" alt="news-bg" />
+          </div>
         </div>
+        <div class="news-btns"></div>
       </div>
     </div>
     <!-- page2: OJ, RL, Type -->
@@ -102,6 +104,7 @@ header {
   background: transparent;
   backdrop-filter: blur(0.4rem);
   background-color: rgba(255, 255, 255, 0.85);
+  z-index: 100;
 
   .menu {
     display: none;
@@ -140,7 +143,7 @@ header {
     width: 15rem;
     height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     color: #333;
 
@@ -211,14 +214,16 @@ header {
   height: calc(100vh - 1.6rem);
   background-color: #f5f5f5;
   position: relative;
+  gap: 0.4rem;
 
   .logo {
-    width: 10rem;
-    height: 10rem;
+    width: 15rem;
+    height: 15rem;
     position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: -.5rem;
+    left: -1rem;
+    z-index: 0;
+    opacity: 0.4;
   }
 
   .content {
@@ -227,7 +232,9 @@ header {
     justify-content: center;
     align-items: center;
     gap: 0.2rem;
-    width: 15rem;
+    width: 75%;
+    margin: 0 .6rem;
+    z-index: 10;
 
     .title {
       font-size: 1rem;
@@ -280,34 +287,54 @@ header {
   }
 
   .news {
-    width: 18rem;
-    height: 6rem;
+    max-width: 12.8rem;
+    width: 75%;
+    height: 7.2rem;
+    margin: 0 .6rem;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 0.2rem;
+    z-index: 10;
 
-    .news-item {
-      width: 6rem;
+    .news-container {
+      width: 100%;
       height: 100%;
       position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      overflow: hidden;
+      background: #000;
 
-      .bg {
+      .news-item {
         width: 100%;
         height: 100%;
         position: absolute;
         top: 0;
         left: 0;
-        background-color: #333;
-        opacity: 0.5;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: transform 0.3s;
+
+        .bg {
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        
       }
+      
     }
 
+    .news-btns {
+      width: 100%;
+    }
+    
   }
 }
 
@@ -326,7 +353,7 @@ header {
   background-color: #15f5f2;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1024px) {
   header {
     height: 1.2rem;
 
