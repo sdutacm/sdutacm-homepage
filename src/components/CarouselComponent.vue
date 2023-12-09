@@ -2,20 +2,20 @@
 import { ref } from "vue";
 
 const active = ref(2);
-const cards = ref(Array.from({ length: 10 }, (_, i) => ({
+const cards = ref(Array.from({ length: 4 }, (_, i) => ({
   title: `Card ${i + 1}`,
   content:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
 })));
 
 const cardStyle = (i) => {
-  const isActive = i === active.value;
-  const offset = (active.value - i) / 3;
-  const direction = Math.sign(active.value - i);
-  const absOffset = Math.abs(active.value - i) / 3;
-  const isPointerEventsAuto = isActive ? "auto" : "none";
-  const opacity = Math.abs(active.value - i) >= 3 ? "0" : "1";
-  const display = Math.abs(active.value - i) > 3 ? "none" : "block";
+  const isActive = i === active.value; // 是否是当前激活的卡片
+  const offset = (active.value - i) / 3; // 偏移量
+  const direction = Math.sign(active.value - i); // 方向
+  const absOffset = Math.abs(active.value - i) / 3; // 偏移量的绝对值
+  const isPointerEventsAuto = isActive ? "auto" : "none"; // 是否允许点击
+  const opacity = Math.abs(active.value - i) >= 3 ? "0" : "1"; // 透明度
+  const display = Math.abs(active.value - i) > 3 ? "none" : "block"; // 是否显示
 
   return {
     "--active": isActive ? 1 : 0,
@@ -27,8 +27,6 @@ const cardStyle = (i) => {
     display,
   };
 };
-
-// export { active, cards, cardStyle };
 </script>
 
 <template>
@@ -53,31 +51,11 @@ const cardStyle = (i) => {
 </template>
 
 <style scoped lang="less">
-@color-purple: #8B5CF6;
-@color-pink: #EC4899;
-@color-gray: #9CA3AF;
-@color-black: #1F2937;
-@card-size: 7.36rem;
-
-// body {
-//   width: 100vw;
-//   height: 100vh;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   overflow: hidden;
-//   background-image: linear-gradient(45deg, @color-purple, @color-pink);
-//   font-family: 'Montserrat', sans-serif;
-// }
-
-// * {
-//   box-sizing: border-box;
-// }
-
 .carousel {
   position: relative;
-  width: @card-size;
-  height: @card-size;
+  width: 75%;
+  max-width: 11rem;
+  height: 7.36rem;
   perspective: 500px;
   transform-style: preserve-3d;
 }
@@ -96,25 +74,23 @@ const cardStyle = (i) => {
   width: 100%;
   height: 100%;
   padding: .64rem;
-  background-color: hsl(280deg, 40%, calc(100% - var(--abs-offset) * 50%));
+  background-color: hsl(220deg, 50%, calc(100% - var(--abs-offset) * 50%));
   border-radius: .32rem;
-  color: @color-gray;
   text-align: justify;
   transition: all 0.3s ease-out;
 
-  h2 {
-    text-align: center;
-    font-size: .64rem;
-    font-weight: bold;
-    margin: 0 0 0.7em;
-    color: @color-black;
-  }
+  // h2 {
+  //   text-align: center;
+  //   font-size: .64rem;
+  //   font-weight: bold;
+  //   margin: 0 0 0.7em;
+  // }
 
-  p,
-  h2 {
-    transition: all 0.3s ease-out;
-    opacity: var(--active);
-  }
+  // p,
+  // h2 {
+  //   transition: all .3s ease-out;
+  //   opacity: var(--active);
+  // }
 }
 
 .nav {

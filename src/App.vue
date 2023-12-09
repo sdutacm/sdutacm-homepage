@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import CarouselComponent from './components/CarouselComponent.vue'
 
 const isDarkTheme = ref(false)
 const news = ref([
@@ -55,7 +56,7 @@ const toggleTheme = () => {
   <main>
     <!-- page1: SDUTACM -->
     <div class="page-1">
-      <img class="logo" src="./assets/icon/sdutacm_logo_colorful.svg" alt="logo" />
+      <!-- <img class="logo" src="./assets/icon/sdutacm_logo_colorful.svg" alt="logo" /> -->
       <div class="content">
         <span class="title">山东理工大学ACM</span>
         <span class="slogan">NO EFFORT GOES IN VAIN</span>
@@ -66,14 +67,7 @@ const toggleTheme = () => {
           <p>我们秉持“宁拙毋巧，功不唐捐”的培养理念，与各位同仁共同推动算法竞赛的发展。</p>
         </div>
       </div>
-      <div class="news">
-        <div class="news-container">
-          <div class="news-item" v-for="(item, index) in news" :key="index">
-            <img class="bg" :src="item.imgUrl" alt="news-bg" />
-          </div>
-        </div>
-        <div class="news-btns"></div>
-      </div>
+      <CarouselComponent :news="news" />
     </div>
     <!-- page2: OJ, RL, Type -->
     <div class="page-2">
@@ -284,57 +278,6 @@ header {
         margin: .1rem 0;
       }
     }
-  }
-
-  .news {
-    max-width: 12.8rem;
-    width: 75%;
-    height: 7.2rem;
-    margin: 0 .6rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.2rem;
-    z-index: 10;
-
-    .news-container {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      overflow: hidden;
-      background: #000;
-
-      .news-item {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        transition: transform 0.3s;
-
-        .bg {
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        
-      }
-      
-    }
-
-    .news-btns {
-      width: 100%;
-    }
-    
   }
 }
 
