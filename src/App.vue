@@ -37,6 +37,11 @@ const toggleTheme = () => {
   </header>
 
   <main>
+    <!-- 极光背景 -->
+    <div class="jumboContainer">
+      <div class="jumbo"></div>
+    </div>
+
     <!-- SDUTACM简介 -->
     <div class="summary">
       <span class="title">山东理工大学ACM</span>
@@ -261,6 +266,10 @@ main {
   overflow: auto;
   z-index: 0;
   background-color: #f5f5f5;
+
+  * {
+    z-index: 10;
+  }
 }
 
 // 板块标题
@@ -334,7 +343,7 @@ main {
   max-width: 24rem;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 2fr 1fr 2fr;
   grid-template-rows: repeat(3, 4rem);
   grid-template-areas:
     'no1 no1 no2'
@@ -475,7 +484,7 @@ main {
       z-index: 50;
 
       .title {
-        font-size: .84rem;
+        font-size: 0.84rem;
         font-weight: 700;
       }
 
@@ -485,7 +494,6 @@ main {
         align-items: flex-end;
         flex-direction: column;
         gap: 0.2rem;
-
       }
 
       span {
@@ -615,6 +623,84 @@ main {
       'no3'
       'no4'
       'no5';
+  }
+}
+
+/* 动画容器 */
+.jumboContainer {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+
+  /* 动画细节样式 */
+  .jumbo {
+    opacity: 0.5;
+    inset: 0px;
+    position: absolute;
+
+    --stripes: repeating-linear-gradient(
+      100deg,
+      #fff 0%,
+      #fff 7%,
+      transparent 10%,
+      transparent 12%,
+      #fff 16%
+    );
+    --stripesDark: repeating-linear-gradient(
+      100deg,
+      #000 0%,
+      #000 7%,
+      transparent 10%,
+      transparent 12%,
+      #000 16%
+    );
+    --rainbow: repeating-linear-gradient(
+      100deg,
+      #60a5fa 10%,
+      #e879f9 10%,
+      #60a5fa 20%,
+      #5eead4 25%,
+      #60a5fa 30%
+    );
+    background-image: var(--stripes), var(--rainbow);
+    background-size: 300%, 200%;
+    background-position:
+      50% 50%,
+      50% 50%;
+
+    filter: blur(10px) invert(100%);
+
+    mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
+
+    -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
+
+    pointer-events: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: var(--stripes), var(--rainbow);
+      background-size: 200%, 100%;
+      animation: jumbo 60s linear infinite;
+      background-attachment: fixed;
+      mix-blend-mode: difference;
+    }
+  }
+}
+
+/* 动画位置 */
+@keyframes jumbo {
+  from {
+    background-position:
+      50% 50%,
+      50% 50%;
+  }
+  to {
+    background-position:
+      350% 50%,
+      350% 50%;
   }
 }
 </style>
