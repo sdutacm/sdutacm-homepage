@@ -72,6 +72,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   height: 1.6rem;
   width: 100%;
   position: fixed;
@@ -118,12 +119,17 @@ header {
   }
 
   .nav {
-    width: 15rem;
+    width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    gap: .4rem;
     color: #333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     .nav-item {
       width: 2.5rem;
@@ -189,7 +195,6 @@ header {
 
 .page-1 {
   .page();
-  top: 0;
   background-color: #f5f5f5;
   position: relative;
   gap: 0.4rem;
@@ -306,24 +311,25 @@ header {
       display: none;
     }
   }
-}
 
-.page-1 {
-  .content {
-    .title {
-      font-size: 0.7rem;
-    }
-
-    .slogan {
-      font-size: 0.36rem;
-    }
-
-    .text {
-      p {
-        font-size: 0.28rem;
-        line-height: 0.36rem;
+  .page-1 {
+    .content {
+      .title {
+        font-size: 0.7rem;
+      }
+  
+      .slogan {
+        font-size: 0.36rem;
+      }
+  
+      .text {
+        p {
+          font-size: 0.28rem;
+          line-height: 0.36rem;
+        }
       }
     }
   }
 }
+
 </style>
