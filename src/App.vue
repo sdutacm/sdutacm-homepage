@@ -3,23 +3,6 @@ import { ref } from 'vue'
 import CarouselComponent from './components/CarouselComponent.vue'
 
 const isDarkTheme = ref(false)
-const news = ref([
-  {
-    title: '2021年山东省大学生程序设计竞赛（SDUT校赛）',
-    content: '2021年山东省大学生程序设计竞赛（SDUT校赛）将于2021年10月16日在山东理工大学举行。',
-    imgUrl: '../src/assets/bg-demo.png'
-  },
-  {
-    title: '2022年山东省大学生程序设计竞赛（SDUT校赛）',
-    content: '2022年山东省大学生程序设计竞赛（SDUT校赛）将于2022年10月16日在山东理工大学举行。',
-    imgUrl: '../src/assets/bg-demo.png'
-  },
-  {
-    title: '2022年山东省大学生程序设计竞赛（SDUT校赛）',
-    content: '2022年山东省大学生程序设计竞赛（SDUT校赛）将于2022年10月16日在山东理工大学举行。',
-    imgUrl: '../src/assets/bg-demo.png'
-  }
-])
 
 const toggleTheme = () => {
   isDarkTheme.value = !isDarkTheme.value
@@ -67,7 +50,7 @@ const toggleTheme = () => {
           <p>我们秉持“宁拙毋巧，功不唐捐”的培养理念，与各位同仁共同推动算法竞赛的发展。</p>
         </div>
       </div>
-      <CarouselComponent :news="news" />
+      <CarouselComponent />
     </div>
     <!-- page2: OJ, RL, Type -->
     <div class="page-2">
@@ -90,8 +73,9 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 1.6rem;
+  width: 100%;
+  position: fixed;
   top: 0;
-  position: sticky;
   padding: 0 .6rem;
   background-color: #fff;
   box-shadow: 0 0 0.4rem #ccc;
@@ -205,7 +189,7 @@ header {
 
 .page-1 {
   .page();
-  height: calc(100vh - 1.6rem);
+  top: 0;
   background-color: #f5f5f5;
   position: relative;
   gap: 0.4rem;
@@ -226,7 +210,7 @@ header {
     justify-content: center;
     align-items: center;
     gap: 0.2rem;
-    width: 75%;
+    width: 80%;
     margin: 0 .6rem;
     z-index: 10;
 
@@ -320,6 +304,25 @@ header {
 
     .nav {
       display: none;
+    }
+  }
+}
+
+.page-1 {
+  .content {
+    .title {
+      font-size: 0.7rem;
+    }
+
+    .slogan {
+      font-size: 0.36rem;
+    }
+
+    .text {
+      p {
+        font-size: 0.28rem;
+        line-height: 0.36rem;
+      }
     }
   }
 }
