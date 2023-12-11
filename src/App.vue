@@ -1,11 +1,20 @@
 <script setup>
 import { ref } from 'vue'
-// import CarouselComponent from './components/CarouselComponent.vue'
 
 const isDarkTheme = ref(false)
+// const isProjectActive = ref(false)
+const acitveProject = ref(0)
 
 const toggleTheme = () => {
   isDarkTheme.value = !isDarkTheme.value
+}
+
+const clickProject = (target) => {
+  acitveProject.value = target === acitveProject.value ? 0 : target;
+}
+
+const clickLink = (link) => {
+  window.open(link) // 新窗口打开
 }
 </script>
 
@@ -61,84 +70,69 @@ const toggleTheme = () => {
     <!-- 最新动态 -->
     <div class="section-title">最新动态</div>
     <div class="news">
-      <div class="news-item1">
-        <img src="../src/assets/img/news/1.png" alt="" />
+      <div class="news-item1" @click="clickLink('https://acm.sdut.edu.cn/onlinejudge3/posts/35')">
+        <img src="../src/assets/img/sdutacm-homepage-news-1.png" alt="" />
         <div class="news-info">
-          <span class="news-title">蔚蓝编程大赛</span>
-          <span class="news-summary">bLue杯预热赛</span>
+          <span class="news-title">蔚蓝系列赛</span>
+          <span class="news-summary">OJ3作者bLue同学用爱赞助，火热报名中......</span>
         </div>
         <span class="news-date">2021-09-12</span>
       </div>
-      <div class="news-item2">
-        <img src="../src/assets/img/news/1.png" alt="" />
-        <div class="news-info">
-          <span class="news-title">SDUTACM十五周年庆典</span>
-          <!-- <span class="news-summary">15载时光荏苒，SDUTACM实验室迎来了自己的十五岁生日</span> -->
-        </div>
-        <span class="news-date">2021-09-12</span>
-      </div>
-      <div class="news-item3">
-        <img src="../src/assets/img/news/2.png" alt="" />
+      <div class="news-item2">4</div>
+      <div class="news-item3">5</div>
+      <div class="news-item4">
+        <img src="../src/assets/img/sdutacm-homepage-news-4.png" alt="" />
         <div class="news-info">
           <span class="news-title">第十五届SDUTACM校赛</span>
           <!-- <span class="news-summary">2023年山东理工大学程序设计竞赛（SDUT校赛）于2023年5月28日举行</span> -->
         </div>
-        <span class="news-date">2021-09-12</span>
+        <span class="news-date">2023-05-28</span>
       </div>
-      <div class="news-item4">4</div>
-      <div class="news-item5">5</div>
+      <div class="news-item5">
+        <img src="../src/assets/img/sdutacm-homepage-news-5.png" alt="" />
+        <div class="news-info">
+          <span class="news-title">SDUTACM十五周年庆典</span>
+          <!-- <span class="news-summary">15载时光荏苒，SDUTACM实验室迎来了自己的十五岁生日</span> -->
+        </div>
+        <span class="news-date">2023-10-15</span>
+      </div>
     </div>
 
     <!-- 我们的项目 -->
     <div class="section-title">我们的项目</div>
     <div class="project">
-      <div class="project-item1">
-        <div class="info">
-          <span class="title">Online Judge 3</span>
-          <div class="links">
-            <span>前往</span>
-            <span>竞赛</span>
-            <span>源码</span>
-          </div>
+      <div class="project-item1" :class="{ acitve: acitveProject === 1 }" @click="clickProject(1)">
+        <div class="project-bubble"></div>
+        <span class="project-title">SDUT OJ 3</span>
+        <p class="project-summary">
+          <span>第三代在线评测系统，2018 年发布。</span>
+          <span>其使用全栈同构技术栈开发，结合自研的次世代评测机 River，轻松服务近千人的大型比赛。</span>
+        </p>
+        <div class="project-links">
+          <span @click="clickLink('https://acm.sdut.edu.cn/onlinejudge3/')">前往</span>
+          <span @click="clickLink('https://acm.sdut.edu.cn/onlinejudge3/sets')">题目集</span>
+          <span @click="clickLink('https://acm.sdut.edu.cn/onlinejudge3/posts')">帖子</span>
+          <span @click="clickLink('https://github.com/sdutacm/onlinejudge3/tree/master')">源码</span>
         </div>
       </div>
-      <div class="project-item2">
-        <div class="info">
-          <span class="title">Rank Land</span>
-          <div class="links">
-            <span>前往</span>
-            <span>竞赛</span>
-            <span>源码</span>
-          </div>
+      <div class="project-item2" :class="{ acitve: acitveProject === 2 }" @click="clickProject(2)">
+        <div class="project-bubble"></div>
+        <span class="project-title">Rank Land</span>
+        <div class="project-links">
+          <span>前往</span>
+          <span>竞赛</span>
+          <span>源码</span>
         </div>
       </div>
-      <div class="project-item3">
-        <div class="info">
-          <span class="title">光锥实验室·见习任务</span>
-          <div class="links">
-            <span class="active">学习路线</span>
-            <span>资料</span>
-          </div>
+      <div class="project-item3" :class="{ acitve: acitveProject === 3 }" @click="clickProject(3)">
+        <div class="project-bubble"></div>
+        <span class="project-title">光锥实验室·见习任务</span>
+        <div class="project-links">
+          <span class="active">学习路线</span>
+          <span>资料</span>
         </div>
       </div>
     </div>
-
-    <!-- page1: SDUTACM -->
-    <!-- <div class="page-1">
-      <CarouselComponent />
-    </div> -->
-    <!-- page2: OJ, RL, Type -->
-    <!-- <div class="page-2">
-      <h1>What we have</h1>
-    </div> -->
-    <!-- page3: timeline -->
-    <!-- <div class="page-3">
-      <h1>Timeline</h1>
-    </div> -->
-    <!-- page4: join us -->
-    <!-- <div class="page-4">
-      <h1>Join us</h1>
-    </div> -->
   </main>
 </template>
 
@@ -233,9 +227,7 @@ header {
       &:hover {
         span::after {
           content: '';
-          display: block;
           width: 100%;
-          height: 0.04rem;
         }
       }
     }
@@ -277,6 +269,7 @@ main {
   font-size: 0.8rem;
   font-weight: 700;
 }
+
 // SDUTACM简介
 .summary {
   width: 100%;
@@ -343,8 +336,8 @@ main {
   max-width: 24rem;
   height: 100%;
   display: grid;
-  grid-template-columns: 2fr 1fr 2fr;
-  grid-template-rows: repeat(3, 4rem);
+  grid-template-columns: 2fr .5fr 2fr;
+  grid-template-rows: 4rem 4rem 5.7rem;
   grid-template-areas:
     'no1 no1 no2'
     'no1 no1 no3'
@@ -449,104 +442,157 @@ main {
 // 我们的项目
 .project {
   width: 100%;
-  max-width: 24rem;
-  height: 10rem;
-  background-color: #999;
+  max-width: 20rem;
+  height: 100%;
   display: flex;
+  flex-direction: column;
   justify-self: center;
   align-self: center;
+  gap: 0.8rem;
 
   .project-item() {
     width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    gap: 0.2rem;
-    cursor: pointer;
-    transition: all 0.3s;
+    height: 5rem;
+    background-color: #fff;
+    border-radius: 0.2rem;
     position: relative;
-    overflow: normal;
+    overflow: hidden;
+    background-color: #eee;
 
-    .info {
-      display: none;
+    .project-bubble {
+      width: 12rem;
+      height: 12rem;
+      background-color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: -5rem;
+      right: -6rem;
+      transition: transform 0.3s;
+      box-shadow: 0 0 0.4rem #ccc;
+    }
+
+    .project-title {
+      font-size: 0.48rem;
+      font-weight: 700;
+      position: absolute;
+      top: 2rem;
+      right: 0;
+      width: 30%;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .project-summary {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60%;
+      height: 100%;
+      padding: 0 1rem;
+      display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: flex-end;
-      gap: 0.4rem;
-      padding: 0.4rem;
-      position: absolute;
-      top: 0.5rem;
-      right: -0rem;
-      transform: translateX(10%);
-      color: #fff;
-      z-index: 50;
-
-      .title {
-        font-size: 0.84rem;
-        font-weight: 700;
-      }
-
-      .links {
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        flex-direction: column;
-        gap: 0.2rem;
-      }
+      align-items: flex-start;
+      transition: opacity .2s 0s;
 
       span {
-        font-size: 0.64rem;
+        font-size: 0.32rem;
         font-weight: 500;
-        padding: 0.2rem 0.4rem;
-
-        &:hover {
-          text-decoration: underline;
-          background-color: #eee3;
-        }
-
-        &:active {
-          // background-color: #eee5;
-        }
+        line-height: 0.4rem;
+        margin: 0.1rem 0;
       }
     }
 
-    &:hover {
-      flex: 2;
+    .project-links {
+      width: 30%;
+      height: 80%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.2rem;
+      color: #666;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity .2s 0s;
 
-      .info {
-        display: flex;
+      span {
+        text-align: right;
+        font-size: 0.32rem;
+        font-weight: 500;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 0;
+          height: 0.04rem;
+          background-color: #666;
+          transition: width .3s;
+        }
+
+        &:hover {
+          &::after {
+            width: 100%;
+          }
+
+          // 调整.project-summary的显示
+          .project-summary {
+            opacity: 0;
+            transition: opacity .3s .15s;
+          }
+        }
+
+      }
+    }
+
+
+    &.acitve {
+      .project-bubble {
+        transform: scale(3.5)
+      }
+
+      .project-title {
+        transform: translateY(-1.6rem);
+      }
+
+      .project-summary {
+        opacity: 1;
+        transition: opacity .3s .15s;
+      }
+
+      .project-links {
+        opacity: 1;
+        transition: opacity .3s .1s;
       }
     }
   }
 
   .project-item1 {
     .project-item();
-    background-color: #a64;
-
-    &:hover {
-      background-color: #d2d;
-    }
+    background-color: #2e2f30;
+    background-image: url('../src/assets/img/sdutacm-homepage-project-oj3-logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 25% 50%;
   }
 
   .project-item2 {
     .project-item();
-    background-color: #214;
-
-    &:hover {
-      background-color: #d2d;
-    }
+    background-color: #fdfdfd;
+    background-image: url('../src/assets/img/sdutacm-homepage-project-sbs-logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 25% 50%;
   }
 
   .project-item3 {
     .project-item();
-    background-color: #a2b;
-
-    &:hover {
-      background-color: #d2d;
-    }
   }
+
 }
 
 @media screen and (max-width: 1100px) {
@@ -639,30 +685,24 @@ main {
     inset: 0px;
     position: absolute;
 
-    --stripes: repeating-linear-gradient(
-      100deg,
-      #fff 0%,
-      #fff 7%,
-      transparent 10%,
-      transparent 12%,
-      #fff 16%
-    );
-    --stripesDark: repeating-linear-gradient(
-      100deg,
-      #000 0%,
-      #000 7%,
-      transparent 10%,
-      transparent 12%,
-      #000 16%
-    );
-    --rainbow: repeating-linear-gradient(
-      100deg,
-      #60a5fa 10%,
-      #e879f9 10%,
-      #60a5fa 20%,
-      #5eead4 25%,
-      #60a5fa 30%
-    );
+    --stripes: repeating-linear-gradient(100deg,
+        #fff 0%,
+        #fff 7%,
+        transparent 10%,
+        transparent 12%,
+        #fff 16%);
+    --stripesDark: repeating-linear-gradient(100deg,
+        #000 0%,
+        #000 7%,
+        transparent 10%,
+        transparent 12%,
+        #000 16%);
+    --rainbow: repeating-linear-gradient(100deg,
+        #60a5fa 10%,
+        #e879f9 10%,
+        #60a5fa 20%,
+        #5eead4 25%,
+        #60a5fa 30%);
     background-image: var(--stripes), var(--rainbow);
     background-size: 300%, 200%;
     background-position:
@@ -697,6 +737,7 @@ main {
       50% 50%,
       50% 50%;
   }
+
   to {
     background-position:
       350% 50%,
