@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 
 const isDarkTheme = ref(false)
-// const isProjectActive = ref(false)
 const acitveProject = ref(0)
 
 const toggleTheme = () => {
@@ -10,7 +9,7 @@ const toggleTheme = () => {
 }
 
 const clickProject = (target) => {
-  acitveProject.value = target === acitveProject.value ? 0 : target;
+  acitveProject.value = target === acitveProject.value ? 0 : target
 }
 
 const clickLink = (link) => {
@@ -70,31 +69,50 @@ const clickLink = (link) => {
     <!-- 最新动态 -->
     <div class="section-title">最新动态</div>
     <div class="news">
+      <!-- 新闻动态1 -->
       <div class="news-item1" @click="clickLink('https://acm.sdut.edu.cn/onlinejudge3/posts/35')">
         <img src="../src/assets/img/sdutacm-homepage-news-1.png" alt="" />
         <div class="news-info">
           <span class="news-title">蔚蓝系列赛</span>
           <span class="news-summary">OJ3作者bLue同学用爱赞助，火热报名中......</span>
+          <span class="news-date">2023-12-10</span>
         </div>
-        <span class="news-date">2021-09-12</span>
       </div>
-      <div class="news-item2">4</div>
-      <div class="news-item3">5</div>
+      <!-- 新闻动态2 -->
+      <div class="news-item2">
+        <img src="../src/assets/img/sdutacm-homepage-news-2.png" alt="" />
+        <div class="news-info">
+          <span class="news-title">ICPC杭州站 银牌</span>
+          <span class="news-summary">恭喜「张鱼小丸子」!</span>
+          <span class="news-date">2023-12-10</span>
+        </div>
+      </div>
+      <!-- 新闻动态3 -->
+      <div class="news-item3">
+        <img src="../src/assets/img/sdutacm-homepage-news-3.png" alt="" />
+        <div class="news-info">
+          <span class="news-title">ICPC济南站 双铜牌</span>
+          <span class="news-summary">恭喜「开发9G」&「清纯白毛小萝莉」!</span>
+          <span class="news-date">2023-12-3</span>
+        </div>
+      </div>
+      <!-- 新闻动态4 -->
       <div class="news-item4">
         <img src="../src/assets/img/sdutacm-homepage-news-4.png" alt="" />
         <div class="news-info">
           <span class="news-title">第十五届SDUTACM校赛</span>
           <!-- <span class="news-summary">2023年山东理工大学程序设计竞赛（SDUT校赛）于2023年5月28日举行</span> -->
+          <span class="news-date">2023-05-28</span>
         </div>
-        <span class="news-date">2023-05-28</span>
       </div>
+      <!-- 新闻动态5 -->
       <div class="news-item5">
         <img src="../src/assets/img/sdutacm-homepage-news-5.png" alt="" />
         <div class="news-info">
           <span class="news-title">SDUTACM十五周年庆典</span>
           <!-- <span class="news-summary">15载时光荏苒，SDUTACM实验室迎来了自己的十五岁生日</span> -->
+          <span class="news-date">2023-10-15</span>
         </div>
-        <span class="news-date">2023-10-15</span>
       </div>
     </div>
 
@@ -106,13 +124,18 @@ const clickLink = (link) => {
         <span class="project-title">SDUT OJ 3</span>
         <p class="project-summary">
           <span>第三代在线评测系统，2018 年发布。</span>
-          <span>其使用全栈同构技术栈开发，结合自研的次世代评测机 River，轻松服务近千人的大型比赛。</span>
+          <span
+            >其使用全栈同构技术栈开发，结合自研的次世代评测机
+            River，轻松服务近千人的大型比赛。</span
+          >
         </p>
         <div class="project-links">
           <span @click="clickLink('https://acm.sdut.edu.cn/onlinejudge3/')">前往</span>
           <span @click="clickLink('https://acm.sdut.edu.cn/onlinejudge3/sets')">题目集</span>
           <span @click="clickLink('https://acm.sdut.edu.cn/onlinejudge3/posts')">帖子</span>
-          <span @click="clickLink('https://github.com/sdutacm/onlinejudge3/tree/master')">源码</span>
+          <span @click="clickLink('https://github.com/sdutacm/onlinejudge3/tree/master')"
+            >源码</span
+          >
         </div>
       </div>
       <div class="project-item2" :class="{ acitve: acitveProject === 2 }" @click="clickProject(2)">
@@ -336,16 +359,15 @@ main {
   max-width: 24rem;
   height: 100%;
   display: grid;
-  grid-template-columns: 2fr .5fr 2fr;
-  grid-template-rows: 4rem 4rem 5.7rem;
+  grid-template-columns: 147fr 57fr 84fr;
+  // grid-template-rows: auto;
   grid-template-areas:
     'no1 no1 no2'
     'no1 no1 no3'
     'no4 no5 no5';
-  gap: 0.8rem 0.4rem;
+  gap: 0.52rem 0.48rem;
 
   .news-item() {
-    background-color: #999;
     border-radius: 0.2rem;
     display: flex;
     flex-direction: column;
@@ -358,50 +380,43 @@ main {
 
     img {
       width: 100%;
-      height: 100%;
       transition: transform 0.3s;
       object-fit: cover;
     }
 
     .news-info {
       width: 100%;
-      height: 1.6rem;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      padding: 0.2rem 2.2rem 0.2rem 0.4rem;
+      height: 2rem;
+      padding: .2rem .4rem;
       background-color: #fff;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      gap: 0.1rem;
       overflow: hidden;
 
       .news-title {
+        width: 100%;
         font-size: 0.36rem;
         font-weight: 700;
-        width: 100%;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
       }
 
       .news-summary {
+        width: 100%;
         font-size: 0.32rem;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
       }
-    }
 
-    .news-date {
-      width: 2rem;
-      position: absolute;
-      bottom: 0.2rem;
-      right: 0;
-      font-size: 0.3rem;
-      color: #ccc;
+      .news-date {
+        text-align: right;
+        font-size: 0.32rem;
+        color: #ccc;
+      }
     }
 
     &:hover {
@@ -494,7 +509,7 @@ main {
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      transition: opacity .2s 0s;
+      transition: opacity 0.2s 0s;
 
       span {
         font-size: 0.32rem;
@@ -518,7 +533,7 @@ main {
       color: #666;
       cursor: pointer;
       opacity: 0;
-      transition: opacity .2s 0s;
+      transition: opacity 0.2s 0s;
 
       span {
         text-align: right;
@@ -531,7 +546,7 @@ main {
           width: 0;
           height: 0.04rem;
           background-color: #666;
-          transition: width .3s;
+          transition: width 0.3s;
         }
 
         &:hover {
@@ -539,20 +554,17 @@ main {
             width: 100%;
           }
 
-          // 调整.project-summary的显示
           .project-summary {
             opacity: 0;
-            transition: opacity .3s .15s;
+            transition: opacity 0.3s 0.15s;
           }
         }
-
       }
     }
 
-
     &.acitve {
       .project-bubble {
-        transform: scale(3.5)
+        transform: scale(3.5);
       }
 
       .project-title {
@@ -561,19 +573,19 @@ main {
 
       .project-summary {
         opacity: 1;
-        transition: opacity .3s .15s;
+        transition: opacity 0.3s 0.15s;
       }
 
       .project-links {
         opacity: 1;
-        transition: opacity .3s .1s;
+        transition: opacity 0.3s 0.1s;
       }
     }
   }
 
   .project-item1 {
     .project-item();
-    background-color: #2e2f30;
+    background-color: #f4f4f4;
     background-image: url('../src/assets/img/sdutacm-homepage-project-oj3-logo.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -582,8 +594,8 @@ main {
 
   .project-item2 {
     .project-item();
-    background-color: #fdfdfd;
-    background-image: url('../src/assets/img/sdutacm-homepage-project-sbs-logo.png');
+    background-color: #fff2df;
+    background-image: url('../src/assets/img/sdutacm-homepage-project-rankland-logo.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 25% 50%;
@@ -592,7 +604,6 @@ main {
   .project-item3 {
     .project-item();
   }
-
 }
 
 @media screen and (max-width: 1100px) {
@@ -685,24 +696,30 @@ main {
     inset: 0px;
     position: absolute;
 
-    --stripes: repeating-linear-gradient(100deg,
-        #fff 0%,
-        #fff 7%,
-        transparent 10%,
-        transparent 12%,
-        #fff 16%);
-    --stripesDark: repeating-linear-gradient(100deg,
-        #000 0%,
-        #000 7%,
-        transparent 10%,
-        transparent 12%,
-        #000 16%);
-    --rainbow: repeating-linear-gradient(100deg,
-        #60a5fa 10%,
-        #e879f9 10%,
-        #60a5fa 20%,
-        #5eead4 25%,
-        #60a5fa 30%);
+    --stripes: repeating-linear-gradient(
+      100deg,
+      #fff 0%,
+      #fff 7%,
+      transparent 10%,
+      transparent 12%,
+      #fff 16%
+    );
+    --stripesDark: repeating-linear-gradient(
+      100deg,
+      #000 0%,
+      #000 7%,
+      transparent 10%,
+      transparent 12%,
+      #000 16%
+    );
+    --rainbow: repeating-linear-gradient(
+      100deg,
+      #60a5fa 10%,
+      #e879f9 10%,
+      #60a5fa 20%,
+      #5eead4 25%,
+      #60a5fa 30%
+    );
     background-image: var(--stripes), var(--rainbow);
     background-size: 300%, 200%;
     background-position:
