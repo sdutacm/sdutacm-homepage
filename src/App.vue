@@ -11,10 +11,6 @@ const toggleTheme = () => {
 const clickProject = (target) => {
   acitveProject.value = target === acitveProject.value ? 0 : target
 }
-
-const clickLink = (link) => {
-  window.open(link) // 新窗口打开
-}
 </script>
 
 <template>
@@ -70,49 +66,69 @@ const clickLink = (link) => {
     <div class="section-title">最新动态</div>
     <div class="news">
       <!-- 新闻动态1 -->
-      <div class="news-item1" @click="clickLink('https://acm.sdut.edu.cn/onlinejudge3/posts/35')">
-        <img src="../src/assets/img/sdutacm-homepage-news-1.png" alt="" />
-        <div class="news-info">
-          <span class="news-title">蔚蓝系列赛</span>
-          <span class="news-summary">OJ3作者bLue同学用爱赞助，火热报名中......</span>
-          <span class="news-date">2023-12-10</span>
-        </div>
+      <div class="news-item1">
+        <a class="n-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/posts/35">
+          <div class="news-img">
+            <img src="../src/assets/img/sdutacm-homepage-news-1.png" alt="" />
+          </div>
+          <div class="news-info">
+            <span class="news-title">蔚蓝系列赛</span>
+            <span class="news-summary">OJ3作者bLue同学用爱赞助，火热报名中......</span>
+            <span class="news-date">2023-12-01</span>
+          </div>
+        </a>
       </div>
       <!-- 新闻动态2 -->
       <div class="news-item2">
-        <img src="../src/assets/img/sdutacm-homepage-news-2.png" alt="" />
-        <div class="news-info">
-          <span class="news-title">ICPC杭州站 银牌</span>
-          <span class="news-summary">恭喜「张鱼小丸子」!</span>
-          <span class="news-date">2023-12-10</span>
-        </div>
+        <a class="n-link">
+          <div class="news-img">
+            <img src="../src/assets/img/sdutacm-homepage-news-2.png" alt="" />
+          </div>
+          <div class="news-info">
+            <span class="news-title">ICPC杭州站 银牌</span>
+            <span class="news-summary">恭喜「张鱼小丸子」!</span>
+            <span class="news-date">2023-12-10</span>
+          </div>
+        </a>
       </div>
       <!-- 新闻动态3 -->
       <div class="news-item3">
-        <img src="../src/assets/img/sdutacm-homepage-news-3.png" alt="" />
-        <div class="news-info">
-          <span class="news-title">ICPC济南站 双铜牌</span>
-          <span class="news-summary">恭喜「开发9G」&「清纯白毛小萝莉」!</span>
-          <span class="news-date">2023-12-3</span>
-        </div>
+        <a class="n-link">
+          <div class="news-img">
+            <img src="../src/assets/img/sdutacm-homepage-news-3.png" alt="" />
+          </div>
+          <div class="news-info">
+            <span class="news-title">ICPC济南站 双铜牌</span>
+            <span class="news-summary">恭喜「开发9G」&「清纯白毛小萝莉」!</span>
+            <span class="news-date">2023-12-3</span>
+          </div>
+        </a>
       </div>
       <!-- 新闻动态4 -->
       <div class="news-item4">
-        <img src="../src/assets/img/sdutacm-homepage-news-4.png" alt="" />
-        <div class="news-info">
-          <span class="news-title">第十五届SDUTACM校赛</span>
-          <!-- <span class="news-summary">2023年山东理工大学程序设计竞赛（SDUT校赛）于2023年5月28日举行</span> -->
-          <span class="news-date">2023-05-28</span>
-        </div>
+        <a class="n-link">
+          <div class="news-img">
+            <img src="../src/assets/img/sdutacm-homepage-news-4.png" alt="" />
+          </div>
+          <div class="news-info">
+            <span class="news-title">第十五届SDUTACM校赛</span>
+            <span class="news-summary">2023年山东理工大学程序设计竞赛（SDUT校赛）于2023年5月28日举行</span>
+            <span class="news-date">2023-05-28</span>
+          </div>
+        </a>
       </div>
       <!-- 新闻动态5 -->
       <div class="news-item5">
-        <img src="../src/assets/img/sdutacm-homepage-news-5.png" alt="" />
-        <div class="news-info">
-          <span class="news-title">SDUTACM十五周年庆典</span>
-          <!-- <span class="news-summary">15载时光荏苒，SDUTACM实验室迎来了自己的十五岁生日</span> -->
-          <span class="news-date">2023-10-15</span>
-        </div>
+        <a class="n-link">
+          <div class="news-img">
+            <img src="../src/assets/img/sdutacm-homepage-news-5.png" alt="" />
+          </div>
+          <div class="news-info">
+            <span class="news-title">SDUTACM十五周年庆典</span>
+            <span class="news-summary">15载时光荏苒，SDUTACM实验室迎来了自己的十五岁生日</span>
+            <span class="news-date">2023-10-15</span>
+          </div>
+        </a>
       </div>
     </div>
 
@@ -124,35 +140,38 @@ const clickLink = (link) => {
         <span class="project-title">SDUT OJ 3</span>
         <p class="project-summary">
           <span>第三代在线评测系统，2018 年发布。</span>
-          <span
-            >其使用全栈同构技术栈开发，结合自研的次世代评测机
-            River，轻松服务近千人的大型比赛。</span
-          >
+          <span>其使用全栈同构技术栈开发，结合自研的次世代评测机
+            River，轻松服务近千人的大型比赛。</span>
         </p>
         <div class="project-links">
-          <span @click="clickLink('https://acm.sdut.edu.cn/onlinejudge3/')">前往</span>
-          <span @click="clickLink('https://acm.sdut.edu.cn/onlinejudge3/sets')">题目集</span>
-          <span @click="clickLink('https://acm.sdut.edu.cn/onlinejudge3/posts')">帖子</span>
-          <span @click="clickLink('https://github.com/sdutacm/onlinejudge3/tree/master')"
-            >源码</span
-          >
+          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/">前往</a>
+          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/sets">题目集</a>
+          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/posts">帖子</a>
+          <a class="p-link" target="_blank" href="https://github.com/sdutacm/onlinejudge3/tree/master">源码</a>
         </div>
       </div>
       <div class="project-item2" :class="{ acitve: acitveProject === 2 }" @click="clickProject(2)">
         <div class="project-bubble"></div>
-        <span class="project-title">Rank Land</span>
+        <span class="project-title">RankLand</span>
+        <p class="project-summary">
+          <span>很吊的榜单系统</span>
+          <span>就是很吊</span>
+        </p>
         <div class="project-links">
-          <span>前往</span>
-          <span>竞赛</span>
-          <span>源码</span>
+          <a class="p-link" target="_blank" href="https://rl.algoux.cn/">前往</a>
+          <a class="p-link" target="_blank" href="https://rl.algoux.cn/search?kw=ICPC">探索</a>
+          <a class="p-link" target="_blank" href="https://rl.algoux.cn/collection/official">榜单合集</a>
+          <a class="p-link" target="_blank" href="https://rl.algoux.cn/playground">游乐场</a>
         </div>
       </div>
       <div class="project-item3" :class="{ acitve: acitveProject === 3 }" @click="clickProject(3)">
         <div class="project-bubble"></div>
-        <span class="project-title">光锥实验室·见习任务</span>
+        <span class="project-title">光之魔法书</span>
         <div class="project-links">
-          <span class="active">学习路线</span>
-          <span>资料</span>
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/">前往</a>
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/catalog/">魔法目录</a>
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/missions/">见习任务</a>
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/pleasant-gallery/">意义不明展览馆</a>
         </div>
       </div>
     </div>
@@ -360,7 +379,7 @@ main {
   height: 100%;
   display: grid;
   grid-template-columns: 147fr 57fr 84fr;
-  // grid-template-rows: auto;
+  grid-template-rows: auto;
   grid-template-areas:
     'no1 no1 no2'
     'no1 no1 no3'
@@ -370,61 +389,74 @@ main {
   .news-item() {
     border-radius: 0.2rem;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
     transition: box-shadow 0.3s;
     overflow: hidden;
-    cursor: pointer;
 
-    img {
+    .n-link {
       width: 100%;
-      transition: transform 0.3s;
-      object-fit: cover;
-    }
-
-    .news-info {
-      width: 100%;
-      height: 2rem;
-      padding: .2rem .4rem;
-      background-color: #fff;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: flex-start;
-      overflow: hidden;
+      align-items: center;
 
-      .news-title {
+      .news-img {
         width: 100%;
-        font-size: 0.36rem;
-        font-weight: 700;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        height: 100%;
         overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.3s;
+        }
       }
 
-      .news-summary {
+      .news-info {
         width: 100%;
-        font-size: 0.32rem;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        height: 2.4rem;
+        padding: .2rem .4rem;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
         overflow: hidden;
+
+        .news-title {
+          width: 100%;
+          font-size: 0.36rem;
+          font-weight: 700;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+
+        .news-summary {
+          width: 100%;
+          font-size: 0.32rem;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+
+        .news-date {
+          text-align: right;
+          font-size: 0.32rem;
+          color: #ccc;
+        }
       }
 
-      .news-date {
-        text-align: right;
-        font-size: 0.32rem;
-        color: #ccc;
-      }
-    }
+      &:hover {
+        img {
+          transform: scale(1.1);
+        }
 
-    &:hover {
-      img {
-        transform: scale(1.1);
+        box-shadow: 0 0 0.4rem #ccc;
       }
-
-      box-shadow: 0 0 0.4rem #ccc;
     }
   }
 
@@ -535,7 +567,7 @@ main {
       opacity: 0;
       transition: opacity 0.2s 0s;
 
-      span {
+      .p-link {
         text-align: right;
         font-size: 0.32rem;
         font-weight: 500;
@@ -696,30 +728,24 @@ main {
     inset: 0px;
     position: absolute;
 
-    --stripes: repeating-linear-gradient(
-      100deg,
-      #fff 0%,
-      #fff 7%,
-      transparent 10%,
-      transparent 12%,
-      #fff 16%
-    );
-    --stripesDark: repeating-linear-gradient(
-      100deg,
-      #000 0%,
-      #000 7%,
-      transparent 10%,
-      transparent 12%,
-      #000 16%
-    );
-    --rainbow: repeating-linear-gradient(
-      100deg,
-      #60a5fa 10%,
-      #e879f9 10%,
-      #60a5fa 20%,
-      #5eead4 25%,
-      #60a5fa 30%
-    );
+    --stripes: repeating-linear-gradient(100deg,
+        #fff 0%,
+        #fff 7%,
+        transparent 10%,
+        transparent 12%,
+        #fff 16%);
+    --stripesDark: repeating-linear-gradient(100deg,
+        #000 0%,
+        #000 7%,
+        transparent 10%,
+        transparent 12%,
+        #000 16%);
+    --rainbow: repeating-linear-gradient(100deg,
+        #60a5fa 10%,
+        #e879f9 10%,
+        #60a5fa 20%,
+        #5eead4 25%,
+        #60a5fa 30%);
     background-image: var(--stripes), var(--rainbow);
     background-size: 300%, 200%;
     background-position:
