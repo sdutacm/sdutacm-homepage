@@ -513,7 +513,7 @@ main {
       border-radius: 50%;
       position: absolute;
       top: -5rem;
-      right: -6rem;
+      right: -4.5rem;
       transition: transform 0.3s;
       box-shadow: 0 0 0.4rem #ccc;
     }
@@ -522,11 +522,12 @@ main {
       font-size: 0.48rem;
       font-weight: 700;
       position: absolute;
-      top: 2rem;
+      top: 2.2rem;
       right: 0;
-      width: 30%;
+      width: 40%;
       text-align: center;
       transition: transform 0.3s;
+      cursor: default;
     }
 
     .project-summary {
@@ -552,25 +553,43 @@ main {
     }
 
     .project-links {
-      width: 30%;
+      display: none;
+      width: 40%;
       height: 80%;
       position: absolute;
       bottom: 0;
       right: 0;
-      display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 0.2rem;
       color: #666;
       cursor: pointer;
       opacity: 0;
       transition: opacity 0.2s 0s;
 
       .p-link {
-        text-align: right;
+        text-align: center;
         font-size: 0.32rem;
         font-weight: 500;
+        line-height: 0.7rem;
+        width: 20%;
+
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          transform: translate(-100%, 0);
+          display: block;
+          width: 0;
+          height: 5rem;
+          background:
+            linear-gradient(105deg, transparent 75%, #fff 90%) center,
+            url('../src/assets/img/sdutacm-homepage-project-oj3-home.png') no-repeat center center / cover;
+          opacity: 0;
+          transition: opacity 0.3s 1s;
+        }
+
 
         &::after {
           content: '';
@@ -582,6 +601,12 @@ main {
         }
 
         &:hover {
+          &::before {
+            width: 150%;
+            opacity: 1;
+            transition: opacity 0.3s;
+          }
+
           &::after {
             width: 100%;
           }
@@ -609,6 +634,7 @@ main {
       }
 
       .project-links {
+        display: flex;
         opacity: 1;
         transition: opacity 0.3s 0.1s;
       }
