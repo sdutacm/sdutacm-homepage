@@ -112,7 +112,9 @@ const clickProject = (target) => {
           </div>
           <div class="news-info">
             <span class="news-title">第十五届SDUTACM校赛</span>
-            <span class="news-summary">2023年山东理工大学程序设计竞赛（SDUT校赛）于2023年5月28日举行</span>
+            <span class="news-summary"
+              >2023年山东理工大学程序设计竞赛（SDUT校赛）于2023年5月28日举行</span
+            >
             <span class="news-date">2023-05-28</span>
           </div>
         </a>
@@ -139,39 +141,64 @@ const clickProject = (target) => {
         <div class="project-bubble"></div>
         <span class="project-title">SDUT OJ 3</span>
         <p class="project-summary">
-          <span>第三代在线评测系统，2018 年发布。</span>
-          <span>其使用全栈同构技术栈开发，结合自研的次世代评测机
-            River，轻松服务近千人的大型比赛。</span>
+          <span>Online Judge 3，自研第三代在线评测系统，2018 年内测，2019 年正式上线。</span>
+          <span
+            >使用全栈同构技术栈开发，结合自研的次世代top0性能的评测姬，轻松服务近千人的大型比赛。</span
+          >
         </p>
         <div class="project-links">
           <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/">前往</a>
-          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/sets">题目集</a>
-          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/posts">帖子</a>
-          <a class="p-link" target="_blank" href="https://github.com/sdutacm/onlinejudge3/tree/master">源码</a>
+          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/contests"
+            >竞赛</a
+          >
+          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/posts"
+            >排名</a
+          >
+          <a class="p-link" target="_blank" href="https://github.com/sdutacm/onlinejudge3">源码</a>
         </div>
       </div>
       <div class="project-item2" :class="{ acitve: acitveProject === 2 }" @click="clickProject(2)">
         <div class="project-bubble"></div>
         <span class="project-title">RankLand</span>
         <p class="project-summary">
-          <span>很吊的榜单系统</span>
-          <span>就是很吊</span>
+          <span
+            >Rank Land，由我们的开源组织 algoUX
+            开发、算法竞赛爱好者们自发维护的、专注于托管和分享任何竞赛榜单的宝地。</span
+          >
+          <span>轻松查阅 ICPC、CCPC 等赛事的历史榜单。</span>
         </p>
         <div class="project-links">
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/">前往</a>
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/search?kw=ICPC">探索</a>
-          <a class="p-link" target="_blank" href="https://rl.algoux.cn/collection/official">榜单合集</a>
+          <a class="p-link" target="_blank" href="https://rl.algoux.cn/collection/official"
+            >榜单合集</a
+          >
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/playground">游乐场</a>
         </div>
       </div>
       <div class="project-item3" :class="{ acitve: acitveProject === 3 }" @click="clickProject(3)">
         <div class="project-bubble"></div>
         <span class="project-title">光之魔法书</span>
+        <p class="project-summary">
+          <span>光之魔法书，集前后端、数据库、爬虫、服务器等知识于一体的学习实践指北。</span>
+          <span
+            >作为光锥实验室的入门魔法指南，你需要通过学习、实践、总结进而对web魔法体系有一个清晰的概念。</span
+          >
+        </p>
         <div class="project-links">
           <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/">前往</a>
-          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/catalog/">魔法目录</a>
-          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/missions/">见习任务</a>
-          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/pleasant-gallery/">意义不明展览馆</a>
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/missions/"
+            >见习任务</a
+          >
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/catalog/"
+            >魔法目录</a
+          >
+          <a
+            class="p-link"
+            target="_blank"
+            href="https://lcl-magicbook.sdutacm.cn/pleasant-gallery/"
+            >意义不明展览馆</a
+          >
         </div>
       </div>
     </div>
@@ -418,7 +445,7 @@ main {
       .news-info {
         width: 100%;
         height: 2.4rem;
-        padding: .2rem .4rem;
+        padding: 0.2rem 0.4rem;
         background-color: #fff;
         display: flex;
         flex-direction: column;
@@ -449,14 +476,14 @@ main {
           color: #ccc;
         }
       }
+    }
 
-      &:hover {
-        img {
-          transform: scale(1.1);
-        }
-
-        box-shadow: 0 0 0.4rem #ccc;
+    &:hover {
+      img {
+        transform: scale(1.1);
       }
+
+      box-shadow: 0 0 0.4rem #ccc;
     }
   }
 
@@ -505,6 +532,7 @@ main {
     position: relative;
     overflow: hidden;
     background-color: #eee;
+    transition: box-shadow 0.3s;
 
     .project-bubble {
       width: 12rem;
@@ -514,8 +542,9 @@ main {
       position: absolute;
       top: -5rem;
       right: -4.5rem;
-      transition: transform 0.3s;
-      box-shadow: 0 0 0.4rem #ccc;
+      transition:
+        transform 0.3s,
+        box-shadow 0.3s;
     }
 
     .project-title {
@@ -543,17 +572,19 @@ main {
       justify-content: center;
       align-items: flex-start;
       transition: opacity 0.2s 0s;
+      // z-index: -10; // todo 不生效
 
       span {
         font-size: 0.32rem;
         font-weight: 500;
-        line-height: 0.4rem;
-        margin: 0.1rem 0;
+        line-height: 0.48rem;
+        margin: 0.2rem 0;
+        // z-index: -10; // todo 不生效
       }
     }
 
     .project-links {
-      display: none;
+      display: flex;
       width: 40%;
       height: 80%;
       position: absolute;
@@ -566,13 +597,14 @@ main {
       cursor: pointer;
       opacity: 0;
       transition: opacity 0.2s 0s;
+      z-index: 0;
 
       .p-link {
         text-align: center;
         font-size: 0.32rem;
         font-weight: 500;
-        line-height: 0.7rem;
-        width: 20%;
+        line-height: 0.8rem;
+        width: 30%;
 
         &::before {
           content: '';
@@ -583,20 +615,19 @@ main {
           display: block;
           width: 0;
           height: 5rem;
-          background:
-            linear-gradient(105deg, transparent 75%, #fff 90%) center,
-            url('../src/assets/img/sdutacm-homepage-project-oj3-home.png') no-repeat center center / cover;
+          // background:
+          //   linear-gradient(105deg, transparent 75%, #fff 90%) center,
+          //   url('../src/assets/img/sdutacm-homepage-project-oj3-home.png') no-repeat center / cover;
           opacity: 0;
           transition: opacity 0.3s 1s;
         }
-
 
         &::after {
           content: '';
           display: block;
           width: 0;
-          height: 0.04rem;
-          background-color: #666;
+          height: 0.04rem; // todo 高度不一致
+          background-color: #999;
           transition: width 0.3s;
         }
 
@@ -629,38 +660,168 @@ main {
       }
 
       .project-summary {
+        z-index: 20;
         opacity: 1;
         transition: opacity 0.3s 0.15s;
       }
 
       .project-links {
-        display: flex;
+        z-index: 20;
         opacity: 1;
         transition: opacity 0.3s 0.1s;
       }
     }
+
+    &:hover:not(.acitve) {
+      .project-bubble {
+        transform: scale(1.2);
+        box-shadow: 0 0 0.4rem #ccc;
+      }
+    }
+    &:hover {
+      box-shadow: 0 0 0.4rem #ccc;
+    }
   }
+
+  // 我们的项目的单独配置: 背景图 + 链接预览图
 
   .project-item1 {
     .project-item();
-    background-color: #f4f4f4;
-    background-image: url('../src/assets/img/sdutacm-homepage-project-oj3-logo.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 25% 50%;
+    background:
+      url('../src/assets/img/sdutacm-homepage-project-oj3-logo.png') no-repeat 10% 50% / 50%,
+      #f4f4f4;
+
+    .project-links {
+      .p-link {
+        &:nth-child(1) {
+          &::before {
+            background:
+              linear-gradient(105deg, transparent 75%, #fff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-oj3-home.png') no-repeat left / cover;
+          }
+        }
+
+        &:nth-child(2) {
+          &::before {
+            background:
+              linear-gradient(105deg, transparent 75%, #fff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-oj3-contests.png') no-repeat left /
+                cover;
+          }
+        }
+
+        &:nth-child(3) {
+          &::before {
+            background:
+              linear-gradient(105deg, transparent 75%, #fff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-oj3-users.png') no-repeat left / cover;
+          }
+        }
+
+        &:nth-child(4) {
+          &::before {
+            background:
+              linear-gradient(105deg, transparent 75%, #fff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-oj3-github.png') no-repeat left /
+                cover;
+          }
+        }
+      }
+    }
   }
 
   .project-item2 {
     .project-item();
-    background-color: #fff2df;
-    background-image: url('../src/assets/img/sdutacm-homepage-project-rankland-logo.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 25% 50%;
+    background:
+      url('../src/assets/img/sdutacm-homepage-project-rankland-logo.png') no-repeat 10% 50% / 50%,
+      #fff2df;
+
+    .project-links {
+      .p-link {
+        &:nth-child(1) {
+          &::before {
+            background:
+              linear-gradient(105deg, transparent 75%, #fff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-rankland-home.png') no-repeat left /
+                cover;
+          }
+        }
+
+        &:nth-child(2) {
+          &::before {
+            background:
+              linear-gradient(105deg, transparent 75%, #fff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-rankland-searchX.png') no-repeat left /
+                cover;
+          }
+        }
+
+        &:nth-child(3) {
+          &::before {
+            background:
+              linear-gradient(105deg, transparent 75%, #fff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-rankland-collection.png') no-repeat
+                left / cover;
+          }
+        }
+
+        &:nth-child(4) {
+          &::before {
+            background:
+              linear-gradient(105deg, transparent 75%, #fff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-rankland-playground.png') no-repeat
+                left / cover;
+          }
+        }
+      }
+    }
   }
 
   .project-item3 {
     .project-item();
+    background:
+      url('../src/assets/img/sdutacm-homepage-project-magicbook-logo.png') no-repeat 10% 50% / 50%,
+      #d6e6f2;
+
+    .project-links {
+      .p-link {
+        &:nth-child(1) {
+          &::before {
+            background:
+              linear-gradient(105deg, transparent 75%, #fff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-home@2.png') no-repeat left /
+                cover;
+          }
+        }
+
+        &:nth-child(2) {
+          &::before {
+            background:
+              linear-gradient(105deg, transparent 75%, #fff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-missions@2.png') no-repeat
+                left / cover;
+          }
+        }
+
+        &:nth-child(3) {
+          &::before {
+            background:
+              linear-gradient(105deg, transparent 75%, #fff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-catalog@2.png') no-repeat
+                left / cover;
+          }
+        }
+
+        &:nth-child(4) {
+          &::before {
+            background:
+              linear-gradient(105deg, transparent 75%, #fff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-gallery@2.png') no-repeat
+                left / cover;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -754,24 +915,30 @@ main {
     inset: 0px;
     position: absolute;
 
-    --stripes: repeating-linear-gradient(100deg,
-        #fff 0%,
-        #fff 7%,
-        transparent 10%,
-        transparent 12%,
-        #fff 16%);
-    --stripesDark: repeating-linear-gradient(100deg,
-        #000 0%,
-        #000 7%,
-        transparent 10%,
-        transparent 12%,
-        #000 16%);
-    --rainbow: repeating-linear-gradient(100deg,
-        #60a5fa 10%,
-        #e879f9 10%,
-        #60a5fa 20%,
-        #5eead4 25%,
-        #60a5fa 30%);
+    --stripes: repeating-linear-gradient(
+      100deg,
+      #fff 0%,
+      #fff 7%,
+      transparent 10%,
+      transparent 12%,
+      #fff 16%
+    );
+    --stripesDark: repeating-linear-gradient(
+      100deg,
+      #000 0%,
+      #000 7%,
+      transparent 10%,
+      transparent 12%,
+      #000 16%
+    );
+    --rainbow: repeating-linear-gradient(
+      100deg,
+      #60a5fa 10%,
+      #e879f9 10%,
+      #60a5fa 20%,
+      #5eead4 25%,
+      #60a5fa 30%
+    );
     background-image: var(--stripes), var(--rainbow);
     background-size: 300%, 200%;
     background-position:
