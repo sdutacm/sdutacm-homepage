@@ -137,7 +137,11 @@ const clickProject = (target) => {
     <!-- 我们的项目 -->
     <div class="section-title">我们的项目</div>
     <div class="project">
-      <div class="project-item1" :class="{ acitve: acitveProject === 1 }" @click="clickProject(1)">
+      <div
+        class="project-item1 project-item"
+        :class="{ acitve: acitveProject === 1 }"
+        @click="clickProject(1)"
+      >
         <div class="project-bubble"></div>
         <span class="project-title">SDUT OJ 3</span>
         <p class="project-summary">
@@ -157,7 +161,11 @@ const clickProject = (target) => {
           <a class="p-link" target="_blank" href="https://github.com/sdutacm/onlinejudge3">源码</a>
         </div>
       </div>
-      <div class="project-item2" :class="{ acitve: acitveProject === 2 }" @click="clickProject(2)">
+      <div
+        class="project-item2 project-item"
+        :class="{ acitve: acitveProject === 2 }"
+        @click="clickProject(2)"
+      >
         <div class="project-bubble"></div>
         <span class="project-title">RankLand</span>
         <p class="project-summary">
@@ -176,7 +184,11 @@ const clickProject = (target) => {
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/playground">游乐场</a>
         </div>
       </div>
-      <div class="project-item3" :class="{ acitve: acitveProject === 3 }" @click="clickProject(3)">
+      <div
+        class="project-item3 project-item"
+        :class="{ acitve: acitveProject === 3 }"
+        @click="clickProject(3)"
+      >
         <div class="project-bubble"></div>
         <span class="project-title">光之魔法书</span>
         <p class="project-summary">
@@ -524,7 +536,7 @@ main {
   align-self: center;
   gap: 0.8rem;
 
-  .project-item() {
+  .project-item {
     width: 100%;
     height: 5rem;
     background-color: #fff;
@@ -686,7 +698,7 @@ main {
   // 我们的项目的单独配置: 背景图 + 链接预览图
 
   .project-item1 {
-    .project-item();
+    // .project-item();
     background:
       url('../src/assets/img/sdutacm-homepage-project-oj3-logo.png') no-repeat 10% 50% / 50%,
       #f4f4f4;
@@ -731,7 +743,7 @@ main {
   }
 
   .project-item2 {
-    .project-item();
+    // .project-item();
     background:
       url('../src/assets/img/sdutacm-homepage-project-rankland-logo.png') no-repeat 10% 50% / 50%,
       #fff2df;
@@ -778,7 +790,7 @@ main {
   }
 
   .project-item3 {
-    .project-item();
+    // .project-item();
     background:
       url('../src/assets/img/sdutacm-homepage-project-magicbook-logo.png') no-repeat 10% 50% / 50%,
       #d6e6f2;
@@ -825,67 +837,108 @@ main {
   }
 }
 
+// 尾随注释是在>1101px时的样式
 @media screen and (max-width: 1100px) {
   header {
-    height: 1.2rem;
+    height: 1.2rem; // 1.6rem
 
     .menu {
-      display: block;
+      display: block; // none
     }
 
     .logo {
-      width: 3rem;
-      height: 100%;
+      width: 3rem; // 5rem
 
       img {
-        width: 0.8rem;
-        height: 0.8rem;
+        width: 0.8rem; // 1rem
+        height: 0.8rem; // 1rem
       }
 
       h1 {
-        font-size: 0.48rem;
+        font-size: 0.48rem; // 0.64rem
       }
     }
 
     .nav {
-      display: none;
+      display: none; // flex
     }
   }
 
   .section-title {
-    font-size: 0.6rem;
+    font-size: 0.6rem; // 0.8rem
   }
 
   main {
-    margin-top: 1.2rem;
-    padding: 0 0.6rem;
+    margin-top: 1.2rem; // 1.6rem
+    padding: 0 0.6rem; // 0 3.6rem
   }
 
   .summary {
     .title {
-      font-size: 0.7rem;
+      font-size: 0.64rem; // 1rem
     }
 
     .slogan {
-      font-size: 0.36rem;
-    }
-
-    .text {
-      p {
-        font-size: 0.28rem;
-        line-height: 0.36rem;
-      }
+      font-size: 0.36rem; // 0.48rem
     }
   }
 
   .news {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 4rem);
+    grid-template-columns: 1fr 1fr; // 147fr 57fr 84fr
+    grid-template-rows: auto;
     grid-template-areas:
-      'no1 no2'
-      'no1 no3'
-      'no4 no3'
+      'no1 no1'
+      'no2 no3'
       'no4 no5';
+  }
+
+  .project {
+    width: 80%; // 100%
+    max-width: 16rem; // 20rem
+
+    .project-item {
+      height: 4rem; // 5rem
+      background-size: 40%;
+
+      .project-bubble {
+        width: 8rem; // 12rem
+        height: 8rem; // 12rem
+        top: -3rem; // -5rem
+        right: -3rem; // -4.5rem
+      }
+
+      .project-title {
+        font-size: 0.4rem; // 0.48rem
+        top: 2rem; // 2.2rem
+      }
+
+      .project-summary {
+        padding: 0 .4rem;
+
+        span {
+          font-size: 0.28rem; // 0.32rem
+          line-height: 0.4rem; // 0.48rem
+        }
+      }
+
+      .project-links {
+        .p-link {
+          font-size: 0.28rem; // 0.32rem
+          line-height: 0.6rem; // 0.8rem
+          width: 50%; // 30%
+        }
+      }
+
+      &:hover:not(.acitve) {
+        .project-bubble {
+          transform: scale(1.1);
+          box-shadow: 0 0 0.4rem #ccc;
+        }
+      }
+      &:hover {
+        box-shadow: 0 0 0.4rem #ccc;
+      }
+    }
   }
 }
 
