@@ -3,20 +3,25 @@ import { ref, onMounted } from 'vue'
 
 const isDarkTheme = ref(false)
 const acitveProject = ref(0)
-// const isDarkTheme = window.matchMedia("(prefers-color-scheme: dark)"); // 是深色
+
+const BodyElement = document.querySelector('body')
 
 const toggleTheme = () => {
   isDarkTheme.value = !isDarkTheme.value
+  if (isDarkTheme.value) {
+    BodyElement.classList.add('dark-theme')
+  } else {
+    BodyElement.classList.remove('dark-theme')
+  }
 }
 
 const clickProject = (target) => {
   acitveProject.value = target === acitveProject.value ? 0 : target
 }
 
-// mounted
 onMounted(() => {
   if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    isDarkTheme.value = true
+    toggleTheme()
   }
 })
 </script>
@@ -39,10 +44,10 @@ onMounted(() => {
       <div class="nav-item"><span>快速链接</span></div>
     </div>
     <div class="toggle" @click="toggleTheme">
-      <el-icon v-show="isDarkTheme">
+      <el-icon v-show="!isDarkTheme">
         <Sunny />
       </el-icon>
-      <el-icon v-show="!isDarkTheme">
+      <el-icon v-show="isDarkTheme">
         <Moon />
       </el-icon>
     </div>
@@ -120,7 +125,9 @@ onMounted(() => {
           </div>
           <div class="news-info">
             <span class="news-title">第十五届SDUTACM校赛</span>
-            <span class="news-summary">2023年山东理工大学程序设计竞赛（SDUT校赛）于2023年5月28日举行</span>
+            <span class="news-summary"
+              >2023年山东理工大学程序设计竞赛（SDUT校赛）于2023年5月28日举行</span
+            >
             <span class="news-date">2023-05-28</span>
           </div>
         </a>
@@ -143,47 +150,80 @@ onMounted(() => {
     <!-- 我们的项目 -->
     <div class="section-title">我们的项目</div>
     <div class="project">
-      <div class="project-item1 project-item" :class="{ acitve: acitveProject === 1 }" @click="clickProject(1)">
+      <div
+        class="project-item1 project-item"
+        :class="{ acitve: acitveProject === 1 }"
+        @click="clickProject(1)"
+      >
         <div class="project-bubble"></div>
         <span class="project-title">SDUT OJ 3</span>
         <p class="project-summary">
           <span>Online Judge 3，自研第三代在线评测系统，2018 年内测，2019 年正式上线。</span>
-          <span>使用全栈同构技术栈开发，结合自研的次世代top0性能的评测姬，轻松服务近千人的大型比赛。</span>
+          <span
+            >使用全栈同构技术栈开发，结合自研的次世代top0性能的评测姬，轻松服务近千人的大型比赛。</span
+          >
         </p>
         <div class="project-links">
           <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/">前往</a>
-          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/contests">竞赛</a>
-          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/posts">排名</a>
+          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/contests"
+            >竞赛</a
+          >
+          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/posts"
+            >排名</a
+          >
           <a class="p-link" target="_blank" href="https://github.com/sdutacm/onlinejudge3">源码</a>
         </div>
       </div>
-      <div class="project-item2 project-item" :class="{ acitve: acitveProject === 2 }" @click="clickProject(2)">
+      <div
+        class="project-item2 project-item"
+        :class="{ acitve: acitveProject === 2 }"
+        @click="clickProject(2)"
+      >
         <div class="project-bubble"></div>
         <span class="project-title">RankLand</span>
         <p class="project-summary">
-          <span>RankLand，由我们的开源组织 algoUX
-            开发、算法竞赛爱好者们自发维护的、专注于托管和分享任何竞赛榜单的宝地。</span>
+          <span
+            >RankLand，由我们的开源组织 algoUX
+            开发、算法竞赛爱好者们自发维护的、专注于托管和分享任何竞赛榜单的宝地。</span
+          >
           <span>轻松查阅 ICPC、CCPC 等赛事的历史榜单。</span>
         </p>
         <div class="project-links">
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/">前往</a>
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/search?kw=ICPC">探索</a>
-          <a class="p-link" target="_blank" href="https://rl.algoux.cn/collection/official">榜单合集</a>
+          <a class="p-link" target="_blank" href="https://rl.algoux.cn/collection/official"
+            >榜单合集</a
+          >
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/playground">游乐场</a>
         </div>
       </div>
-      <div class="project-item3 project-item" :class="{ acitve: acitveProject === 3 }" @click="clickProject(3)">
+      <div
+        class="project-item3 project-item"
+        :class="{ acitve: acitveProject === 3 }"
+        @click="clickProject(3)"
+      >
         <div class="project-bubble"></div>
         <span class="project-title">光之魔法书</span>
         <p class="project-summary">
           <span>光之魔法书，集前后端、数据库、爬虫、服务器等知识于一体的学习实践指北。</span>
-          <span>作为光锥实验室的入门魔法指南，你需要通过学习、实践、总结进而对web魔法体系有一个清晰的概念。</span>
+          <span
+            >作为光锥实验室的入门魔法指南，你需要通过学习、实践、总结进而对web魔法体系有一个清晰的概念。</span
+          >
         </p>
         <div class="project-links">
           <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/">前往</a>
-          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/missions/">见习任务</a>
-          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/catalog/">魔法目录</a>
-          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/pleasant-gallery/">意义不明展览馆</a>
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/missions/"
+            >见习任务</a
+          >
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/catalog/"
+            >魔法目录</a
+          >
+          <a
+            class="p-link"
+            target="_blank"
+            href="https://lcl-magicbook.sdutacm.cn/pleasant-gallery/"
+            >意义不明展览馆</a
+          >
         </div>
       </div>
     </div>
@@ -192,21 +232,21 @@ onMounted(() => {
 
 <style scoped lang="less">
 header {
+  position: relative;
+  position: fixed;
+  top: 0;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  height: 1.6rem;
-  width: 100%;
-  position: fixed;
-  top: 0;
   padding: 0 0.6rem;
-  background-color: #fff;
-  box-shadow: 0 0 0.4rem #ccc;
+  width: 100%;
+  height: 1.6rem;
   background: transparent;
+  background-color: #ffffff;
+  background-color: rgb(255 255 255 / 85%);
+  box-shadow: 0 0 0.4rem #cccccc;
   backdrop-filter: blur(0.4rem);
-  background-color: rgba(255, 255, 255, 0.85);
-  z-index: 100;
 
   .menu {
     display: none;
@@ -216,17 +256,17 @@ header {
 
     .el-icon {
       font-size: 0.6rem;
-      color: #333;
+      color: #333333;
     }
   }
 
   .logo {
-    width: 5rem;
-    height: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
+    width: 5rem;
+    height: 100%;
+    flex-direction: row;
     gap: 0.2rem;
     cursor: pointer;
 
@@ -242,38 +282,38 @@ header {
   }
 
   .nav {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.4rem;
-    color: #333;
     position: absolute;
     top: 50%;
     left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: #333333;
+    gap: 0.4rem;
     transform: translate(-50%, -50%);
 
     .nav-item {
-      width: 2.5rem;
-      height: 100%;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
+      width: 2.5rem;
+      height: 100%;
+      flex-direction: column;
       cursor: pointer;
 
       span {
+        margin: 0.5rem 0;
         font-size: 0.36rem;
         font-weight: 500;
-        margin: 0.5rem 0;
 
         &::after {
           content: '';
           display: block;
           width: 0;
           height: 0.04rem;
-          background-color: #666;
+          background-color: #666666;
           transition: width 0.3s;
         }
       }
@@ -294,24 +334,24 @@ header {
 
     .el-icon {
       font-size: 0.6rem;
-      color: #333;
+      color: #333333;
     }
   }
 }
 
 main {
-  width: 100%;
-  height: 100%;
+  z-index: 0;
   display: flex;
-  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 1rem;
+  overflow: auto;
   margin-top: 1.6rem;
   padding: 0 3.6rem;
-  overflow: auto;
-  z-index: 0;
+  width: 100%;
+  height: 100%;
   background-color: #f5f5f5;
+  flex-direction: column;
+  gap: 1rem;
 
   * {
     z-index: 10;
@@ -326,12 +366,12 @@ main {
 
 // SDUTACM简介
 .summary {
-  width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 10vh;
+  width: 100%;
+  flex-direction: column;
   gap: 0.2rem;
 
   .title {
@@ -342,31 +382,31 @@ main {
 
   .slogan {
     position: relative;
+    margin: 0 0.7rem;
     font-size: 0.48rem;
     font-weight: 500;
-    margin: 0 0.7rem;
-    color: #666;
+    color: #666666;
 
     &::after {
-      content: '';
+      position: absolute;
+      top: 50%;
+      left: -0.7rem;
+      display: block;
       width: 0.5rem;
       height: 0.04rem;
-      display: block;
-      background-color: #666;
-      position: absolute;
-      left: -0.7rem;
-      top: 50%;
+      background-color: #666666;
+      content: '';
     }
 
     &::before {
-      content: '';
+      position: absolute;
+      top: 50%;
+      right: -0.7rem;
+      display: block;
       width: 0.5rem;
       height: 0.04rem;
-      display: block;
-      background-color: #666;
-      position: absolute;
-      right: -0.7rem;
-      top: 50%;
+      background-color: #666666;
+      content: '';
     }
   }
 
@@ -377,19 +417,19 @@ main {
     align-items: flex-start;
 
     p {
+      margin: 0.1rem 0;
       font-size: 0.32rem;
       line-height: 0.48rem;
-      margin: 0.1rem 0;
     }
   }
 }
 
 // 最新动态
 .news {
+  display: grid;
   width: 100%;
   max-width: 24rem;
   height: 100%;
-  display: grid;
   grid-template-columns: 147fr 57fr 84fr;
   grid-template-rows: auto;
   grid-template-areas:
@@ -399,25 +439,25 @@ main {
   gap: 0.52rem 0.48rem;
 
   .news-item() {
-    border-radius: 0.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: box-shadow 0.3s;
     overflow: hidden;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.3s;
 
     .n-link {
-      width: 100%;
-      height: 100%;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
 
       .news-img {
+        overflow: hidden;
         width: 100%;
         height: 100%;
-        overflow: hidden;
 
         img {
           width: 100%;
@@ -428,37 +468,37 @@ main {
       }
 
       .news-info {
-        width: 100%;
-        height: 2.4rem;
-        padding: 0.2rem 0.4rem;
-        background-color: #fff;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: flex-start;
         overflow: hidden;
+        padding: 0.2rem 0.4rem;
+        width: 100%;
+        height: 2.4rem;
+        background-color: #ffffff;
+        flex-direction: column;
 
         .news-title {
+          overflow: hidden;
           width: 100%;
           font-size: 0.36rem;
           font-weight: 700;
           text-overflow: ellipsis;
           white-space: nowrap;
-          overflow: hidden;
         }
 
         .news-summary {
+          overflow: hidden;
           width: 100%;
           font-size: 0.32rem;
           text-overflow: ellipsis;
           white-space: nowrap;
-          overflow: hidden;
         }
 
         .news-date {
-          text-align: right;
           font-size: 0.32rem;
-          color: #ccc;
+          text-align: right;
+          color: #cccccc;
         }
       }
     }
@@ -468,128 +508,131 @@ main {
         transform: scale(1.1);
       }
 
-      box-shadow: 0 0 0.4rem #ccc;
+      box-shadow: 0 0 0.4rem #cccccc;
     }
   }
 
   .news-item1 {
     .news-item();
+
     grid-area: no1;
   }
 
   .news-item2 {
     .news-item();
+
     grid-area: no2;
   }
 
   .news-item3 {
     .news-item();
+
     grid-area: no3;
   }
 
   .news-item4 {
     .news-item();
+
     grid-area: no4;
   }
 
   .news-item5 {
     .news-item();
+
     grid-area: no5;
   }
 }
 
 // 我们的项目
 .project {
+  display: flex;
   width: 100%;
   max-width: 20rem;
   height: 100%;
-  display: flex;
   flex-direction: column;
-  justify-self: center;
-  align-self: center;
+  place-self: center center;
   gap: 0.8rem;
 
   .project-item {
-    width: 100%;
-    height: 5rem;
-    background-color: #fff;
-    border-radius: 0.2rem;
     position: relative;
     overflow: hidden;
-    background-color: #eee;
+    border-radius: 0.2rem;
+    width: 100%;
+    height: 5rem;
+    background-color: #eeeeee;
     transition: box-shadow 0.3s;
 
     .project-bubble {
-      width: 12rem;
-      height: 12rem;
-      background-color: #fff;
-      border-radius: 50%;
       position: absolute;
       top: -5rem;
       right: -4.5rem;
+      border-radius: 50%;
+      width: 12rem;
+      height: 12rem;
+      background-color: #ffffff;
       transition:
         transform 0.3s,
         box-shadow 0.3s;
     }
 
     .project-title {
-      font-size: 0.48rem;
-      font-weight: 700;
       position: absolute;
       top: 2.2rem;
       right: 0;
       width: 40%;
+      font-size: 0.48rem;
+      font-weight: 700;
       text-align: center;
       transition: transform 0.3s;
       cursor: default;
     }
 
     .project-summary {
-      opacity: 0;
       position: absolute;
       top: 0;
       left: 0;
-      width: 60%;
-      height: 100%;
-      padding: 0 1rem;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: flex-start;
+      padding: 0 1rem;
+      width: 60%;
+      height: 100%;
+      opacity: 0;
       transition: opacity 0.2s 0s;
+      flex-direction: column;
       // z-index: -10; // todo 不生效
 
       span {
+        margin: 0.2rem 0;
         font-size: 0.32rem;
         font-weight: 500;
         line-height: 0.48rem;
-        margin: 0.2rem 0;
         // z-index: -10; // todo 不生效
       }
     }
 
     .project-links {
-      display: flex;
-      width: 40%;
-      height: 80%;
       position: absolute;
-      bottom: 0;
       right: 0;
-      flex-direction: column;
+      bottom: 0;
+      z-index: 0;
+      display: flex;
       justify-content: center;
       align-items: center;
-      color: #666;
-      cursor: pointer;
+      width: 40%;
+      height: 80%;
+      color: #666666;
       opacity: 0;
       transition: opacity 0.2s 0s;
-      z-index: 0;
+      flex-direction: column;
+      cursor: pointer;
 
       .p-link {
-        text-align: center;
+        width: 30%;
         font-size: 0.32rem;
         font-weight: 500;
+        text-align: center;
         line-height: 0.8rem;
-        width: 30%;
 
         &::before {
           content: '';
@@ -612,7 +655,7 @@ main {
           display: block;
           width: 0;
           height: 0.04rem; // todo 高度不一致
-          background-color: #999;
+          background-color: #999999;
           transition: width 0.3s;
         }
 
@@ -660,12 +703,12 @@ main {
     &:hover:not(.acitve) {
       .project-bubble {
         transform: scale(1.2);
-        box-shadow: 0 0 0.4rem #ccc;
+        box-shadow: 0 0 0.4rem #cccccc;
       }
     }
 
     &:hover {
-      box-shadow: 0 0 0.4rem #ccc;
+      box-shadow: 0 0 0.4rem #cccccc;
     }
   }
 
@@ -682,7 +725,7 @@ main {
         &:nth-child(1) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #fff 90%) center,
+              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
               url('../src/assets/img/sdutacm-homepage-project-oj3-home.png') no-repeat left / cover;
           }
         }
@@ -690,15 +733,16 @@ main {
         &:nth-child(2) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-oj3-contests.png') no-repeat left / cover;
+              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-oj3-contests.png') no-repeat left /
+                cover;
           }
         }
 
         &:nth-child(3) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #fff 90%) center,
+              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
               url('../src/assets/img/sdutacm-homepage-project-oj3-users.png') no-repeat left / cover;
           }
         }
@@ -706,8 +750,9 @@ main {
         &:nth-child(4) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-oj3-github.png') no-repeat left / cover;
+              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-oj3-github.png') no-repeat left /
+                cover;
           }
         }
       }
@@ -725,32 +770,36 @@ main {
         &:nth-child(1) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-rankland-home.png') no-repeat left / cover;
+              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-rankland-home.png') no-repeat left /
+                cover;
           }
         }
 
         &:nth-child(2) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-rankland-search.png') no-repeat left / cover;
+              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-rankland-search.png') no-repeat left /
+                cover;
           }
         }
 
         &:nth-child(3) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-rankland-collection.png') no-repeat left / cover;
+              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-rankland-collection.png') no-repeat
+                left / cover;
           }
         }
 
         &:nth-child(4) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-rankland-playground.png') no-repeat left / cover;
+              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-rankland-playground.png') no-repeat
+                left / cover;
           }
         }
       }
@@ -768,32 +817,36 @@ main {
         &:nth-child(1) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-home@2.png') no-repeat left / cover;
+              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-home@2.png') no-repeat left /
+                cover;
           }
         }
 
         &:nth-child(2) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-missions@2.png') no-repeat left / cover;
+              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-missions@2.png') no-repeat
+                left / cover;
           }
         }
 
         &:nth-child(3) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-catalog@2.png') no-repeat left / cover;
+              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-catalog@2.png') no-repeat
+                left / cover;
           }
         }
 
         &:nth-child(4) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-gallery@2.png') no-repeat left / cover;
+              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-gallery@2.png') no-repeat
+                left / cover;
           }
         }
       }
@@ -802,7 +855,7 @@ main {
 }
 
 // 尾随注释是在>1101px时的样式
-@media screen and (max-width: 1100px) {
+@media screen and (width <= 1100px) {
   header {
     height: 1.2rem; // 1.6rem
 
@@ -865,19 +918,19 @@ main {
       background-size: 40%;
 
       .project-bubble {
-        width: 8rem; // 12rem
-        height: 8rem; // 12rem
         top: -3rem; // -5rem
         right: -3rem; // -4.5rem
+        width: 8rem; // 12rem
+        height: 8rem; // 12rem
       }
 
       .project-title {
-        font-size: 0.4rem; // 0.48rem
         top: 2rem; // 2.2rem
+        font-size: 0.4rem; // 0.48rem
       }
 
       .project-summary {
-        padding: 0 .4rem;
+        padding: 0 0.4rem;
 
         span {
           font-size: 0.28rem; // 0.32rem
@@ -887,27 +940,27 @@ main {
 
       .project-links {
         .p-link {
+          width: 50%; // 30%
           font-size: 0.28rem; // 0.32rem
           line-height: 0.6rem; // 0.8rem
-          width: 50%; // 30%
         }
       }
 
       &:hover:not(.acitve) {
         .project-bubble {
           transform: scale(1.1);
-          box-shadow: 0 0 0.4rem #ccc;
+          box-shadow: 0 0 0.4rem #cccccc;
         }
       }
 
       &:hover {
-        box-shadow: 0 0 0.4rem #ccc;
+        box-shadow: 0 0 0.4rem #cccccc;
       }
     }
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (width <= 600px) {
   .news {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(5, 4rem);
@@ -923,47 +976,48 @@ main {
 /* 动画容器 */
 .jumboContainer {
   position: fixed;
-  inset: 0;
-  overflow: hidden;
   z-index: 0;
+  overflow: hidden;
+  inset: 0;
 
   /* 动画细节样式 */
   .jumbo {
-    opacity: 0.5;
-    inset: 0px;
     position: absolute;
-
-    --stripes: repeating-linear-gradient(100deg,
-        #fff 0%,
-        #fff 7%,
-        transparent 10%,
-        transparent 12%,
-        #fff 16%);
-    --stripesDark: repeating-linear-gradient(100deg,
-        #000 0%,
-        #000 7%,
-        transparent 10%,
-        transparent 12%,
-        #000 16%);
-    --rainbow: repeating-linear-gradient(100deg,
-        #60a5fa 10%,
-        #e879f9 10%,
-        #60a5fa 20%,
-        #5eead4 25%,
-        #60a5fa 30%);
-    background-image: var(--stripes), var(--rainbow);
-    background-size: 300%, 200%;
     background-position:
       50% 50%,
       50% 50%;
-
+    background-size: 300%, 200%;
+    opacity: 0.5;
     filter: blur(10px) invert(100%);
-
+    inset: 0;
+    background-image: var(--stripes), var(--rainbow);
     mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
-
-    -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
-
     pointer-events: none;
+
+    --stripes: repeating-linear-gradient(
+      100deg,
+      #ffffff 0%,
+      #ffffff 7%,
+      transparent 10%,
+      transparent 12%,
+      #ffffff 16%
+    );
+    --stripesDark: repeating-linear-gradient(
+      100deg,
+      #000000 0%,
+      #000000 7%,
+      transparent 10%,
+      transparent 12%,
+      #000000 16%
+    );
+    --rainbow: repeating-linear-gradient(
+      100deg,
+      #60a5fa 10%,
+      #e879f9 10%,
+      #60a5fa 20%,
+      #5eead4 25%,
+      #60a5fa 30%
+    );
 
     &::after {
       content: '';

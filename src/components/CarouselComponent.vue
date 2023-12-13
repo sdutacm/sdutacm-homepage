@@ -104,38 +104,38 @@ const cardStyle = (i) => {
 }
 
 .card {
+  overflow: hidden;
+  border-radius: 0.32rem;
   width: 100%;
   height: 100%;
-  // padding: .64rem;
-  background-color: hsl(200deg, 40%, calc(100% - var(--abs-offset) * 50%));
-  border-radius: 0.32rem;
   text-align: justify;
+  // padding: .64rem;
+  background-color: hsl(200deg 40% calc(100% - var(--abs-offset) * 50%));
   transition: all 0.3s ease-out;
-  overflow: hidden;
 
   .card-content {
-    width: 100%;
-    height: 100%;
-    transition: all 0.3s ease-out;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
     opacity: var(--active);
+    transition: all 0.3s ease-out;
+    flex-direction: column;
 
     img {
+      z-index: 0;
       width: 100%;
       height: 6.3rem;
       object-fit: cover;
-      z-index: 0;
     }
 
     .info {
+      z-index: 10;
+      padding: 0.32rem;
       width: 100%;
       height: 2.4rem;
-      background-color: #fff;
-      padding: 0.32rem;
-      z-index: 10;
+      background-color: #ffffff;
     }
   }
 
@@ -154,21 +154,21 @@ const cardStyle = (i) => {
 }
 
 .nav {
-  color: white;
-  font-size: 1.6rem;
   position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   top: 50%;
   z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: unset;
+  font-size: 1.6rem;
+  color: white;
+  background: unset;
   cursor: pointer;
   user-select: none;
-  background: unset;
-  border: unset;
 
   &.left {
-    transform: translateX(-100%) translatey(-50%);
+    transform: translateX(-100%) translateY(-50%);
   }
 
   &.right {
@@ -177,7 +177,7 @@ const cardStyle = (i) => {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (width <= 1024px) {
   .card-container {
     transform: rotateY(calc(var(--offset) * 50deg)) scaleY(calc(1 + var(--abs-offset) * -0.4))
       translateZ(calc(var(--abs-offset) * -9.6rem)) translateX(calc(var(--direction) * -0.6rem));
@@ -187,7 +187,7 @@ const cardStyle = (i) => {
     font-size: 1rem;
 
     &.left {
-      transform: translateX(-90%) translatey(-50%);
+      transform: translateX(-90%) translateY(-50%);
     }
 
     &.right {
