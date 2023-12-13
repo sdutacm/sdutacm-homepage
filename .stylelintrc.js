@@ -1,53 +1,9 @@
-// https://stylelint.io/user-guide/get-started
-
-// module.exports = {
-//   extends: [
-//     'stylelint-config-standard',
-//     // 如果是vue项目，需要添加
-//     'stylelint-config-recommended-vue'
-//   ],
-//   // configBasedir: './',
-//   plugins: ['stylelint-order'],
-//   // rule覆盖（根据自己喜好来配置）
-//   rules: {
-//     'color-hex-case': 'upper',
-//     // 'string-quotes': 'single',
-//     // 'property-no-vendor-prefix': null,
-//     // 'declaration-colon-newline-after': null,
-//     // 'value-list-comma-newline-after': null,
-//     // 'custom-property-pattern': null,
-//     // 'color-hex-length': 'short',
-//     // 'color-function-notation': null,
-//     // 'alpha-value-notation': null,
-//     // 'value-no-vendor-prefix': null,
-//     // 'selector-class-pattern': null,
-//     // 'function-url-quotes': null,
-//     // 'no-missing-end-of-source-newline': true,
-//     // 'no-descending-specificity': null,
-//     // 'font-family-no-missing-generic-family-keyword': null,
-//     // 'order/order': ['custom-properties', 'declarations'],
-//     'order/properties-order': ['position', 'width', 'height', 'border']
-//   },
-//   overrides: [
-//     // 若项目中存在scss文件，添加以下配置
-//     // {
-//     //   files: '**/*.scss',
-//     //   customSyntax: 'postcss-scss'
-//     // },
-//     // 若项目中存在less文件，添加以下配置
-//     // {
-//     //   files: '**/*.less',
-//     //   customSyntax: 'postcss-less'
-//     // }
-//   ],
-//   // extends: ['stylelint-config-html','stylelint-config-recommended-vue'],
-// }
 module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-recommended-vue'],
   plugins: ['stylelint-order'],
   rules: {
     // 颜色指定大写
-    'color-hex-case': 'upper',
+    // 'color-hex-case': 'upper',
     // 禁止空块
     'block-no-empty': true,
     // 颜色6位长度
@@ -79,9 +35,9 @@ module.exports = {
     // property-no-vendor-prefix
     'property-no-vendor-prefix': true,
     // 禁止小于 1 的小数有一个前导零
-    'number-leading-zero': 'never',
+    // 'number-leading-zero': 'never',
     // 禁止空第一行
-    'no-empty-first-line': true,
+    // 'no-empty-first-line': true,
     // 属性的排序
     'order/properties-order': [
       'position',

@@ -1,16 +1,22 @@
+/* stylelint-disable comment-empty-line-before */
 html {
   font-size: 50px;
 }
 
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
+  --vt-t-quick: 0.1s;
+  --vt-t-short: 0.2s;
+  --vt-t-long: 0.3s;
+  /* 当前颜色 */
+  --vt-c-font-main: #2f3e50;
+  /* 浅色主题 */
+  /* 深色主题 */
+  
   --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
   --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
-  --vt-c-indigo: #2c3e50;
+  --vt-c-deep-blue: #2f3e50;
+  --vt-c-light-1: #eeeeee;
   --vt-c-divider-light-1: rgb(60 60 60 / 29%);
   --vt-c-divider-light-2: rgb(60 60 60 / 12%);
   --vt-c-divider-dark-1: rgb(84 84 84 / 65%);
@@ -22,6 +28,7 @@ html {
 }
 
 /* semantic color variables for this project */
+/* stylelint-disable-next-line no-duplicate-selectors */
 :root {
   --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);
@@ -58,7 +65,6 @@ html {
 body {
   min-width: 8.4rem;
   min-height: 100vh;
-  font-size: 15px;
   font-family:
     Inter,
     -apple-system,

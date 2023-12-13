@@ -243,8 +243,7 @@ header {
   width: 100%;
   height: 1.6rem;
   background: transparent;
-  background-color: #ffffff;
-  background-color: rgb(255 255 255 / 85%);
+  background-color: --vt-c-white;
   box-shadow: 0 0 0.4rem #cccccc;
   backdrop-filter: blur(0.4rem);
 
@@ -314,7 +313,7 @@ header {
           width: 0;
           height: 0.04rem;
           background-color: #666666;
-          transition: width 0.3s;
+          transition: width --vt-t-long;
         }
       }
 
@@ -444,7 +443,7 @@ main {
     align-items: center;
     overflow: hidden;
     border-radius: 0.2rem;
-    transition: box-shadow 0.3s;
+    transition: box-shadow --vt-t-long;
 
     .n-link {
       display: flex;
@@ -463,7 +462,7 @@ main {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform 0.3s;
+          transition: transform --vt-t-long;
         }
       }
 
@@ -475,7 +474,7 @@ main {
         padding: 0.2rem 0.4rem;
         width: 100%;
         height: 2.4rem;
-        background-color: #ffffff;
+        background-color: --vt-c-white;
         flex-direction: column;
 
         .news-title {
@@ -560,7 +559,7 @@ main {
     width: 100%;
     height: 5rem;
     background-color: #eeeeee;
-    transition: box-shadow 0.3s;
+    transition: box-shadow --vt-t-long;
 
     .project-bubble {
       position: absolute;
@@ -569,10 +568,10 @@ main {
       border-radius: 50%;
       width: 12rem;
       height: 12rem;
-      background-color: #ffffff;
+      background-color: --vt-c-white;
       transition:
-        transform 0.3s,
-        box-shadow 0.3s;
+        transform --vt-t-long,
+        box-shadow --vt-t-long;
     }
 
     .project-title {
@@ -583,7 +582,7 @@ main {
       font-size: 0.48rem;
       font-weight: 700;
       text-align: center;
-      transition: transform 0.3s;
+      transition: transform --vt-t-long;
       cursor: default;
     }
 
@@ -647,7 +646,7 @@ main {
           //   linear-gradient(105deg, transparent 75%, #fff 90%) center,
           //   url('../src/assets/img/sdutacm-homepage-project-oj3-home.png') no-repeat center / cover;
           opacity: 0;
-          transition: opacity 0.3s 1s;
+          transition: opacity --vt-t-long 1s;
         }
 
         &::after {
@@ -656,14 +655,14 @@ main {
           width: 0;
           height: 0.04rem; // todo 高度不一致
           background-color: #999999;
-          transition: width 0.3s;
+          transition: width --vt-t-long;
         }
 
         &:hover {
           &::before {
             width: 150%;
             opacity: 1;
-            transition: opacity 0.3s;
+            transition: opacity --vt-t-long;
           }
 
           &::after {
@@ -672,7 +671,7 @@ main {
 
           .project-summary {
             opacity: 0;
-            transition: opacity 0.3s 0.15s;
+            transition: opacity --vt-t-long 0.15s;
           }
         }
       }
@@ -690,13 +689,13 @@ main {
       .project-summary {
         z-index: 20;
         opacity: 1;
-        transition: opacity 0.3s 0.15s;
+        transition: opacity --vt-t-long 0.15s;
       }
 
       .project-links {
         z-index: 20;
         opacity: 1;
-        transition: opacity 0.3s 0.1s;
+        transition: opacity --vt-t-long --vt-t-quick;
       }
     }
 
@@ -725,7 +724,7 @@ main {
         &:nth-child(1) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
               url('../src/assets/img/sdutacm-homepage-project-oj3-home.png') no-repeat left / cover;
           }
         }
@@ -733,7 +732,7 @@ main {
         &:nth-child(2) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
               url('../src/assets/img/sdutacm-homepage-project-oj3-contests.png') no-repeat left /
                 cover;
           }
@@ -742,7 +741,7 @@ main {
         &:nth-child(3) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
               url('../src/assets/img/sdutacm-homepage-project-oj3-users.png') no-repeat left / cover;
           }
         }
@@ -750,7 +749,7 @@ main {
         &:nth-child(4) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
               url('../src/assets/img/sdutacm-homepage-project-oj3-github.png') no-repeat left /
                 cover;
           }
@@ -770,7 +769,7 @@ main {
         &:nth-child(1) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
               url('../src/assets/img/sdutacm-homepage-project-rankland-home.png') no-repeat left /
                 cover;
           }
@@ -779,7 +778,7 @@ main {
         &:nth-child(2) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
               url('../src/assets/img/sdutacm-homepage-project-rankland-search.png') no-repeat left /
                 cover;
           }
@@ -788,7 +787,7 @@ main {
         &:nth-child(3) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
               url('../src/assets/img/sdutacm-homepage-project-rankland-collection.png') no-repeat
                 left / cover;
           }
@@ -797,7 +796,7 @@ main {
         &:nth-child(4) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
               url('../src/assets/img/sdutacm-homepage-project-rankland-playground.png') no-repeat
                 left / cover;
           }
@@ -817,7 +816,7 @@ main {
         &:nth-child(1) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
               url('../src/assets/img/sdutacm-homepage-project-magicbook-home@2.png') no-repeat left /
                 cover;
           }
@@ -826,7 +825,7 @@ main {
         &:nth-child(2) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
               url('../src/assets/img/sdutacm-homepage-project-magicbook-missions@2.png') no-repeat
                 left / cover;
           }
@@ -835,7 +834,7 @@ main {
         &:nth-child(3) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
               url('../src/assets/img/sdutacm-homepage-project-magicbook-catalog@2.png') no-repeat
                 left / cover;
           }
@@ -844,7 +843,7 @@ main {
         &:nth-child(4) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, #ffffff 90%) center,
+              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
               url('../src/assets/img/sdutacm-homepage-project-magicbook-gallery@2.png') no-repeat
                 left / cover;
           }
@@ -996,11 +995,11 @@ main {
 
     --stripes: repeating-linear-gradient(
       100deg,
-      #ffffff 0%,
-      #ffffff 7%,
+      --vt-c-white 0%,
+      --vt-c-white 7%,
       transparent 10%,
       transparent 12%,
-      #ffffff 16%
+      --vt-c-white 16%
     );
     --stripesDark: repeating-linear-gradient(
       100deg,
