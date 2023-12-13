@@ -170,7 +170,7 @@ const clickProject = (target) => {
         <span class="project-title">RankLand</span>
         <p class="project-summary">
           <span
-            >Rank Land，由我们的开源组织 algoUX
+            >RankLand，由我们的开源组织 algoUX
             开发、算法竞赛爱好者们自发维护的、专注于托管和分享任何竞赛榜单的宝地。</span
           >
           <span>轻松查阅 ICPC、CCPC 等赛事的历史榜单。</span>
@@ -763,7 +763,7 @@ main {
           &::before {
             background:
               linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-rankland-searchX.png') no-repeat left /
+              url('../src/assets/img/sdutacm-homepage-project-rankland-search.png') no-repeat left /
                 cover;
           }
         }
