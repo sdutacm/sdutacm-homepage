@@ -1,8 +1,9 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const isDarkTheme = ref(false)
 const acitveProject = ref(0)
+// const isDarkTheme = window.matchMedia("(prefers-color-scheme: dark)"); // 是深色
 
 const toggleTheme = () => {
   isDarkTheme.value = !isDarkTheme.value
@@ -11,6 +12,13 @@ const toggleTheme = () => {
 const clickProject = (target) => {
   acitveProject.value = target === acitveProject.value ? 0 : target
 }
+
+// mounted
+onMounted(() => {
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    isDarkTheme.value = true
+  }
+})
 </script>
 
 <template>
@@ -112,9 +120,7 @@ const clickProject = (target) => {
           </div>
           <div class="news-info">
             <span class="news-title">第十五届SDUTACM校赛</span>
-            <span class="news-summary"
-              >2023年山东理工大学程序设计竞赛（SDUT校赛）于2023年5月28日举行</span
-            >
+            <span class="news-summary">2023年山东理工大学程序设计竞赛（SDUT校赛）于2023年5月28日举行</span>
             <span class="news-date">2023-05-28</span>
           </div>
         </a>
@@ -137,80 +143,47 @@ const clickProject = (target) => {
     <!-- 我们的项目 -->
     <div class="section-title">我们的项目</div>
     <div class="project">
-      <div
-        class="project-item1 project-item"
-        :class="{ acitve: acitveProject === 1 }"
-        @click="clickProject(1)"
-      >
+      <div class="project-item1 project-item" :class="{ acitve: acitveProject === 1 }" @click="clickProject(1)">
         <div class="project-bubble"></div>
         <span class="project-title">SDUT OJ 3</span>
         <p class="project-summary">
           <span>Online Judge 3，自研第三代在线评测系统，2018 年内测，2019 年正式上线。</span>
-          <span
-            >使用全栈同构技术栈开发，结合自研的次世代top0性能的评测姬，轻松服务近千人的大型比赛。</span
-          >
+          <span>使用全栈同构技术栈开发，结合自研的次世代top0性能的评测姬，轻松服务近千人的大型比赛。</span>
         </p>
         <div class="project-links">
           <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/">前往</a>
-          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/contests"
-            >竞赛</a
-          >
-          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/posts"
-            >排名</a
-          >
+          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/contests">竞赛</a>
+          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/posts">排名</a>
           <a class="p-link" target="_blank" href="https://github.com/sdutacm/onlinejudge3">源码</a>
         </div>
       </div>
-      <div
-        class="project-item2 project-item"
-        :class="{ acitve: acitveProject === 2 }"
-        @click="clickProject(2)"
-      >
+      <div class="project-item2 project-item" :class="{ acitve: acitveProject === 2 }" @click="clickProject(2)">
         <div class="project-bubble"></div>
         <span class="project-title">RankLand</span>
         <p class="project-summary">
-          <span
-            >RankLand，由我们的开源组织 algoUX
-            开发、算法竞赛爱好者们自发维护的、专注于托管和分享任何竞赛榜单的宝地。</span
-          >
+          <span>RankLand，由我们的开源组织 algoUX
+            开发、算法竞赛爱好者们自发维护的、专注于托管和分享任何竞赛榜单的宝地。</span>
           <span>轻松查阅 ICPC、CCPC 等赛事的历史榜单。</span>
         </p>
         <div class="project-links">
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/">前往</a>
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/search?kw=ICPC">探索</a>
-          <a class="p-link" target="_blank" href="https://rl.algoux.cn/collection/official"
-            >榜单合集</a
-          >
+          <a class="p-link" target="_blank" href="https://rl.algoux.cn/collection/official">榜单合集</a>
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/playground">游乐场</a>
         </div>
       </div>
-      <div
-        class="project-item3 project-item"
-        :class="{ acitve: acitveProject === 3 }"
-        @click="clickProject(3)"
-      >
+      <div class="project-item3 project-item" :class="{ acitve: acitveProject === 3 }" @click="clickProject(3)">
         <div class="project-bubble"></div>
         <span class="project-title">光之魔法书</span>
         <p class="project-summary">
           <span>光之魔法书，集前后端、数据库、爬虫、服务器等知识于一体的学习实践指北。</span>
-          <span
-            >作为光锥实验室的入门魔法指南，你需要通过学习、实践、总结进而对web魔法体系有一个清晰的概念。</span
-          >
+          <span>作为光锥实验室的入门魔法指南，你需要通过学习、实践、总结进而对web魔法体系有一个清晰的概念。</span>
         </p>
         <div class="project-links">
           <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/">前往</a>
-          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/missions/"
-            >见习任务</a
-          >
-          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/catalog/"
-            >魔法目录</a
-          >
-          <a
-            class="p-link"
-            target="_blank"
-            href="https://lcl-magicbook.sdutacm.cn/pleasant-gallery/"
-            >意义不明展览馆</a
-          >
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/missions/">见习任务</a>
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/catalog/">魔法目录</a>
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/pleasant-gallery/">意义不明展览馆</a>
         </div>
       </div>
     </div>
@@ -690,6 +663,7 @@ main {
         box-shadow: 0 0 0.4rem #ccc;
       }
     }
+
     &:hover {
       box-shadow: 0 0 0.4rem #ccc;
     }
@@ -717,8 +691,7 @@ main {
           &::before {
             background:
               linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-oj3-contests.png') no-repeat left /
-                cover;
+              url('../src/assets/img/sdutacm-homepage-project-oj3-contests.png') no-repeat left / cover;
           }
         }
 
@@ -734,8 +707,7 @@ main {
           &::before {
             background:
               linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-oj3-github.png') no-repeat left /
-                cover;
+              url('../src/assets/img/sdutacm-homepage-project-oj3-github.png') no-repeat left / cover;
           }
         }
       }
@@ -754,8 +726,7 @@ main {
           &::before {
             background:
               linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-rankland-home.png') no-repeat left /
-                cover;
+              url('../src/assets/img/sdutacm-homepage-project-rankland-home.png') no-repeat left / cover;
           }
         }
 
@@ -763,8 +734,7 @@ main {
           &::before {
             background:
               linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-rankland-search.png') no-repeat left /
-                cover;
+              url('../src/assets/img/sdutacm-homepage-project-rankland-search.png') no-repeat left / cover;
           }
         }
 
@@ -772,8 +742,7 @@ main {
           &::before {
             background:
               linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-rankland-collection.png') no-repeat
-                left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-rankland-collection.png') no-repeat left / cover;
           }
         }
 
@@ -781,8 +750,7 @@ main {
           &::before {
             background:
               linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-rankland-playground.png') no-repeat
-                left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-rankland-playground.png') no-repeat left / cover;
           }
         }
       }
@@ -801,8 +769,7 @@ main {
           &::before {
             background:
               linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-home@2.png') no-repeat left /
-                cover;
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-home@2.png') no-repeat left / cover;
           }
         }
 
@@ -810,8 +777,7 @@ main {
           &::before {
             background:
               linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-missions@2.png') no-repeat
-                left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-missions@2.png') no-repeat left / cover;
           }
         }
 
@@ -819,8 +785,7 @@ main {
           &::before {
             background:
               linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-catalog@2.png') no-repeat
-                left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-catalog@2.png') no-repeat left / cover;
           }
         }
 
@@ -828,8 +793,7 @@ main {
           &::before {
             background:
               linear-gradient(105deg, transparent 75%, #fff 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-gallery@2.png') no-repeat
-                left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-gallery@2.png') no-repeat left / cover;
           }
         }
       }
@@ -935,6 +899,7 @@ main {
           box-shadow: 0 0 0.4rem #ccc;
         }
       }
+
       &:hover {
         box-shadow: 0 0 0.4rem #ccc;
       }
@@ -968,30 +933,24 @@ main {
     inset: 0px;
     position: absolute;
 
-    --stripes: repeating-linear-gradient(
-      100deg,
-      #fff 0%,
-      #fff 7%,
-      transparent 10%,
-      transparent 12%,
-      #fff 16%
-    );
-    --stripesDark: repeating-linear-gradient(
-      100deg,
-      #000 0%,
-      #000 7%,
-      transparent 10%,
-      transparent 12%,
-      #000 16%
-    );
-    --rainbow: repeating-linear-gradient(
-      100deg,
-      #60a5fa 10%,
-      #e879f9 10%,
-      #60a5fa 20%,
-      #5eead4 25%,
-      #60a5fa 30%
-    );
+    --stripes: repeating-linear-gradient(100deg,
+        #fff 0%,
+        #fff 7%,
+        transparent 10%,
+        transparent 12%,
+        #fff 16%);
+    --stripesDark: repeating-linear-gradient(100deg,
+        #000 0%,
+        #000 7%,
+        transparent 10%,
+        transparent 12%,
+        #000 16%);
+    --rainbow: repeating-linear-gradient(100deg,
+        #60a5fa 10%,
+        #e879f9 10%,
+        #60a5fa 20%,
+        #5eead4 25%,
+        #60a5fa 30%);
     background-image: var(--stripes), var(--rainbow);
     background-size: 300%, 200%;
     background-position:
