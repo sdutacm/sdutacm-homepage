@@ -2,8 +2,6 @@ module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-recommended-vue'],
   plugins: ['stylelint-order'],
   rules: {
-    // 颜色指定大写
-    // 'color-hex-case': 'upper',
     // 禁止空块
     'block-no-empty': true,
     // 颜色6位长度
@@ -38,6 +36,9 @@ module.exports = {
     // 'number-leading-zero': 'never',
     // 禁止空第一行
     // 'no-empty-first-line': true,
+    //grid-template
+
+    
     // 属性的排序
     'order/properties-order': [
       'position',

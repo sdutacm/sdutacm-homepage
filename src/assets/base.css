@@ -5,32 +5,68 @@ html {
 
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
-  --vt-t-quick: 0.1s;
-  --vt-t-short: 0.2s;
-  --vt-t-long: 0.3s;
-  /* 当前颜色 */
-  --vt-c-font-main: #2f3e50;
-  /* 浅色主题 */
-  /* 深色主题 */
-  
-  --vt-c-white: #ffffff;
-  --vt-c-black: #181818;
-  --vt-c-deep-blue: #2f3e50;
-  --vt-c-light-1: #eeeeee;
-  --vt-c-divider-light-1: rgb(60 60 60 / 29%);
-  --vt-c-divider-light-2: rgb(60 60 60 / 12%);
-  --vt-c-divider-dark-1: rgb(84 84 84 / 65%);
-  --vt-c-divider-dark-2: rgb(84 84 84 / 48%);
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgb(60 60 60 / 66%);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgb(235 235 235 / 64%);
+  /* 动画时间 */
+  --ah-t-quick: 0.1s;
+  --ah-t-short: 0.2s;
+  --ah-t-long: 0.3s;
+  --ah-t-slow: 0.4s;
+  --ah-t-slower: 0.5s;
+
+  /* 阴影 */
+  --ah-s-shadow-1: 0 0 0.4rem var(--ah-c-light-3);
+  --ah-s-shadow-2: 0 .05rem .4rem var(--ah-tc-1);
+
+  /* 颜色 */
+  --ah-c-text1: var(--ah-c-dark-3); /* 特别深色 */
+  --ah-c-text2: var(--ah-c-dark-1); /* 主要文字：标题，图标，文案 */
+  --ah-c-text3: var(--ah-c-gray-3); /* 次要文字：小标题，标语 */
+  --ah-c-text4: var(--ah-c-light-3); /* 弱提示：时间，提示 */
+  --ah-c-background: var(--ah-c-white); /* 卡片 */
+  --ah-c-background-soft: var(--ah-c-light-1); /* 主要背景 */
+
+  /* 备选颜色，不要直接使用，而作为主题配置 */
+  --ah-c-white: #ffffff;
+  --ah-c-black: #181818;
+  --ah-c-light-1: #fcfcfc;
+  --ah-c-light-2: #eaeaea;
+  --ah-c-light-3: #c2c2c2;
+  --ah-c-gray-1: #a8a8a8;
+  --ah-c-gray-2: #7f7f7f;
+  --ah-c-gray-3: #5f5f5f;
+  --ah-c-dark-1: #3f3f3f;
+  --ah-c-dark-2: #252525;
+  --ah-c-dark-3: #0f0f0f;
+  --ah-tc-1: #00000024;
+  --ah-tc-2: #ffffffd9;
+
+  /* 我们的项目卡片背景 */
+  --ah-bg-1: linear-gradient(105deg, transparent 75%, var(--ah-c-white) 90%) center;
+
+  /* 极光颜色 */
+  --stripes: repeating-linear-gradient(100deg,
+    var(--ah-c-white) 0%,
+    var(--ah-c-white) 7%,
+    transparent 10%,
+    transparent 12%,
+    var(--ah-c-white) 16%);
+  --stripes-dark: repeating-linear-gradient(100deg,
+    #000000 0%,
+    #000000 7%,
+    transparent 10%,
+    transparent 12%,
+    #000000 16%);
+  --rainbow: repeating-linear-gradient(100deg,
+    #60a5fa 10%,
+    #e879f9 10%,
+    #60a5fa 20%,
+    #5eead4 25%,
+    #60a5fa 30%);
 }
 
 /* semantic color variables for this project */
 /* stylelint-disable-next-line no-duplicate-selectors */
-:root {
-  --color-background: var(--vt-c-white);
+/* :root {
+  --color-background: var(--ah-c-white);
   --color-background-soft: var(--vt-c-white-soft);
   --color-background-mute: var(--vt-c-white-mute);
   --color-border: var(--vt-c-divider-light-2);
@@ -38,7 +74,7 @@ html {
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
   --section-gap: 160px;
-}
+} */
 
 /* @media (prefers-color-scheme: dark) {
   :root {

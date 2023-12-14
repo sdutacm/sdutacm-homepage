@@ -55,7 +55,7 @@ onMounted(() => {
 
   <main>
     <!-- 极光背景 -->
-    <div class="jumboContainer">
+    <div class="jumbo-container">
       <div class="jumbo"></div>
     </div>
 
@@ -125,9 +125,7 @@ onMounted(() => {
           </div>
           <div class="news-info">
             <span class="news-title">第十五届SDUTACM校赛</span>
-            <span class="news-summary"
-              >2023年山东理工大学程序设计竞赛（SDUT校赛）于2023年5月28日举行</span
-            >
+            <span class="news-summary">2023年山东理工大学程序设计竞赛（SDUT校赛）于2023年5月28日举行</span>
             <span class="news-date">2023-05-28</span>
           </div>
         </a>
@@ -150,80 +148,47 @@ onMounted(() => {
     <!-- 我们的项目 -->
     <div class="section-title">我们的项目</div>
     <div class="project">
-      <div
-        class="project-item1 project-item"
-        :class="{ acitve: acitveProject === 1 }"
-        @click="clickProject(1)"
-      >
+      <div class="project-item1 project-item" :class="{ acitve: acitveProject === 1 }" @click="clickProject(1)">
         <div class="project-bubble"></div>
         <span class="project-title">SDUT OJ 3</span>
         <p class="project-summary">
           <span>Online Judge 3，自研第三代在线评测系统，2018 年内测，2019 年正式上线。</span>
-          <span
-            >使用全栈同构技术栈开发，结合自研的次世代top0性能的评测姬，轻松服务近千人的大型比赛。</span
-          >
+          <span>使用全栈同构技术栈开发，结合自研的次世代top0性能的评测姬，轻松服务近千人的大型比赛。</span>
         </p>
         <div class="project-links">
           <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/">前往</a>
-          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/contests"
-            >竞赛</a
-          >
-          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/posts"
-            >排名</a
-          >
+          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/contests">竞赛</a>
+          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/posts">排名</a>
           <a class="p-link" target="_blank" href="https://github.com/sdutacm/onlinejudge3">源码</a>
         </div>
       </div>
-      <div
-        class="project-item2 project-item"
-        :class="{ acitve: acitveProject === 2 }"
-        @click="clickProject(2)"
-      >
+      <div class="project-item2 project-item" :class="{ acitve: acitveProject === 2 }" @click="clickProject(2)">
         <div class="project-bubble"></div>
         <span class="project-title">RankLand</span>
         <p class="project-summary">
-          <span
-            >RankLand，由我们的开源组织 algoUX
-            开发、算法竞赛爱好者们自发维护的、专注于托管和分享任何竞赛榜单的宝地。</span
-          >
+          <span>RankLand，由我们的开源组织 algoUX
+            开发、算法竞赛爱好者们自发维护的、专注于托管和分享任何竞赛榜单的宝地。</span>
           <span>轻松查阅 ICPC、CCPC 等赛事的历史榜单。</span>
         </p>
         <div class="project-links">
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/">前往</a>
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/search?kw=ICPC">探索</a>
-          <a class="p-link" target="_blank" href="https://rl.algoux.cn/collection/official"
-            >榜单合集</a
-          >
+          <a class="p-link" target="_blank" href="https://rl.algoux.cn/collection/official">榜单合集</a>
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/playground">游乐场</a>
         </div>
       </div>
-      <div
-        class="project-item3 project-item"
-        :class="{ acitve: acitveProject === 3 }"
-        @click="clickProject(3)"
-      >
+      <div class="project-item3 project-item" :class="{ acitve: acitveProject === 3 }" @click="clickProject(3)">
         <div class="project-bubble"></div>
         <span class="project-title">光之魔法书</span>
         <p class="project-summary">
           <span>光之魔法书，集前后端、数据库、爬虫、服务器等知识于一体的学习实践指北。</span>
-          <span
-            >作为光锥实验室的入门魔法指南，你需要通过学习、实践、总结进而对web魔法体系有一个清晰的概念。</span
-          >
+          <span>作为光锥实验室的入门魔法指南，你需要通过学习、实践、总结进而对web魔法体系有一个清晰的概念。</span>
         </p>
         <div class="project-links">
           <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/">前往</a>
-          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/missions/"
-            >见习任务</a
-          >
-          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/catalog/"
-            >魔法目录</a
-          >
-          <a
-            class="p-link"
-            target="_blank"
-            href="https://lcl-magicbook.sdutacm.cn/pleasant-gallery/"
-            >意义不明展览馆</a
-          >
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/missions/">见习任务</a>
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/catalog/">魔法目录</a>
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/pleasant-gallery/">古怪展馆</a>
         </div>
       </div>
     </div>
@@ -242,10 +207,10 @@ header {
   padding: 0 0.6rem;
   width: 100%;
   height: 1.6rem;
-  background: transparent;
-  background-color: --vt-c-white;
-  box-shadow: 0 0 0.4rem #cccccc;
-  backdrop-filter: blur(0.4rem);
+  // background: transparent;
+  background-color: var(--ah-tc-2);
+  box-shadow: var(--ah-s-shadow-2);
+  backdrop-filter: blur(.5rem);
 
   .menu {
     display: none;
@@ -254,8 +219,11 @@ header {
     cursor: pointer;
 
     .el-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: 0.6rem;
-      color: #333333;
+      color: var(--ah-c-text2);
     }
   }
 
@@ -289,7 +257,6 @@ header {
     align-items: center;
     width: 100%;
     height: 100%;
-    color: #333333;
     gap: 0.4rem;
     transform: translate(-50%, -50%);
 
@@ -306,14 +273,15 @@ header {
         margin: 0.5rem 0;
         font-size: 0.36rem;
         font-weight: 500;
+        color: var(--ah-c-text2);
 
         &::after {
           content: '';
           display: block;
           width: 0;
           height: 0.04rem;
-          background-color: #666666;
-          transition: width --vt-t-long;
+          background-color: var(--ah-c-text2);
+          transition: width var(--ah-t-long);
         }
       }
 
@@ -332,8 +300,11 @@ header {
     cursor: pointer;
 
     .el-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: 0.6rem;
-      color: #333333;
+      color: var(--ah-c-text2);
     }
   }
 }
@@ -344,11 +315,10 @@ main {
   justify-content: flex-start;
   align-items: center;
   overflow: auto;
-  margin-top: 1.6rem;
-  padding: 0 3.6rem;
+  padding: 1.6rem 3.6rem;
   width: 100%;
   height: 100%;
-  background-color: #f5f5f5;
+  background-color: var(--ah-c-background-soft);
   flex-direction: column;
   gap: 1rem;
 
@@ -377,6 +347,7 @@ main {
     font-size: 1rem;
     font-family: 'Noto Sans SC', sans-serif;
     font-weight: 900;
+    color: var(--ah-c-text1);
   }
 
   .slogan {
@@ -384,7 +355,7 @@ main {
     margin: 0 0.7rem;
     font-size: 0.48rem;
     font-weight: 500;
-    color: #666666;
+    color: var(--ah-c-text3);
 
     &::after {
       position: absolute;
@@ -393,7 +364,7 @@ main {
       display: block;
       width: 0.5rem;
       height: 0.04rem;
-      background-color: #666666;
+      background-color: var(--ah-c-text3);
       content: '';
     }
 
@@ -404,7 +375,7 @@ main {
       display: block;
       width: 0.5rem;
       height: 0.04rem;
-      background-color: #666666;
+      background-color: var(--ah-c-text3);
       content: '';
     }
   }
@@ -418,6 +389,7 @@ main {
     p {
       margin: 0.1rem 0;
       font-size: 0.32rem;
+      color: var(--ah-c-text2);
       line-height: 0.48rem;
     }
   }
@@ -429,12 +401,10 @@ main {
   width: 100%;
   max-width: 24rem;
   height: 100%;
-  grid-template-columns: 147fr 57fr 84fr;
-  grid-template-rows: auto;
-  grid-template-areas:
+  grid-template:
     'no1 no1 no2'
     'no1 no1 no3'
-    'no4 no5 no5';
+    'no4 no5 no5' / 147fr 57fr 84fr;
   gap: 0.52rem 0.48rem;
 
   .news-item() {
@@ -443,7 +413,7 @@ main {
     align-items: center;
     overflow: hidden;
     border-radius: 0.2rem;
-    transition: box-shadow --vt-t-long;
+    transition: box-shadow var(--ah-t-long);
 
     .n-link {
       display: flex;
@@ -462,7 +432,7 @@ main {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform --vt-t-long;
+          transition: transform var(--ah-t-long);
         }
       }
 
@@ -474,7 +444,7 @@ main {
         padding: 0.2rem 0.4rem;
         width: 100%;
         height: 2.4rem;
-        background-color: --vt-c-white;
+        background-color: var(--ah-c-background);
         flex-direction: column;
 
         .news-title {
@@ -492,12 +462,13 @@ main {
           font-size: 0.32rem;
           text-overflow: ellipsis;
           white-space: nowrap;
+          color: var(--ah-c-text3);
         }
 
         .news-date {
           font-size: 0.32rem;
           text-align: right;
-          color: #cccccc;
+          color: var(--ah-c-text4);
         }
       }
     }
@@ -507,7 +478,7 @@ main {
         transform: scale(1.1);
       }
 
-      box-shadow: 0 0 0.4rem #cccccc;
+      box-shadow: var(--ah-s-shadow-1);
     }
   }
 
@@ -558,8 +529,8 @@ main {
     border-radius: 0.2rem;
     width: 100%;
     height: 5rem;
-    background-color: #eeeeee;
-    transition: box-shadow --vt-t-long;
+    background-color: var(--ah-c-background-soft);
+    transition: box-shadow var(--ah-t-long);
 
     .project-bubble {
       position: absolute;
@@ -568,10 +539,10 @@ main {
       border-radius: 50%;
       width: 12rem;
       height: 12rem;
-      background-color: --vt-c-white;
+      background-color: var(--ah-c-background);
       transition:
-        transform --vt-t-long,
-        box-shadow --vt-t-long;
+        transform var(--ah-t-long),
+        box-shadow var(--ah-t-long);
     }
 
     .project-title {
@@ -582,7 +553,8 @@ main {
       font-size: 0.48rem;
       font-weight: 700;
       text-align: center;
-      transition: transform --vt-t-long;
+      color: var(--ah-c-text2);
+      transition: transform var(--ah-t-long);
       cursor: default;
     }
 
@@ -596,6 +568,7 @@ main {
       padding: 0 1rem;
       width: 60%;
       height: 100%;
+      color: var(--ah-c-text2);
       opacity: 0;
       transition: opacity 0.2s 0s;
       flex-direction: column;
@@ -620,17 +593,18 @@ main {
       align-items: center;
       width: 40%;
       height: 80%;
-      color: #666666;
       opacity: 0;
       transition: opacity 0.2s 0s;
       flex-direction: column;
       cursor: pointer;
 
       .p-link {
+        z-index: 10;
         width: 30%;
         font-size: 0.32rem;
         font-weight: 500;
         text-align: center;
+        color: var(--ah-c-text2);
         line-height: 0.8rem;
 
         &::before {
@@ -646,7 +620,7 @@ main {
           //   linear-gradient(105deg, transparent 75%, #fff 90%) center,
           //   url('../src/assets/img/sdutacm-homepage-project-oj3-home.png') no-repeat center / cover;
           opacity: 0;
-          transition: opacity --vt-t-long 1s;
+          transition: opacity var(--ah-t-long) var(--ah-t-quick);
         }
 
         &::after {
@@ -654,15 +628,15 @@ main {
           display: block;
           width: 0;
           height: 0.04rem; // todo 高度不一致
-          background-color: #999999;
-          transition: width --vt-t-long;
+          background-color: var(--ah-c-text2);
+          transition: width var(--ah-t-long);
         }
 
         &:hover {
           &::before {
             width: 150%;
             opacity: 1;
-            transition: opacity --vt-t-long;
+            transition: opacity var(--ah-t-long);
           }
 
           &::after {
@@ -671,7 +645,7 @@ main {
 
           .project-summary {
             opacity: 0;
-            transition: opacity --vt-t-long 0.15s;
+            transition: opacity var(--ah-t-long) var(--ah-t-quick);
           }
         }
       }
@@ -687,34 +661,32 @@ main {
       }
 
       .project-summary {
-        z-index: 20;
+        z-index: 50;
         opacity: 1;
-        transition: opacity --vt-t-long 0.15s;
+        transition: opacity var(--ah-t-long) var(--ah-t-short);
       }
 
       .project-links {
-        z-index: 20;
+        z-index: 50;
         opacity: 1;
-        transition: opacity --vt-t-long --vt-t-quick;
+        transition: opacity var(--ah-t-long) var(--ah-t-short);
       }
     }
 
     &:hover:not(.acitve) {
       .project-bubble {
         transform: scale(1.2);
-        box-shadow: 0 0 0.4rem #cccccc;
+        box-shadow: var(--ah-s-shadow-1);
       }
     }
 
     &:hover {
-      box-shadow: 0 0 0.4rem #cccccc;
+      box-shadow: var(--ah-s-shadow-1);
     }
   }
 
   // 我们的项目的单独配置: 背景图 + 链接预览图
-
   .project-item1 {
-    // .project-item();
     background:
       url('../src/assets/img/sdutacm-homepage-project-oj3-logo.png') no-repeat 10% 50% / 50%,
       #f4f4f4;
@@ -724,7 +696,7 @@ main {
         &:nth-child(1) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
+              var(--ah-bg-1),
               url('../src/assets/img/sdutacm-homepage-project-oj3-home.png') no-repeat left / cover;
           }
         }
@@ -732,16 +704,15 @@ main {
         &:nth-child(2) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-oj3-contests.png') no-repeat left /
-                cover;
+              var(--ah-bg-1),
+              url('../src/assets/img/sdutacm-homepage-project-oj3-contests.png') no-repeat left / cover;
           }
         }
 
         &:nth-child(3) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
+              var(--ah-bg-1),
               url('../src/assets/img/sdutacm-homepage-project-oj3-users.png') no-repeat left / cover;
           }
         }
@@ -749,9 +720,8 @@ main {
         &:nth-child(4) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-oj3-github.png') no-repeat left /
-                cover;
+              var(--ah-bg-1),
+              url('../src/assets/img/sdutacm-homepage-project-oj3-github.png') no-repeat left / cover;
           }
         }
       }
@@ -759,7 +729,6 @@ main {
   }
 
   .project-item2 {
-    // .project-item();
     background:
       url('../src/assets/img/sdutacm-homepage-project-rankland-logo.png') no-repeat 10% 50% / 50%,
       #fff2df;
@@ -769,36 +738,32 @@ main {
         &:nth-child(1) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-rankland-home.png') no-repeat left /
-                cover;
+              var(--ah-bg-1),
+              url('../src/assets/img/sdutacm-homepage-project-rankland-home.png') no-repeat left / cover;
           }
         }
 
         &:nth-child(2) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-rankland-search.png') no-repeat left /
-                cover;
+              var(--ah-bg-1),
+              url('../src/assets/img/sdutacm-homepage-project-rankland-search.png') no-repeat left / cover;
           }
         }
 
         &:nth-child(3) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-rankland-collection.png') no-repeat
-                left / cover;
+              var(--ah-bg-1),
+              url('../src/assets/img/sdutacm-homepage-project-rankland-collection.png') no-repeat left / cover;
           }
         }
 
         &:nth-child(4) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-rankland-playground.png') no-repeat
-                left / cover;
+              var(--ah-bg-1),
+              url('../src/assets/img/sdutacm-homepage-project-rankland-playground.png') no-repeat left / cover;
           }
         }
       }
@@ -806,7 +771,6 @@ main {
   }
 
   .project-item3 {
-    // .project-item();
     background:
       url('../src/assets/img/sdutacm-homepage-project-magicbook-logo.png') no-repeat 10% 50% / 50%,
       #d6e6f2;
@@ -816,36 +780,32 @@ main {
         &:nth-child(1) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-home@2.png') no-repeat left /
-                cover;
+              var(--ah-bg-1),
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-home@2.png') no-repeat left / cover;
           }
         }
 
         &:nth-child(2) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-missions@2.png') no-repeat
-                left / cover;
+              var(--ah-bg-1),
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-missions@2.png') no-repeat left / cover;
           }
         }
 
         &:nth-child(3) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-catalog@2.png') no-repeat
-                left / cover;
+              var(--ah-bg-1),
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-catalog@2.png') no-repeat left / cover;
           }
         }
 
         &:nth-child(4) {
           &::before {
             background:
-              linear-gradient(105deg, transparent 75%, --vt-c-white 90%) center,
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-gallery@2.png') no-repeat
-                left / cover;
+              var(--ah-bg-1),
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-gallery@2.png') no-repeat left / cover;
           }
         }
       }
@@ -854,7 +814,7 @@ main {
 }
 
 // 尾随注释是在>1101px时的样式
-@media screen and (width <= 1100px) {
+@media screen and (width <=1100px) {
   header {
     height: 1.2rem; // 1.6rem
 
@@ -900,12 +860,10 @@ main {
   }
 
   .news {
-    grid-template-columns: 1fr 1fr; // 147fr 57fr 84fr
-    grid-template-rows: auto;
-    grid-template-areas:
+    grid-template:
       'no1 no1'
       'no2 no3'
-      'no4 no5';
+      'no4 no5' / 1fr 1fr;
   }
 
   .project {
@@ -948,32 +906,30 @@ main {
       &:hover:not(.acitve) {
         .project-bubble {
           transform: scale(1.1);
-          box-shadow: 0 0 0.4rem #cccccc;
+          box-shadow: var(--ah-s-shadow-1);
         }
       }
 
       &:hover {
-        box-shadow: 0 0 0.4rem #cccccc;
+        box-shadow: var(--ah-s-shadow-1);
       }
     }
   }
 }
 
-@media screen and (width <= 600px) {
+@media screen and (width <=600px) {
   .news {
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(5, 4rem);
-    grid-template-areas:
+    grid-template:
       'no1'
       'no2'
       'no3'
       'no4'
-      'no5';
+      'no5' / 1fr;
   }
 }
 
 /* 动画容器 */
-.jumboContainer {
+.jumbo-container {
   position: fixed;
   z-index: 0;
   overflow: hidden;
@@ -992,31 +948,6 @@ main {
     background-image: var(--stripes), var(--rainbow);
     mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
     pointer-events: none;
-
-    --stripes: repeating-linear-gradient(
-      100deg,
-      --vt-c-white 0%,
-      --vt-c-white 7%,
-      transparent 10%,
-      transparent 12%,
-      --vt-c-white 16%
-    );
-    --stripesDark: repeating-linear-gradient(
-      100deg,
-      #000000 0%,
-      #000000 7%,
-      transparent 10%,
-      transparent 12%,
-      #000000 16%
-    );
-    --rainbow: repeating-linear-gradient(
-      100deg,
-      #60a5fa 10%,
-      #e879f9 10%,
-      #60a5fa 20%,
-      #5eead4 25%,
-      #60a5fa 30%
-    );
 
     &::after {
       content: '';
