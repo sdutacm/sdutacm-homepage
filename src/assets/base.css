@@ -30,6 +30,7 @@ html {
   --ah-tc-3: #20293a66;
   --ah-c-primary: #111729;
   --ah-c-secondary: #20293a;
+  --ah-c-third: #858cfa;
   
   /* 极光配置 */
   --stripes: repeating-linear-gradient(100deg,
