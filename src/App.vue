@@ -4,14 +4,15 @@ import { ref, onMounted } from 'vue'
 const isDarkTheme = ref(false)
 const acitveProject = ref(0)
 
-const BodyElement = document.querySelector('body')
+// const BodyElement = document.querySelector('body')
+const HtmlElement = document.querySelector('html')
 
 const toggleTheme = () => {
   isDarkTheme.value = !isDarkTheme.value
   if (isDarkTheme.value) {
-    BodyElement.classList.add('dark-theme')
+    HtmlElement.classList.add('dark-theme')
   } else {
-    BodyElement.classList.remove('dark-theme')
+    HtmlElement.classList.remove('dark-theme')
   }
 }
 
@@ -207,8 +208,7 @@ header {
   padding: 0 0.6rem;
   width: 100%;
   height: 1.6rem;
-  // background: transparent;
-  background-color: var(--ah-tc-2);
+  background-color: var(--ah-c-background-transparent);
   box-shadow: var(--ah-s-shadow-2);
   backdrop-filter: blur(.5rem);
 
@@ -245,6 +245,7 @@ header {
     h1 {
       font-size: 0.64rem;
       font-weight: 700;
+      color: var(--ah-c-text2);
     }
   }
 
@@ -331,6 +332,7 @@ main {
 .section-title {
   font-size: 0.8rem;
   font-weight: 700;
+  color: var(--ah-c-text1);
 }
 
 // SDUTACM简介
@@ -444,7 +446,7 @@ main {
         padding: 0.2rem 0.4rem;
         width: 100%;
         height: 2.4rem;
-        background-color: var(--ah-c-background);
+        background-color: var(--ah-c-background-card);
         flex-direction: column;
 
         .news-title {
@@ -454,6 +456,7 @@ main {
           font-weight: 700;
           text-overflow: ellipsis;
           white-space: nowrap;
+          color: var(--ah-c-text2);
         }
 
         .news-summary {
@@ -539,7 +542,7 @@ main {
       border-radius: 50%;
       width: 12rem;
       height: 12rem;
-      background-color: var(--ah-c-background);
+      background-color: var(--ah-c-background-card);
       transition:
         transform var(--ah-t-long),
         box-shadow var(--ah-t-long);
@@ -579,6 +582,7 @@ main {
         font-size: 0.32rem;
         font-weight: 500;
         line-height: 0.48rem;
+        user-select: none;
         // z-index: -10; // todo 不生效
       }
     }
@@ -664,6 +668,10 @@ main {
         z-index: 50;
         opacity: 1;
         transition: opacity var(--ah-t-long) var(--ah-t-short);
+
+        span {
+          user-select: auto;
+        }
       }
 
       .project-links {
@@ -696,7 +704,7 @@ main {
         &:nth-child(1) {
           &::before {
             background:
-              var(--ah-bg-1),
+              var(--ah-bg-project),
               url('../src/assets/img/sdutacm-homepage-project-oj3-home.png') no-repeat left / cover;
           }
         }
@@ -704,7 +712,7 @@ main {
         &:nth-child(2) {
           &::before {
             background:
-              var(--ah-bg-1),
+              var(--ah-bg-project),
               url('../src/assets/img/sdutacm-homepage-project-oj3-contests.png') no-repeat left / cover;
           }
         }
@@ -712,7 +720,7 @@ main {
         &:nth-child(3) {
           &::before {
             background:
-              var(--ah-bg-1),
+              var(--ah-bg-project),
               url('../src/assets/img/sdutacm-homepage-project-oj3-users.png') no-repeat left / cover;
           }
         }
@@ -720,7 +728,7 @@ main {
         &:nth-child(4) {
           &::before {
             background:
-              var(--ah-bg-1),
+              var(--ah-bg-project),
               url('../src/assets/img/sdutacm-homepage-project-oj3-github.png') no-repeat left / cover;
           }
         }
@@ -738,7 +746,7 @@ main {
         &:nth-child(1) {
           &::before {
             background:
-              var(--ah-bg-1),
+              var(--ah-bg-project),
               url('../src/assets/img/sdutacm-homepage-project-rankland-home.png') no-repeat left / cover;
           }
         }
@@ -746,7 +754,7 @@ main {
         &:nth-child(2) {
           &::before {
             background:
-              var(--ah-bg-1),
+              var(--ah-bg-project),
               url('../src/assets/img/sdutacm-homepage-project-rankland-search.png') no-repeat left / cover;
           }
         }
@@ -754,7 +762,7 @@ main {
         &:nth-child(3) {
           &::before {
             background:
-              var(--ah-bg-1),
+              var(--ah-bg-project),
               url('../src/assets/img/sdutacm-homepage-project-rankland-collection.png') no-repeat left / cover;
           }
         }
@@ -762,7 +770,7 @@ main {
         &:nth-child(4) {
           &::before {
             background:
-              var(--ah-bg-1),
+              var(--ah-bg-project),
               url('../src/assets/img/sdutacm-homepage-project-rankland-playground.png') no-repeat left / cover;
           }
         }
@@ -780,7 +788,7 @@ main {
         &:nth-child(1) {
           &::before {
             background:
-              var(--ah-bg-1),
+              var(--ah-bg-project),
               url('../src/assets/img/sdutacm-homepage-project-magicbook-home@2.png') no-repeat left / cover;
           }
         }
@@ -788,7 +796,7 @@ main {
         &:nth-child(2) {
           &::before {
             background:
-              var(--ah-bg-1),
+              var(--ah-bg-project),
               url('../src/assets/img/sdutacm-homepage-project-magicbook-missions@2.png') no-repeat left / cover;
           }
         }
@@ -796,7 +804,7 @@ main {
         &:nth-child(3) {
           &::before {
             background:
-              var(--ah-bg-1),
+              var(--ah-bg-project),
               url('../src/assets/img/sdutacm-homepage-project-magicbook-catalog@2.png') no-repeat left / cover;
           }
         }
@@ -804,7 +812,7 @@ main {
         &:nth-child(4) {
           &::before {
             background:
-              var(--ah-bg-1),
+              var(--ah-bg-project),
               url('../src/assets/img/sdutacm-homepage-project-magicbook-gallery@2.png') no-repeat left / cover;
           }
         }
@@ -817,6 +825,7 @@ main {
 @media screen and (width <=1100px) {
   header {
     height: 1.2rem; // 1.6rem
+    background-color: var(--ah-c-secondary);
 
     .menu {
       display: block; // none
@@ -943,9 +952,9 @@ main {
       50% 50%;
     background-size: 300%, 200%;
     opacity: 0.5;
-    filter: blur(10px) invert(100%);
+    filter: var(--stripes-filter);
     inset: 0;
-    background-image: var(--stripes), var(--rainbow);
+    background-image: var(--stripes-style), var(--rainbow);
     mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
     pointer-events: none;
 
@@ -953,7 +962,7 @@ main {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: var(--stripes), var(--rainbow);
+      background-image: var(--stripes-style), var(--rainbow);
       background-size: 200%, 100%;
       animation: jumbo 60s linear infinite;
       background-attachment: fixed;
