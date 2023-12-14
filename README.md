@@ -1,35 +1,6 @@
 # sdutacm-homepage
 
-This template should help get you started developing with Vue 3 in Vite.
+SDUTACM 首页
 
-## Recommended IDE Setup
+![Static Badge](https://img.shields.io/badge/Language-Vue%20%7C%20JavaScript%20%7C%20Less-blue) ![Static Badge](https://img.shields.io/badge/%E5%93%8D%E5%BA%94%E5%BC%8F-Yes-green) ![Static Badge](https://img.shields.io/badge/%E6%9A%97%E9%BB%91%E4%B8%BB%E9%A2%98-Yes-%23272b33)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
