@@ -87,7 +87,7 @@ onMounted(() => {
           </div>
           <div class="news-info">
             <span class="news-title">蔚蓝系列赛</span>
-            <span class="news-summary">OJ3作者bLue同学用爱赞助，火热报名中......</span>
+            <span class="news-summary">OJ3作者bLue同学用爱赞助，火热报名中！</span>
             <span class="news-date">2023-12-01</span>
           </div>
         </a>
@@ -126,7 +126,7 @@ onMounted(() => {
           </div>
           <div class="news-info">
             <span class="news-title">第十五届SDUTACM校赛</span>
-            <span class="news-summary">2023年山东理工大学程序设计竞赛（SDUT校赛）于2023年5月28日举行</span>
+            <!-- <span class="news-summary">2023年山东理工大学程序设计竞赛（SDUT校赛）于2023年5月28日举行</span> -->
             <span class="news-date">2023-05-28</span>
           </div>
         </a>
@@ -139,7 +139,7 @@ onMounted(() => {
           </div>
           <div class="news-info">
             <span class="news-title">SDUTACM十五周年庆典</span>
-            <span class="news-summary">15载时光荏苒，SDUTACM实验室迎来了自己的十五岁生日</span>
+            <span class="news-summary">15载时光荏苒</span>
             <span class="news-date">2023-10-15</span>
           </div>
         </a>
@@ -575,7 +575,6 @@ main {
       opacity: 0;
       transition: opacity 0.2s 0s;
       flex-direction: column;
-      // z-index: -10; // todo 不生效
 
       span {
         margin: 0.2rem 0;
@@ -583,7 +582,6 @@ main {
         font-weight: 500;
         line-height: 0.48rem;
         user-select: none;
-        // z-index: -10; // todo 不生效
       }
     }
 
@@ -855,7 +853,7 @@ main {
 
   main {
     margin-top: 1.2rem; // 1.6rem
-    padding: 0 0.6rem; // 0 3.6rem
+    padding: 0 1.6rem; // 0 3.6rem
   }
 
   .summary {
@@ -927,6 +925,10 @@ main {
 }
 
 @media screen and (width <=600px) {
+  main {
+    padding: 0 0.4rem;
+  }
+
   .news {
     grid-template:
       'no1'
@@ -934,6 +936,15 @@ main {
       'no3'
       'no4'
       'no5' / 1fr;
+  }
+
+  .project {
+    width: 100%; // 80%
+    max-width: 16rem; // 16rem
+
+    .project-item {
+      height: 4rem; // 5rem
+    }
   }
 }
 
