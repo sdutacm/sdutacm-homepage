@@ -1,8 +1,10 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import fastlinks from './assets/fastlinks'
 
 const isDarkTheme = ref(false)
 const acitveProject = ref(0)
+const isFastLinkShow = ref(false)
 
 const HtmlElement = document.querySelector('html')
 
@@ -15,12 +17,16 @@ const toggleTheme = () => {
   }
 }
 
+const toggleFastLink = () => {
+  isFastLinkShow.value = !isFastLinkShow.value
+}
+
 const clickProject = (target) => {
   acitveProject.value = target === acitveProject.value ? 0 : target
 }
 
 onMounted(() => {
-  // 判断是否为深色主题
+  // 页面加载时，判断是否为深色主题
   if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
     toggleTheme()
   }
@@ -48,7 +54,18 @@ onMounted(() => {
       <div class="nav-item">
         <a target="_blank" rel="noopener noreferrer" href="https://lcl.sdutacm.cn/">光锥实验室</a>
       </div>
-      <div class="nav-item"><a>快速链接</a></div>
+      <div class="nav-item"><span @click="toggleFastLink()">快速链接</span></div>
+    </div>
+    <div class="drop-down" v-show="isFastLinkShow">
+      <div v-for="groups in fastlinks" :key="groups.title" class="dd-container">
+        <span>{{ groups.title }}</span>
+        <div class="dd-group">
+          <div v-for="item in groups" :key="item.link" class="dd-item">
+            <span>{{ item.title }}</span>
+            <span>{{ item.desc }}</span>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="toggle" @click="toggleTheme">
       <el-icon v-show="!isDarkTheme">
@@ -288,27 +305,47 @@ header {
 
       a,
       span {
+        overflow: hidden;
         margin: 0.5rem 0;
         font-size: 0.36rem;
         font-weight: 500;
         color: var(--ah-c-text2);
+        line-height: 0.48rem;
+        user-select: none;
 
         &::after {
           content: '';
           display: block;
-          width: 0;
+          width: 110%;
           height: 0.04rem;
           background-color: var(--ah-c-text2);
-          transition: width var(--ah-t-long);
+          animation: slide-out-to-tight var(--ah-t-short) ease-in-out forwards;
         }
 
         &:hover {
-          span::after {
-            content: '';
-            width: 100%;
+          &::after {
+            animation: slide-in-from-left var(--ah-t-short) ease-in-out forwards;
           }
         }
       }
+    }
+  }
+
+  .drop-down {
+    position: absolute;
+    top: 1.6rem;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+    min-height: 8rem;
+    background: #999999;
+    gap: 20px;
+
+    .dd-container {
+      background-color: #ffffff;
     }
   }
 
@@ -618,6 +655,7 @@ main {
 
       .p-link {
         z-index: 10;
+        overflow: hidden;
         width: 30%;
         font-size: 0.32rem;
         font-weight: 500;
@@ -644,10 +682,10 @@ main {
         &::after {
           content: '';
           display: block;
-          width: 0;
-          height: 0.04rem; // todo 高度不一致
+          width: 110%;
+          height: 0.04rem;
           background-color: var(--ah-c-text2);
-          transition: width var(--ah-t-long);
+          animation: slide-out-to-tight var(--ah-t-short) ease-in-out forwards;
         }
 
         &:hover {
@@ -658,7 +696,7 @@ main {
           }
 
           &::after {
-            width: 100%;
+            animation: slide-in-from-left var(--ah-t-short) ease-in-out forwards;
           }
 
           .project-summary {
@@ -1101,6 +1139,26 @@ footer {
     background-position:
       350% 50%,
       350% 50%;
+  }
+}
+
+@keyframes slide-in-from-left {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-to-tight {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
   }
 }
 </style>
