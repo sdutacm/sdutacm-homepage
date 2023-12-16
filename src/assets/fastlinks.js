@@ -10,12 +10,6 @@ export default [
         desc: '全球最大的算法竞赛平台'
       },
       {
-        title: 'Codeforces 镜像',
-        icon: 'https://codeforc.es/favicon.ico',
-        link: 'https://codeforc.es/',
-        desc: ''
-      },
-      {
         title: 'Atcoder',
         icon: 'https://atcoder.jp/favicon.ico',
         link: 'https://atcoder.jp/',
@@ -25,7 +19,7 @@ export default [
         title: 'Acwing',
         icon: 'https://www.acwing.com/favicon.ico',
         link: 'https://www.acwing.com/',
-        desc: ''
+        desc: '由闫学灿创办的算法竞赛学习平台'
       },
       {
         title: '牛客竞赛',
@@ -37,24 +31,36 @@ export default [
         title: 'PTA',
         icon: '', // todo 都是svg
         link: 'https://pintia.cn/',
-        desc: ''
+        desc: '程序设计类实验辅助教学平台'
       },
       {
         title: 'VJ',
         icon: 'https://vjudge.net/favicon.ico',
         link: 'https://vjudge.net/',
-        desc: ''
+        desc: '算法竞赛题目爬虫网站'
       },
       {
         title: 'VJ 镜像',
         icon: 'https://vjudge.csgrandeur.cn/favicon.ico',
         link: 'https://vjudge.csgrandeur.cn/',
-        desc: ''
+        desc: '算法竞赛题目爬虫网站镜像'
       },
       {
         title: '洛谷',
         icon: 'https://www.luogu.com.cn/favicon.ico',
         link: 'https://www.luogu.com.cn/',
+        desc: ''
+      },
+      {
+        title: 'Universal Cup',
+        icon: '', // todo 无图标
+        link: 'https://ucup.ac/',
+        desc: '非营利的公益组织，致力于给有志于提高算法竞赛水平的队伍提供实战演练'
+      },
+      {
+        title: 'QOJ',
+        icon: '', // todo 无图标
+        link: 'https://qoj.ac/',
         desc: ''
       },
       {
@@ -91,7 +97,7 @@ export default [
         title: 'OMC',
         icon: 'https://onlinemathcontest.com/favicon.ico',
         link: 'https://onlinemathcontest.com/',
-        desc: ''
+        desc: '数学题竞赛平台(日文)'
       },
       {
         title: '计蒜客',
@@ -109,12 +115,6 @@ export default [
         title: 'UOJ',
         icon: 'https://cdn.uoj.ac/pictures/UOJ_small.png',
         link: 'https://uoj.ac/',
-        desc: ''
-      },
-      {
-        title: 'QOJ',
-        icon: '', // todo 无图标
-        link: 'https://qoj.ac/',
         desc: ''
       },
       {

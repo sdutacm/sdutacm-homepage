@@ -1,7 +1,7 @@
 /* stylelint-disable comment-empty-line-before */
 html {
   font-size: 50px;
-  background-color: var(--ah-c-background-soft);
+  background-color: var(--ah-c-background-bg);
 }
 
 /* ----- 默认配置 ----- */
@@ -17,7 +17,7 @@ html {
   --ah-c-white: #ffffff;
   --ah-c-black: #181818;
   --ah-c-light-1: #fcfcfc;
-  --ah-c-light-2: #eaeaea;
+  --ah-c-light-2: #f2f2f2;
   --ah-c-light-3: #c2c2c2;
   --ah-c-gray-1: #a8a8a8;
   --ah-c-gray-2: #7f7f7f;
@@ -25,12 +25,16 @@ html {
   --ah-c-dark-1: #3f3f3f;
   --ah-c-dark-2: #252525;
   --ah-c-dark-3: #0f0f0f;
-  --ah-tc-1: #ffffffd9;
+  --ah-tc-1: #afafafaf;
   --ah-tc-2: #00000099;
   --ah-tc-3: #20293a66;
-  --ah-c-primary: #111729;
-  --ah-c-secondary: #20293a;
-  --ah-c-third: #858cfa;
+  --ah-tc-4: #86a1c255;
+  --ah-c-light-primary: #eceff4;
+  --ah-c-light-secondary: #d9dee9;
+  --ah-c-light-third: #b0c8e6;
+  --ah-c-dark-primary: #111729;
+  --ah-c-dark-secondary: #0d1729;
+  --ah-c-dark-third: #858cfa;
   
   /* 极光配置 */
   --stripes: repeating-linear-gradient(100deg,
@@ -60,16 +64,18 @@ html {
 :root {  
   /* 阴影 */
   --ah-s-shadow-1: 0 0 0.4rem var(--ah-c-light-3);
-  --ah-s-shadow-2: 0 .05rem .4rem var(--ah-tc-1);
+  --ah-s-shadow-2: 0 .05rem .4rem var(--ah-tc-4);
   
   /* 颜色 */
   --ah-c-text1: var(--ah-c-dark-3); /* 特别深色 */
   --ah-c-text2: var(--ah-c-dark-1); /* 主要文字：标题，图标，文案 */
   --ah-c-text3: var(--ah-c-gray-3); /* 次要文字：小标题，标语 */
   --ah-c-text4: var(--ah-c-light-3); /* 弱提示：时间，提示 */
-  --ah-c-background-card: var(--ah-c-white); /* 卡片 */
-  --ah-c-background-soft: var(--ah-c-light-1); /* 主要背景 */
-  --ah-c-background-transparent: var(--ah-tc-1); /* 透明背景 */
+  --ah-c-background-card: var(--ah-c-light-1); /* 卡片 */
+  --ah-c-background-bg: var(--ah-c-light-primary); /* 背景 */
+  --ah-c-background-header: var(--ah-c-light-primary); /* 导航条 */
+  --ah-c-background-transparent-drop-down: var(--ah-tc-4); /* 透明背景-下拉菜单 */
+  --ah-c-background-button: var(--ah-c-light-third); /* 按钮 */
   --stripes-style: var(--stripes);
   --stripes-filter: var(--filter);
   --ah-bg-project: linear-gradient(105deg, transparent 75%, var(--ah-c-background-card) 85%) center;
@@ -86,9 +92,11 @@ html {
   --ah-c-text2: var(--ah-c-light-1); /* 主要文字：标题，图标，文案 */
   --ah-c-text3: var(--ah-c-light-2); /* 次要文字：小标题，标语 */
   --ah-c-text4: var(--ah-c-gray-1); /* 弱提示：时间，提示 */
-  --ah-c-background-card: var(--ah-c-secondary); /* 卡片 */
-  --ah-c-background-soft: var(--ah-c-primary); /* 主要背景 */
-  --ah-c-background-transparent: var(--ah-tc-3); /* 透明背景 */
+  --ah-c-background-card: var(--ah-c-dark-secondary); /* 卡片 */
+  --ah-c-background-bg: var(--ah-c-dark-primary); /* 背景 */
+  --ah-c-background-header: var(--ah-c-dark-primary); /* 导航条 */
+  --ah-c-background-transparent-drop-down: var(--ah-tc-3); /* 透明背景-下拉菜单 */
+  --ah-c-background-button: var(--ah-c-dark-third); /* 按钮 */
   --stripes-style: var(--stripes-dark);
   --stripes-filter: var(--filter-dark);
 }
