@@ -123,10 +123,28 @@ onUnmounted(() => {
     <div v-for="groups in fastlinks" :key="groups.title" class="dd-container">
       <span class="dd-title">{{ groups.title }}</span>
       <div class="dd-group">
-        <div v-for="item in groups.links" :key="item.link" class="dd-item">
-          <span>{{ item.title }}</span>
-          <!-- <span>{{ item.desc }}</span> -->
-        </div>
+        <a
+          v-for="item in groups.links"
+          :key="item.link"
+          :href="item.link"
+          class="dd-item"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="dd-icon">
+            <span v-if="item.icon" :style="{ backgroundImage: `url(${item.icon})` }"></span>
+            <span v-else>
+              {{ item.title[0] }}
+            </span>
+          </div>
+          <div class="dd-content">
+            <span class="dd-content-title" :class="{ noDesc: item.desc === '' }">{{
+              item.title
+            }}</span>
+            <span class="dd-content-desc">{{ item.desc }}</span>
+            <el-icon><Right /></el-icon>
+          </div>
+        </a>
       </div>
     </div>
   </div>
@@ -427,14 +445,6 @@ header {
             animation: slide-in-from-left var(--ah-t-short) ease-in-out forwards;
           }
         }
-
-        // 当点击时
-        &:active {
-          &::after {
-            // width: 75%;
-            // animation: scale-down-and-up var(--ah-t-short); // todo
-          }
-        }
       }
 
       &:hover {
@@ -481,7 +491,6 @@ header {
   z-index: 50;
   overflow: hidden;
   transform: translate(-50%, 0);
-  // transform: translateY(-100%); // js控制
   transition: transform var(--ah-t-long);
 
   // 区分三个分类, 包含标题和内容组
@@ -511,11 +520,112 @@ header {
       // 每个内容组包含了很多个链接单元 item
       .dd-item {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        font-size: 0.32rem;
+        justify-content: flex-start;
+        align-items: center;
         width: 50%;
+        height: 1rem;
+
+        .dd-icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 10%;
+          overflow: hidden;
+          width: 18%;
+
+          span {
+            display: block;
+            width: 0.5rem;
+            height: 0.5rem;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-size: 0.5rem;
+            font-weight: 700;
+            line-height: 0.5rem;
+            text-align: center;
+            color: var(--ah-c-text1);
+          }
+        }
+
+        .dd-content {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          width: 82%;
+
+          .dd-content-title {
+            position: absolute;
+            top: 50%;
+            left: 0.2rem;
+            transform: translate(0, -50%);
+            width: 100%;
+            font-size: 0.32rem;
+            font-weight: 500;
+            color: var(--ah-c-text1);
+            line-height: 0.5rem;
+            user-select: none;
+            transition: transform var(--ah-t-short);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-right: 0.32rem;
+          }
+
+          .dd-content-desc {
+            position: absolute;
+            top: 50%;
+            left: 0.2rem;
+            transform: translate(0, -50%);
+            opacity: 0;
+            visibility: hidden;
+            transition:
+              opacity var(--ah-t-short),
+              transform var(--ah-t-short);
+            font-size: 0.24rem;
+            font-weight: 500;
+            color: var(--ah-c-text3);
+            line-height: 0.4rem;
+            user-select: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+            padding-right: 0.32rem;
+          }
+
+          .el-icon {
+            display: none;
+            position: absolute;
+            top: 50%;
+            right: 0.06rem;
+            transform: translate(0, -50%);
+            font-size: 0.32rem;
+            color: var(--ah-c-text1);
+
+            &:hover {
+              color: var(--ah-c-text3);
+            }
+          }
+        }
+
+        &:hover {
+          background-color: var(--ah-tc-5);
+
+          .dd-content-title:not(.noDesc) {
+            transform: translate(0, -90%);
+          }
+
+          .dd-content-desc {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(0, 10%);
+          }
+
+          .el-icon {
+            display: flex;
+          }
+        }
       }
     }
   }
@@ -1324,21 +1434,6 @@ footer {
 
   100% {
     transform: translateX(110%);
-  }
-}
-
-@keyframes scale-down-and-up {
-  0% {
-    // transform: scale(1);
-    width: 100%;
-  }
-  50% {
-    // transform: scale(0.1);
-    width: 10%;
-  }
-  100% {
-    // transform: scale(1);
-    width: 100%;
   }
 }
 </style>

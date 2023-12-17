@@ -7,31 +7,25 @@ export default [
         title: 'Codeforces',
         icon: 'https://codeforces.com/favicon.ico',
         link: 'https://codeforces.com/',
-        desc: '全球最大的算法竞赛平台'
+        desc: '全球最大算法竞赛平台'
       },
       {
         title: 'Atcoder',
         icon: 'https://atcoder.jp/favicon.ico',
         link: 'https://atcoder.jp/',
-        desc: ''
+        desc: '日本最大的算法竞技网站'
       },
       {
         title: 'Acwing',
         icon: 'https://www.acwing.com/favicon.ico',
         link: 'https://www.acwing.com/',
-        desc: '由闫学灿创办的算法竞赛学习平台'
+        desc: '算法竞赛学习平台'
       },
       {
         title: '牛客竞赛',
         icon: 'https://ac.nowcoder.com/favicon.ico',
         link: 'https://ac.nowcoder.com/',
         desc: ''
-      },
-      {
-        title: 'PTA',
-        icon: '', // todo 都是svg
-        link: 'https://pintia.cn/',
-        desc: '程序设计类实验辅助教学平台'
       },
       {
         title: 'VJ',
@@ -46,6 +40,12 @@ export default [
         desc: '算法竞赛题目爬虫网站镜像'
       },
       {
+        title: 'PTA',
+        icon: '', // todo 都是svg
+        link: 'https://pintia.cn/',
+        desc: '程序设计类实验辅助教学平台'
+      },
+      {
         title: '洛谷',
         icon: 'https://www.luogu.com.cn/favicon.ico',
         link: 'https://www.luogu.com.cn/',
@@ -55,7 +55,7 @@ export default [
         title: 'Universal Cup',
         icon: '', // todo 无图标
         link: 'https://ucup.ac/',
-        desc: '非营利的公益组织，致力于给有志于提高算法竞赛水平的队伍提供实战演练'
+        desc: '提供算法实战演练'
       },
       {
         title: 'QOJ',
@@ -113,7 +113,8 @@ export default [
       },
       {
         title: 'UOJ',
-        icon: 'https://cdn.uoj.ac/pictures/UOJ_small.png',
+        icon: '',
+        // icon: 'https://cdn.uoj.ac/pictures/UOJ_small.png', // todo 无法获取
         link: 'https://uoj.ac/',
         desc: ''
       },
@@ -141,22 +142,22 @@ export default [
         desc: '数列工具'
       },
       {
-        title: '代码粘贴板',
+        title: 'paste.ubuntu',
         icon: 'https://paste.ubuntu.com/favicon.ico',
         link: 'https://paste.ubuntu.com/',
-        desc: 'ubuntu'
+        desc: '代码粘贴板'
       },
       {
-        title: '代码粘贴板',
+        title: 'paste.nugine',
         icon: 'https://paste.nugine.xyz/favicon.ico',
         link: 'https://paste.nugine.xyz/',
-        desc: 'nugine'
+        desc: '代码粘贴板'
       },
       {
-        title: '代码粘贴板',
+        title: 'paste.洛谷',
         icon: 'https://www.luogu.com.cn/favicon.ico',
         link: 'https://www.luogu.com.cn/paste',
-        desc: '洛谷'
+        desc: '代码粘贴板'
       },
       {
         title: 'diffchecker',
@@ -195,7 +196,7 @@ export default [
         desc: '超大数快速质因子分解工具'
       },
       {
-        title: 'csacademy graph editor',
+        title: 'graph editor',
         icon: 'https://csacademy.com/favicon.ico',
         link: 'https://csacademy.com/app/graph_editor/',
         desc: '图论画图工具'
@@ -231,8 +232,9 @@ export default [
         desc: '3D 函数图像/几何计算器'
       },
       {
-        title: 'Approach Zero',
-        icon: 'https://approach0.xyz/favicon.ico',
+        title: 'Approach0',
+        icon: '',
+        // icon: 'https://approach0.xyz/favicon.ico', // todo 无法获取
         link: 'https://approach0.xyz/search/', // todo 需要魔法
         desc: 'Latex 搜索数学结论工具'
       },
@@ -284,20 +286,21 @@ export default [
         desc: ''
       },
       {
-        title: '团体程序设计天梯赛',
+        title: '天梯赛',
         icon: 'https://static.pintia.cn/gplt/icons/favicon.ico',
         link: 'https://gplt.patest.cn/regulation',
-        desc: ''
+        desc: '团体程序设计天梯赛'
       },
       {
-        title: 'Robocom 官网',
+        title: 'Robocom',
         icon: 'https://www.robocom.com.cn/favicon.ico',
         link: 'https://www.robocom.com.cn/',
         desc: ''
       },
       {
-        title: 'NOI 官网',
-        icon: 'https://www.noi.cn/images/logo.png', // todo 左侧图标
+        title: 'NOI',
+        icon: '',
+        // icon: 'https://www.noi.cn/images/logo.png', // todo 左侧图标
         link: 'https://www.noi.cn/',
         desc: '全国青少年信息学奥林匹克竞赛'
       },
@@ -320,7 +323,7 @@ export default [
         desc: 'Codeforces 题目/比赛清单'
       },
       {
-        title: 'AtCoder Problems',
+        title: 'AtCoder题集',
         icon: '', // todo 无图标
         link: 'https://kenkoooo.com/atcoder/#/table/',
         desc: 'Atcoder 题目/比赛清单'
@@ -345,7 +348,8 @@ export default [
       },
       {
         title: 'CSDN',
-        icon: 'https://csdnimg.cn/favicon.ico',
+        icon: '',
+        // icon: 'https://csdnimg.cn/favicon.ico', // todo 无法获取
         link: 'https://www.csdn.net/',
         desc: ''
       }
