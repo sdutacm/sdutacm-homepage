@@ -1,41 +1,56 @@
 // 算法竞赛常用网站 -- by 凌乱之风
-export default [
+const base_url = '../src/assets/icon/';
+
+const fastlinks = [
   {
     title: '算法竞赛常用 OJ',
     links: [
       {
         title: 'Codeforces',
         icon: 'https://codeforces.com/favicon.ico',
+        local_icon: base_url + 'codeforces.ico',
         link: 'https://codeforces.com/',
         desc: '全球最大算法竞赛平台'
       },
       {
         title: 'Atcoder',
         icon: 'https://atcoder.jp/favicon.ico',
+        local_icon: base_url + 'atcoder.png',
         link: 'https://atcoder.jp/',
         desc: '日本最大的算法竞技网站'
       },
       {
         title: 'Acwing',
         icon: 'https://www.acwing.com/favicon.ico',
+        local_icon: base_url + 'acwing.ico',
         link: 'https://www.acwing.com/',
         desc: '算法竞赛学习平台'
       },
       {
         title: '牛客竞赛',
         icon: 'https://ac.nowcoder.com/favicon.ico',
+        local_icon: base_url + 'newcoder.ico',
         link: 'https://ac.nowcoder.com/',
         desc: ''
       },
       {
+        title: 'PTA',
+        icon: '', // ? 都是svg
+        local_icon: base_url + 'pta.png',
+        link: 'https://pintia.cn/',
+        desc: '程序设计类实验辅助教学平台'
+      },
+      {
         title: 'VJ',
         icon: 'https://vjudge.net/favicon.ico',
+        local_icon: base_url + 'vjudge.ico',
         link: 'https://vjudge.net/',
         desc: '算法竞赛题目爬虫网站'
       },
       {
         title: 'VJ 镜像',
         icon: 'https://vjudge.csgrandeur.cn/favicon.ico',
+        local_icon: base_url + 'vjudge.ico',
         link: 'https://vjudge.csgrandeur.cn/',
         desc: '算法竞赛题目爬虫网站镜像'
       },
@@ -48,36 +63,42 @@ export default [
       {
         title: '洛谷',
         icon: 'https://www.luogu.com.cn/favicon.ico',
+        local_icon: base_url + 'luogu.ico',
         link: 'https://www.luogu.com.cn/',
         desc: ''
       },
       {
         title: 'Universal Cup',
-        icon: '', // todo 无图标
+        icon: '',
+        local_icon: '', // ? 无图标
         link: 'https://ucup.ac/',
         desc: '提供算法实战演练'
       },
       {
         title: 'QOJ',
-        icon: '', // todo 无图标
+        icon: '',
+        local_icon: '', // ? 无图标
         link: 'https://qoj.ac/',
         desc: ''
       },
       {
         title: '代码源',
         icon: 'http://oj.daimayuan.top/images/logo_small.png',
+        local_icon: base_url + 'daimayuan.png',
         link: 'http://oj.daimayuan.top/',
         desc: ''
       },
       {
         title: 'HDUOJ',
         icon: 'https://acm.hdu.edu.cn/favicon.ico',
+        local_icon: base_url + 'HDUOJ.png',
         link: 'https://acm.hdu.edu.cn/',
         desc: ''
       },
       {
         title: 'Codechef',
         icon: 'https://www.codechef.com/favicon.ico',
+        local_icon: base_url + 'codechef.ico',
         link: 'https://www.codechef.com/contests/',
         desc: ''
       },
@@ -346,13 +367,8 @@ export default [
         link: 'https://visualgo.net/zh/',
         desc: '通过动画将数据结构和算法可视化'
       },
-      {
-        title: 'CSDN',
-        icon: '',
-        // icon: 'https://csdnimg.cn/favicon.ico', // todo 无法获取
-        link: 'https://www.csdn.net/',
-        desc: ''
-      }
     ]
   }
 ]
+
+export default fastlinks
