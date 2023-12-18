@@ -88,7 +88,9 @@ onUnmounted(() => {
     </div>
     <div class="nav">
       <div class="nav-item">
-        <a target="_blank" rel="noopener noreferrer" href="https://acm.sdut.edu.cn/onlinejudge3/">SDUT OJ3</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://acm.sdut.edu.cn/onlinejudge3/"
+          >SDUT OJ</a
+        >
       </div>
       <div class="nav-item">
         <a target="_blank" rel="noopener noreferrer" href="https://rl.algoux.cn/">RankLand</a>
@@ -111,10 +113,13 @@ onUnmounted(() => {
     </div>
   </header>
 
-  <div class="drop-down" :style="{
-    transform:
-      isFastLinkShow || isFastLinkHover || isDropDownHover ? '' : 'translate(-50%, -100%)'
-  }">
+  <div
+    class="drop-down"
+    :style="{
+      transform:
+        isFastLinkShow || isFastLinkHover || isDropDownHover ? '' : 'translate(-50%, -100%)'
+    }"
+  >
     <div v-for="groups in fastlinks" :key="groups.title" class="dd-container">
       <span class="dd-title">{{ groups.title }}</span>
       <div class="dd-group">
@@ -127,13 +132,17 @@ onUnmounted(() => {
           rel="noopener noreferrer"
         >
           <div class="dd-icon">
-            <span v-if="item.icon" :style="{ backgroundImage: `url(${item.icon})` }"></span>
+            <!-- <span v-if="item.icon" :style="{ backgroundImage: `url(${item.icon})` }"></span> -->
+            <span
+              v-if="item.local_icon"
+              :style="{ backgroundImage: `url(${item.local_icon})` }"
+            ></span>
             <span v-else>
               {{ item.title[0] }}
             </span>
           </div>
           <div class="dd-content">
-            <span class="dd-content-title" :class="{ noDesc: item.desc === '' }">{{
+            <span class="dd-content-title" :class="{ desc: item.desc !== '' }">{{
               item.title
             }}</span>
             <span class="dd-content-desc">{{ item.desc }}</span>
@@ -171,7 +180,12 @@ onUnmounted(() => {
     <div class="news">
       <!-- 新闻动态1 -->
       <div class="news-item1">
-        <a class="n-link" target="_blank" rel="noopener noreferrer" href="https://acm.sdut.edu.cn/onlinejudge3/posts/35">
+        <a
+          class="n-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://acm.sdut.edu.cn/onlinejudge3/posts/35"
+        >
           <div class="news-img">
             <img src="../src/assets/img/sdutacm-homepage-news-1.png" alt="" />
           </div>
@@ -210,8 +224,12 @@ onUnmounted(() => {
       </div>
       <!-- 新闻动态4 -->
       <div class="news-item4">
-        <a class="n-link" target="_blank" rel="noopener noreferrer"
-          href="https://mp.weixin.qq.com/s/Qe6mxR_qBC1l7gA2XzVjOg">
+        <a
+          class="n-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://mp.weixin.qq.com/s/Qe6mxR_qBC1l7gA2XzVjOg"
+        >
           <div class="news-img">
             <img src="../src/assets/img/sdutacm-homepage-news-5.png" alt="" />
           </div>
@@ -224,8 +242,12 @@ onUnmounted(() => {
       </div>
       <!-- 新闻动态5 -->
       <div class="news-item5">
-        <a class="n-link" target="_blank" rel="noopener noreferrer"
-          href="https://mp.weixin.qq.com/s/QZiaCEux-yAhlRo4adSg6A">
+        <a
+          class="n-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://mp.weixin.qq.com/s/QZiaCEux-yAhlRo4adSg6A"
+        >
           <div class="news-img">
             <img src="../src/assets/img/sdutacm-homepage-news-4.png" alt="" />
           </div>
@@ -241,48 +263,81 @@ onUnmounted(() => {
     <!-- 我们的项目 -->
     <div class="section-title">我们的项目</div>
     <div class="project">
-      <div class="project-item1 project-item" :class="{ active: acitveProject === 1 }" @click="clickProject(1)">
+      <div
+        class="project-item1 project-item"
+        :class="{ active: acitveProject === 1 }"
+        @click="clickProject(1)"
+      >
         <div class="project-bubble"></div>
         <span class="project-title">SDUT OJ 3</span>
         <p class="project-summary">
           <span>Online Judge 3，自研第三代在线评测系统，2018 年内测，2019 年正式上线。</span>
-          <span>使用全栈同构技术栈开发，结合自研的次时代 Top 0
-            性能的评测姬，轻松服务近千人的大型比赛。</span>
+          <span
+            >使用全栈同构技术栈开发，结合自研的次时代 Top 0
+            性能的评测姬，轻松服务近千人的大型比赛。</span
+          >
         </p>
         <div class="project-links">
           <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/">前往</a>
-          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/contests">竞赛</a>
-          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/posts">排名</a>
+          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/contests"
+            >竞赛</a
+          >
+          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/posts"
+            >排名</a
+          >
           <a class="p-link" target="_blank" href="https://github.com/sdutacm/onlinejudge3">源码</a>
         </div>
       </div>
-      <div class="project-item2 project-item" :class="{ active: acitveProject === 2 }" @click="clickProject(2)">
+      <div
+        class="project-item2 project-item"
+        :class="{ active: acitveProject === 2 }"
+        @click="clickProject(2)"
+      >
         <div class="project-bubble"></div>
         <span class="project-title">RankLand</span>
         <p class="project-summary">
-          <span>RankLand，由我们的开源组织 algoUX
-            开发、算法竞赛爱好者们自发维护的、专注于托管和分享任何竞赛榜单的宝地。</span>
+          <span
+            >RankLand，由我们的开源组织 algoUX
+            开发、算法竞赛爱好者们自发维护的、专注于托管和分享任何竞赛榜单的宝地。</span
+          >
           <span>轻松查阅 ICPC、CCPC 等赛事的历史榜单。</span>
         </p>
         <div class="project-links">
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/">前往</a>
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/search?kw=ICPC">探索</a>
-          <a class="p-link" target="_blank" href="https://rl.algoux.cn/collection/official">榜单合集</a>
+          <a class="p-link" target="_blank" href="https://rl.algoux.cn/collection/official"
+            >榜单合集</a
+          >
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/playground">游乐场</a>
         </div>
       </div>
-      <div class="project-item3 project-item" :class="{ active: acitveProject === 3 }" @click="clickProject(3)">
+      <div
+        class="project-item3 project-item"
+        :class="{ active: acitveProject === 3 }"
+        @click="clickProject(3)"
+      >
         <div class="project-bubble"></div>
         <span class="project-title">光之魔法书</span>
         <p class="project-summary">
           <span>光之魔法书，集前后端、数据库、爬虫、服务器等知识于一体的学习实践指北。</span>
-          <span>作为光锥实验室的入门魔法指南，你需要通过学习、实践、总结进而对web魔法体系有一个清晰的概念。</span>
+          <span
+            >作为光锥实验室的入门魔法指南，你需要通过学习、实践、总结进而对web魔法体系有一个清晰的概念。</span
+          >
         </p>
         <div class="project-links">
           <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/">前往</a>
-          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/missions/">见习任务</a>
-          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/catalog/">魔法目录</a>
-          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/pleasant-gallery/">古怪展馆</a>
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/missions/"
+            >见习任务</a
+          >
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/catalog/"
+            >魔法目录</a
+          >
+          <a
+            class="p-link"
+            target="_blank"
+            href="https://lcl-magicbook.sdutacm.cn/pleasant-gallery/"
+            >古怪展馆</a
+          >
         </div>
       </div>
     </div>
@@ -389,7 +444,7 @@ header {
         }
 
         // 当锁定时
-        &.isShow {
+        &.is-show {
           &::after {
             animation: slide-in-from-left var(--ah-t-short) ease-in-out forwards;
           }
@@ -437,13 +492,9 @@ header {
   max-width: 28rem;
   background-color: var(--ah-c-background-transparent-drop-down);
   box-shadow: var(--ah-s-shadow-2);
-  backdrop-filter: blur(0.6rem);
-  z-index: 50;
-  overflow: hidden;
-  transform: translate(-50%, 0);
+  backdrop-filter: blur(4rem);
   transition: transform var(--ah-t-long);
   gap: 20px;
-  backdrop-filter: blur(0.6rem);
   transform: translate(-50%, 0);
 
   // 区分三个分类, 包含标题和内容组
@@ -482,79 +533,78 @@ header {
           display: flex;
           justify-content: center;
           align-items: center;
-          border-radius: 10%;
           overflow: hidden;
           width: 18%;
 
           span {
             display: block;
-            width: 0.5rem;
-            height: 0.5rem;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            font-size: 0.5rem;
+            border-radius: 10%;
+            width: 0.48rem;
+            height: 0.48rem;
+            font-size: 0.44rem;
             font-weight: 700;
-            line-height: 0.5rem;
             text-align: center;
             color: var(--ah-c-text1);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            line-height: 0.5rem;
           }
         }
 
         .dd-content {
           position: relative;
-          width: 100%;
-          height: 100%;
           width: 82%;
+          height: 100%;
 
           .dd-content-title {
             position: absolute;
             top: 50%;
             left: 0.2rem;
-            transform: translate(0, -50%);
+            overflow: hidden;
+            padding-right: 0.32rem;
             width: 100%;
             font-size: 0.32rem;
             font-weight: 500;
+            text-overflow: ellipsis;
+            white-space: nowrap;
             color: var(--ah-c-text1);
+            transition: transform var(--ah-t-short);
+            transform: translate(0, -50%);
             line-height: 0.5rem;
             user-select: none;
-            transition: transform var(--ah-t-short);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            padding-right: 0.32rem;
           }
 
           .dd-content-desc {
             position: absolute;
             top: 50%;
             left: 0.2rem;
-            transform: translate(0, -50%);
+            overflow: hidden;
+            padding-right: 0.32rem;
+            width: 100%;
+            font-size: 0.24rem;
+            font-weight: 500;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: var(--ah-c-text3);
             opacity: 0;
             visibility: hidden;
             transition:
               opacity var(--ah-t-short),
               transform var(--ah-t-short);
-            font-size: 0.24rem;
-            font-weight: 500;
-            color: var(--ah-c-text3);
+            transform: translate(0, -50%);
             line-height: 0.4rem;
             user-select: none;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            width: 100%;
-            padding-right: 0.32rem;
           }
 
           .el-icon {
-            display: none;
             position: absolute;
             top: 50%;
             right: 0.06rem;
-            transform: translate(0, -50%);
+            display: none;
             font-size: 0.32rem;
             color: var(--ah-c-text1);
+            transform: translate(0, -50%);
 
             &:hover {
               color: var(--ah-c-text3);
@@ -565,7 +615,7 @@ header {
         &:hover {
           background-color: var(--ah-tc-5);
 
-          .dd-content-title:not(.noDesc) {
+          .dd-content-title:is(.desc) {
             transform: translate(0, -90%);
           }
 
@@ -947,7 +997,8 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-oj3-contests.png') no-repeat left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-oj3-contests.png') no-repeat left /
+                cover;
           }
         }
 
@@ -963,7 +1014,8 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-oj3-github.png') no-repeat left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-oj3-github.png') no-repeat left /
+                cover;
           }
         }
       }
@@ -981,7 +1033,8 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-rankland-home.png') no-repeat left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-rankland-home.png') no-repeat left /
+                cover;
           }
         }
 
@@ -989,7 +1042,8 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-rankland-search.png') no-repeat left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-rankland-search.png') no-repeat left /
+                cover;
           }
         }
 
@@ -997,7 +1051,8 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-rankland-collection.png') no-repeat left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-rankland-collection.png') no-repeat
+                left / cover;
           }
         }
 
@@ -1005,7 +1060,8 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-rankland-playground.png') no-repeat left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-rankland-playground.png') no-repeat
+                left / cover;
           }
         }
       }
@@ -1023,7 +1079,8 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-home@2.png') no-repeat left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-home@2.png') no-repeat left /
+                cover;
           }
         }
 
@@ -1031,7 +1088,8 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-missions@2.png') no-repeat left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-missions@2.png') no-repeat
+                left / cover;
           }
         }
 
@@ -1039,7 +1097,8 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-catalog@2.png') no-repeat left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-catalog@2.png') no-repeat
+                left / cover;
           }
         }
 
@@ -1047,7 +1106,8 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-gallery@2.png') no-repeat left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-gallery@2.png') no-repeat
+                left / cover;
           }
         }
       }
