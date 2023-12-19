@@ -90,13 +90,13 @@ const fastlinks = [
         link: 'http://oj.daimayuan.top/',
         desc: ''
       },
-      {
-        title: 'Codechef',
-        icon: 'https://www.codechef.com/favicon.ico',
-        local_icon: base_url + 'codechef.ico',
-        link: 'https://www.codechef.com/contests/',
-        desc: ''
-      },
+      // {
+      //   title: 'Codechef',
+      //   icon: 'https://www.codechef.com/favicon.ico',
+      //   local_icon: base_url + 'codechef.ico',
+      //   link: 'https://www.codechef.com/contests/',
+      //   desc: ''
+      // },
       {
         title: 'LOJ',
         icon: '', // todo 权限拿取不到
@@ -104,13 +104,13 @@ const fastlinks = [
         link: 'https://loj.ac/',
         desc: ''
       },
-      {
-        title: 'OMC',
-        icon: 'https://onlinemathcontest.com/favicon.ico',
-        local_icon: base_url + 'onlinemathcontest.ico',
-        link: 'https://onlinemathcontest.com/',
-        desc: '数学题竞赛平台(日文)'
-      },
+      // {
+      //   title: 'OMC',
+      //   icon: 'https://onlinemathcontest.com/favicon.ico',
+      //   local_icon: base_url + 'onlinemathcontest.ico',
+      //   link: 'https://onlinemathcontest.com/',
+      //   desc: '数学题竞赛平台(日文)'
+      // },
       {
         title: 'SPOJ',
         icon: 'https://www.spoj.com/favicon.ico',

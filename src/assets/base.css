@@ -57,7 +57,12 @@ html {
   #5eead4 25%,
   #60a5fa 30%);
   --filter: blur(10px) invert(100%);
-  --filter-dark: blur(10px) opacity(50%) saturate(200%);  
+  --filter-dark: blur(10px) opacity(50%) saturate(200%);
+
+  /* 尺寸 */
+  --ah-breakpoint-xs: 360px; /* 最小屏幕尺寸 */
+  --ah-breakpoint-md: 600px; /* 区分手机端与平板尺寸 */
+  --ah-breakpoint-xl: 1100px; /* 区分平板与电脑尺寸 */
 }
 
 /* ----- 浅色主题 ----- */ 
@@ -113,7 +118,7 @@ html {
 }
 
 body {
-  min-width: 7.2rem;
+  min-width: var(--ah-breakpoint-xs);
   min-height: 100vh;
   font-family:
     Inter,
