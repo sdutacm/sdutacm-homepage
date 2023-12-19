@@ -1,13 +1,18 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import fastlinks from './assets/fastlinks'
 import { throttle } from './utils'
 
 const isDarkTheme = ref(false)
 const acitveProject = ref(0)
+const isMenuShow = ref(false)
 const isFastLinkShow = ref(false)
 const isFastLinkHover = ref(false)
 const isDropDownHover = ref(false)
+const fastlinkShowIndex = ref(0)
+const fastlinkShowItems = computed(() => {
+  return fastlinkShowIndex.value === 0 ? fastlinks : [fastlinks[fastlinkShowIndex.value]]
+})
 
 const HtmlElement = document.querySelector('html')
 let FastLinkElement
@@ -27,8 +32,21 @@ const toggleFastLink = () => {
   FastLinkElement.classList.toggle('click')
 }
 
+const toggleMenu = () => {
+  isMenuShow.value = !isMenuShow.value
+}
+
 const clickProject = (target) => {
   acitveProject.value = target === acitveProject.value ? 0 : target
+}
+
+const clickMenuItem = (index) => {
+  fastlinkShowIndex.value = index
+  isFastLinkShow.value = true
+}
+
+const hiddenFastLink = () => {
+  isFastLinkShow.value = false
 }
 
 onMounted(() => {
@@ -77,7 +95,7 @@ onUnmounted(() => {
 
 <template>
   <header>
-    <div class="menu">
+    <div class="menu" @click="toggleMenu()">
       <el-icon>
         <Menu />
       </el-icon>
@@ -114,24 +132,49 @@ onUnmounted(() => {
   </header>
 
   <div
-    class="drop-down"
+    class="drop-down-menu"
+    :style="{
+      transform: isMenuShow ? '' : 'translate(0, -100%)'
+    }"
+  >
+    <div class="ddm-item">
+      <a target="_blank" rel="noopener noreferrer" href="https://acm.sdut.edu.cn/onlinejudge3/"
+        >SDUT OJ</a
+      >
+    </div>
+    <div class="ddm-item">
+      <a target="_blank" rel="noopener noreferrer" href="https://rl.algoux.cn/">RankLand</a>
+    </div>
+    <div class="ddm-item">
+      <a target="_blank" rel="noopener noreferrer" href="https://lcl.sdutacm.cn/">光锥实验室</a>
+    </div>
+    <div v-for="groups in fastlinks" :key="groups.index" class="ddm-item" @click="clickMenuItem(groups.index)">
+      <span>{{ groups.title }}</span>
+    </div>
+    <!-- <div class="ddm-item" id="fastlink">
+      <span :class="{ isShow: isFastLinkShow }" @click="toggleFastLink()">快速链接</span>
+    </div> -->
+  </div>
+  <!-- v-click-outside="hiddenFastLink()" -->
+  <div
+    class="drop-down-fastlink"
     :style="{
       transform:
         isFastLinkShow || isFastLinkHover || isDropDownHover ? '' : 'translate(-50%, -100%)'
     }"
   >
-    <div v-for="groups in fastlinks" :key="groups.title" class="dd-container">
-      <span class="dd-title">{{ groups.title }}</span>
-      <div class="dd-group">
+    <div v-for="groups in fastlinkShowItems" :key="groups.index" class="ddfl-container">
+      <span class="ddfl-title">算法竞赛{{ groups.title }}</span>
+      <div class="ddfl-group">
         <a
           v-for="item in groups.links"
           :key="item.link"
           :href="item.link"
-          class="dd-item"
+          class="ddfl-item"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <div class="dd-icon">
+          <div class="ddfl-icon">
             <!-- <span v-if="item.icon" :style="{ backgroundImage: `url(${item.icon})` }"></span> -->
             <span
               v-if="item.local_icon"
@@ -141,11 +184,11 @@ onUnmounted(() => {
               {{ item.title[0] }}
             </span>
           </div>
-          <div class="dd-content">
-            <span class="dd-content-title" :class="{ desc: item.desc !== '' }">{{
+          <div class="ddfl-content">
+            <span class="ddfl-content-title" :class="{ desc: item.desc !== '' }">{{
               item.title
             }}</span>
-            <span class="dd-content-desc">{{ item.desc }}</span>
+            <span class="ddfl-content-desc">{{ item.desc }}</span>
             <el-icon><Right /></el-icon>
           </div>
         </a>
@@ -477,10 +520,54 @@ header {
   }
 }
 
-// 快速链接下拉菜单
-.drop-down {
+// 下拉窗口 - 菜单
+.drop-down-menu {
   position: fixed;
-  top: 1.6rem;
+  top: 1.2rem;
+  left: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  padding: 0.4rem;
+  width: 40%;
+  min-width: 6rem;
+  max-width: 8rem;
+  background-color: var(--ah-c-background-transparent-drop-down);
+  box-shadow: var(--ah-s-shadow-2);
+  backdrop-filter: blur(4rem);
+  transition: transform var(--ah-t-long);
+  transform: translate(0, 0);
+  gap: 0.2rem;
+
+  .ddm-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 1rem;
+
+    a,
+    span {
+      overflow: hidden;
+      font-size: 0.4rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--ah-c-text1);
+      transition: transform var(--ah-t-short);
+      line-height: 0.8rem;
+      user-select: none;
+
+    }
+  }
+}
+
+// 下拉窗口 - 快速链接
+.drop-down-fastlink {
+  position: fixed;
+  top: 1.2rem;
   left: 50%;
   z-index: 50;
   display: flex;
@@ -494,11 +581,11 @@ header {
   box-shadow: var(--ah-s-shadow-2);
   backdrop-filter: blur(4rem);
   transition: transform var(--ah-t-long);
-  gap: 20px;
+  gap: 0.2rem;
   transform: translate(-50%, 0);
 
   // 区分三个分类, 包含标题和内容组
-  .dd-container {
+  .ddfl-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -506,30 +593,31 @@ header {
     width: 100%;
     gap: 0.4rem;
 
-    .dd-title {
+    .ddfl-title {
       font-size: 0.48rem;
       font-weight: 700;
       color: var(--ah-c-text1);
     }
 
     // 内容组
-    .dd-group {
+    .ddfl-group {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: flex-start;
       width: 100%;
       height: 100%;
+      // column-gap: 0.1rem;
 
       // 每个内容组包含了很多个链接单元 item
-      .dd-item {
+      .ddfl-item {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        width: 50%;
+        width: 48%;
         height: 1rem;
 
-        .dd-icon {
+        .ddfl-icon {
           display: flex;
           justify-content: center;
           align-items: center;
@@ -552,12 +640,12 @@ header {
           }
         }
 
-        .dd-content {
+        .ddfl-content {
           position: relative;
           width: 82%;
           height: 100%;
 
-          .dd-content-title {
+          .ddfl-content-title {
             position: absolute;
             top: 50%;
             left: 0.2rem;
@@ -575,7 +663,7 @@ header {
             user-select: none;
           }
 
-          .dd-content-desc {
+          .ddfl-content-desc {
             position: absolute;
             top: 50%;
             left: 0.2rem;
@@ -613,13 +701,13 @@ header {
         }
 
         &:hover {
-          background-color: var(--ah-tc-5);
+          background-color: var(--ah-c-background-transparent-drop-down-hover);
 
-          .dd-content-title:is(.desc) {
+          .ddfl-content-title:is(.desc) {
             transform: translate(0, -90%);
           }
 
-          .dd-content-desc {
+          .ddfl-content-desc {
             opacity: 1;
             visibility: visible;
             transform: translate(0, 10%);

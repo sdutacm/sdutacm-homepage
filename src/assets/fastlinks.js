@@ -3,7 +3,8 @@ const base_url = '../src/assets/icon/'
 
 const fastlinks = [
   {
-    title: '算法竞赛常用 OJ',
+    index: 1,
+    title: 'OJ评测姬',
     links: [
       {
         title: 'Codeforces',
@@ -144,18 +145,12 @@ const fastlinks = [
         local_icon: '', // ? 无图标
         link: 'https://ucup.ac/',
         desc: '提供算法实战演练'
-      },
-      {
-        title: 'QOJ',
-        icon: '',
-        local_icon: '', // ? 无图标
-        link: 'https://qoj.ac/',
-        desc: ''
       }
     ]
   },
   {
-    title: '算法竞赛常用工具',
+    index: 2,
+    title: '工具箱',
     links: [
       {
         title: 'OEIS',
@@ -286,7 +281,8 @@ const fastlinks = [
     ]
   },
   {
-    title: '算法竞赛常用信息整合网站',
+    index: 3,
+    title: '信息整合网站',
     links: [
       {
         title: 'ICPC',
@@ -349,7 +345,7 @@ const fastlinks = [
         icon: 'https://www.noi.cn/images/logo.png', // ? 左侧图标
         local_icon: base_url + 'noi.png',
         link: 'https://www.noi.cn/',
-        desc: '全国青少年信息学奥林匹克竞赛'
+        desc: '青少年信息学奥林匹克'
       },
       {
         title: 'OI Wiki',
