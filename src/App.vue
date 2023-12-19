@@ -3,20 +3,18 @@ import { ref, onMounted, onUnmounted, computed } from 'vue'
 import fastlinks from './assets/fastlinks'
 import { throttle } from './utils'
 
-const isDarkTheme = ref(false)
-const acitveProject = ref(0)
-const isMenuShow = ref(false)
-const isFastLinkShow = ref(false)
-const isFastLinkHover = ref(false)
-const isDropDownHover = ref(false)
-const fastlinkShowIndex = ref(0)
-const fastlinkShowItems = computed(() => {
-  return fastlinkShowIndex.value === 0 ? fastlinks : [fastlinks[fastlinkShowIndex.value]]
+const isDarkTheme = ref(false) // 是否为深色主题
+const acitveProject = ref(0) // 在“我们的项目”板块中当前激活的项目
+const isMobileMenuShow = ref(false) // 是否显示下拉菜单 - 移动端
+const isPCFastLinkShow = ref(false) // 是否显示快速链接 - PC
+const isPCFastLinkHover = ref(false) // 是否鼠标悬浮在快速链接上 - PC
+const isPCDropDownHover = ref(false) // 是否鼠标悬浮在下拉菜单上 - PC
+const fastlinkShowIndex = ref(0) // 当前显示的快速链接组的索引
+const fastlinkShowItems = computed(() => { // 当前显示的快速链接组
+  return fastlinkShowIndex.value === 0 ? fastlinks : [fastlinks[fastlinkShowIndex.value - 1]]
 })
 
 const HtmlElement = document.querySelector('html')
-let FastLinkElement
-let DropDownElement
 
 const toggleTheme = () => {
   isDarkTheme.value = !isDarkTheme.value
@@ -28,12 +26,11 @@ const toggleTheme = () => {
 }
 
 const toggleFastLink = () => {
-  isFastLinkShow.value = !isFastLinkShow.value
-  FastLinkElement.classList.toggle('click')
+  isPCFastLinkShow.value = !isPCFastLinkShow.value
 }
 
 const toggleMenu = () => {
-  isMenuShow.value = !isMenuShow.value
+  isMobileMenuShow.value = !isMobileMenuShow.value
 }
 
 const clickProject = (target) => {
@@ -42,11 +39,7 @@ const clickProject = (target) => {
 
 const clickMenuItem = (index) => {
   fastlinkShowIndex.value = index
-  isFastLinkShow.value = true
-}
-
-const hiddenFastLink = () => {
-  isFastLinkShow.value = false
+  isPCFastLinkShow.value = true
 }
 
 onMounted(() => {
@@ -54,42 +47,42 @@ onMounted(() => {
   if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
     toggleTheme()
   }
-  FastLinkElement = document.getElementById('fastlink')
-  DropDownElement = document.querySelector('.drop-down')
-  FastLinkElement.addEventListener('mouseover', () => {
-    isFastLinkHover.value = true
-  })
-  FastLinkElement.addEventListener('mouseleave', () => {
-    // isFastLinkHover.value = false
-    throttle(() => {
-      isFastLinkHover.value = false
-    }, 200)()
-  })
-  DropDownElement.addEventListener('mouseover', () => {
-    isDropDownHover.value = true
-  })
-  DropDownElement.addEventListener('mouseleave', () => {
-    // isDropDownHover.value = false
-    throttle(() => {
-      isDropDownHover.value = false
-    }, 200)()
-  })
+  // FastLinkElement = document.getElementById('fastlink')
+  // DropDownElement = document.querySelector('.drop-down-fastlink')
+  // pcFastLinkElement.value.addEventListener('mouseover', () => {
+  //   isPCFastLinkHover.value = true
+  // })
+  // pcFastLinkElement.value.addEventListener('mouseleave', () => {
+  //   // isFastLinkHover.value = false
+  //   throttle(() => {
+  //     isPCFastLinkHover.value = false
+  //   }, 200)()
+  // })
+  // DropDownElement.addEventListener('mouseover', () => {
+  //   isPCDropDownHover.value = true
+  // })
+  // DropDownElement.addEventListener('mouseleave', () => {
+  //   // isDropDownHover.value = false
+  //   throttle(() => {
+  //     isPCDropDownHover.value = false
+  //   }, 200)()
+  // })
 })
 
 // 页面卸载时
 onUnmounted(() => {
-  FastLinkElement.removeEventListener('mouseover', () => {
-    isFastLinkHover.value = true
-  })
-  FastLinkElement.removeEventListener('mouseleave', () => {
-    isFastLinkHover.value = false
-  })
-  DropDownElement.removeEventListener('mouseover', () => {
-    isDropDownHover.value = true
-  })
-  DropDownElement.removeEventListener('mouseleave', () => {
-    isDropDownHover.value = false
-  })
+  // pcFastLinkElement.value.removeEventListener('mouseover', () => {
+  //   isPCFastLinkHover.value = true
+  // })
+  // pcFastLinkElement.value.removeEventListener('mouseleave', () => {
+  //   isPCFastLinkHover.value = false
+  // })
+  // DropDownElement.removeEventListener('mouseover', () => {
+  //   isPCDropDownHover.value = true
+  // })
+  // DropDownElement.removeEventListener('mouseleave', () => {
+  //   isPCDropDownHover.value = false
+  // })
 })
 </script>
 
@@ -106,9 +99,7 @@ onUnmounted(() => {
     </div>
     <div class="nav">
       <div class="nav-item">
-        <a target="_blank" rel="noopener noreferrer" href="https://acm.sdut.edu.cn/onlinejudge3/"
-          >SDUT OJ</a
-        >
+        <a target="_blank" rel="noopener noreferrer" href="https://acm.sdut.edu.cn/onlinejudge3/">SDUT OJ</a>
       </div>
       <div class="nav-item">
         <a target="_blank" rel="noopener noreferrer" href="https://rl.algoux.cn/">RankLand</a>
@@ -116,8 +107,14 @@ onUnmounted(() => {
       <div class="nav-item">
         <a target="_blank" rel="noopener noreferrer" href="https://lcl.sdutacm.cn/">光锥实验室</a>
       </div>
-      <div class="nav-item" id="fastlink">
-        <span :class="{ isShow: isFastLinkShow }" @click="toggleFastLink()">快速链接</span>
+      <div class="nav-item" ref="pcFastLinkElement" @mouseover="() => {
+        isPCFastLinkHover = true
+      }" @mouseleave="() => {
+  throttle(() => {
+    isPCFastLinkHover = false
+  }, 200)()
+}">
+        <span :class="{ 'is-show': isPCFastLinkShow }" @click="toggleFastLink()">快速链接</span>
       </div>
     </div>
     <!-- 快速连接下拉菜单 -->
@@ -131,16 +128,11 @@ onUnmounted(() => {
     </div>
   </header>
 
-  <div
-    class="drop-down-menu"
-    :style="{
-      transform: isMenuShow ? '' : 'translate(0, -100%)'
-    }"
-  >
+  <div class="drop-down-menu" :style="{
+    transform: isMobileMenuShow ? '' : 'translate(0, -100%)'
+  }">
     <div class="ddm-item">
-      <a target="_blank" rel="noopener noreferrer" href="https://acm.sdut.edu.cn/onlinejudge3/"
-        >SDUT OJ</a
-      >
+      <a target="_blank" rel="noopener noreferrer" href="https://acm.sdut.edu.cn/onlinejudge3/">SDUT OJ</a>
     </div>
     <div class="ddm-item">
       <a target="_blank" rel="noopener noreferrer" href="https://rl.algoux.cn/">RankLand</a>
@@ -151,35 +143,24 @@ onUnmounted(() => {
     <div v-for="groups in fastlinks" :key="groups.index" class="ddm-item" @click="clickMenuItem(groups.index)">
       <span>{{ groups.title }}</span>
     </div>
-    <!-- <div class="ddm-item" id="fastlink">
-      <span :class="{ isShow: isFastLinkShow }" @click="toggleFastLink()">快速链接</span>
-    </div> -->
   </div>
-  <!-- v-click-outside="hiddenFastLink()" -->
-  <div
-    class="drop-down-fastlink"
-    :style="{
-      transform:
-        isFastLinkShow || isFastLinkHover || isDropDownHover ? '' : 'translate(-50%, -100%)'
-    }"
-  >
+  <div class="drop-down-fastlink" :style="{
+    transform:
+      isPCFastLinkShow || isPCFastLinkHover || isPCDropDownHover ? '' : 'translate(-50%, -100%)'
+    }" @mouseover="() => {
+      isPCDropDownHover = true
+    }" @mouseleave="() => {
+      throttle(() => {
+        isPCDropDownHover = false
+      }, 200)()
+    }">
     <div v-for="groups in fastlinkShowItems" :key="groups.index" class="ddfl-container">
       <span class="ddfl-title">算法竞赛{{ groups.title }}</span>
       <div class="ddfl-group">
-        <a
-          v-for="item in groups.links"
-          :key="item.link"
-          :href="item.link"
-          class="ddfl-item"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a v-for="item in groups.links" :key="item.link" :href="item.link" class="ddfl-item" target="_blank"
+          rel="noopener noreferrer">
           <div class="ddfl-icon">
-            <!-- <span v-if="item.icon" :style="{ backgroundImage: `url(${item.icon})` }"></span> -->
-            <span
-              v-if="item.local_icon"
-              :style="{ backgroundImage: `url(${item.local_icon})` }"
-            ></span>
+            <span v-if="item.local_icon" :style="{ backgroundImage: `url(${item.local_icon})` }"></span>
             <span v-else>
               {{ item.title[0] }}
             </span>
@@ -189,7 +170,9 @@ onUnmounted(() => {
               item.title
             }}</span>
             <span class="ddfl-content-desc">{{ item.desc }}</span>
-            <el-icon><Right /></el-icon>
+            <el-icon>
+              <Right />
+            </el-icon>
           </div>
         </a>
       </div>
@@ -223,12 +206,7 @@ onUnmounted(() => {
     <div class="news">
       <!-- 新闻动态1 -->
       <div class="news-item1">
-        <a
-          class="n-link"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://acm.sdut.edu.cn/onlinejudge3/posts/35"
-        >
+        <a class="n-link" target="_blank" rel="noopener noreferrer" href="https://acm.sdut.edu.cn/onlinejudge3/posts/35">
           <div class="news-img">
             <img src="../src/assets/img/sdutacm-homepage-news-1.png" alt="" />
           </div>
@@ -267,12 +245,8 @@ onUnmounted(() => {
       </div>
       <!-- 新闻动态4 -->
       <div class="news-item4">
-        <a
-          class="n-link"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://mp.weixin.qq.com/s/Qe6mxR_qBC1l7gA2XzVjOg"
-        >
+        <a class="n-link" target="_blank" rel="noopener noreferrer"
+          href="https://mp.weixin.qq.com/s/Qe6mxR_qBC1l7gA2XzVjOg">
           <div class="news-img">
             <img src="../src/assets/img/sdutacm-homepage-news-5.png" alt="" />
           </div>
@@ -285,12 +259,8 @@ onUnmounted(() => {
       </div>
       <!-- 新闻动态5 -->
       <div class="news-item5">
-        <a
-          class="n-link"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://mp.weixin.qq.com/s/QZiaCEux-yAhlRo4adSg6A"
-        >
+        <a class="n-link" target="_blank" rel="noopener noreferrer"
+          href="https://mp.weixin.qq.com/s/QZiaCEux-yAhlRo4adSg6A">
           <div class="news-img">
             <img src="../src/assets/img/sdutacm-homepage-news-4.png" alt="" />
           </div>
@@ -306,81 +276,48 @@ onUnmounted(() => {
     <!-- 我们的项目 -->
     <div class="section-title">我们的项目</div>
     <div class="project">
-      <div
-        class="project-item1 project-item"
-        :class="{ active: acitveProject === 1 }"
-        @click="clickProject(1)"
-      >
+      <div class="project-item1 project-item" :class="{ active: acitveProject === 1 }" @click="clickProject(1)">
         <div class="project-bubble"></div>
         <span class="project-title">SDUT OJ 3</span>
         <p class="project-summary">
           <span>Online Judge 3，自研第三代在线评测系统，2018 年内测，2019 年正式上线。</span>
-          <span
-            >使用全栈同构技术栈开发，结合自研的次时代 Top 0
-            性能的评测姬，轻松服务近千人的大型比赛。</span
-          >
+          <span>使用全栈同构技术栈开发，结合自研的次时代 Top 0
+            性能的评测姬，轻松服务近千人的大型比赛。</span>
         </p>
         <div class="project-links">
           <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/">前往</a>
-          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/contests"
-            >竞赛</a
-          >
-          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/posts"
-            >排名</a
-          >
+          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/contests">竞赛</a>
+          <a class="p-link" target="_blank" href="https://acm.sdut.edu.cn/onlinejudge3/posts">排名</a>
           <a class="p-link" target="_blank" href="https://github.com/sdutacm/onlinejudge3">源码</a>
         </div>
       </div>
-      <div
-        class="project-item2 project-item"
-        :class="{ active: acitveProject === 2 }"
-        @click="clickProject(2)"
-      >
+      <div class="project-item2 project-item" :class="{ active: acitveProject === 2 }" @click="clickProject(2)">
         <div class="project-bubble"></div>
         <span class="project-title">RankLand</span>
         <p class="project-summary">
-          <span
-            >RankLand，由我们的开源组织 algoUX
-            开发、算法竞赛爱好者们自发维护的、专注于托管和分享任何竞赛榜单的宝地。</span
-          >
+          <span>RankLand，由我们的开源组织 algoUX
+            开发、算法竞赛爱好者们自发维护的、专注于托管和分享任何竞赛榜单的宝地。</span>
           <span>轻松查阅 ICPC、CCPC 等赛事的历史榜单。</span>
         </p>
         <div class="project-links">
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/">前往</a>
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/search?kw=ICPC">探索</a>
-          <a class="p-link" target="_blank" href="https://rl.algoux.cn/collection/official"
-            >榜单合集</a
-          >
+          <a class="p-link" target="_blank" href="https://rl.algoux.cn/collection/official">榜单合集</a>
           <a class="p-link" target="_blank" href="https://rl.algoux.cn/playground">游乐场</a>
         </div>
       </div>
-      <div
-        class="project-item3 project-item"
-        :class="{ active: acitveProject === 3 }"
-        @click="clickProject(3)"
-      >
+      <div class="project-item3 project-item" :class="{ active: acitveProject === 3 }" @click="clickProject(3)">
         <div class="project-bubble"></div>
         <span class="project-title">光之魔法书</span>
         <p class="project-summary">
           <span>光之魔法书，集前后端、数据库、爬虫、服务器等知识于一体的学习实践指北。</span>
-          <span
-            >作为光锥实验室的入门魔法指南，你需要通过学习、实践、总结进而对web魔法体系有一个清晰的概念。</span
-          >
+          <span>作为光锥实验室的入门魔法指南，你需要通过学习、实践、总结进而对web魔法体系有一个清晰的概念。</span>
         </p>
         <div class="project-links">
           <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/">前往</a>
-          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/missions/"
-            >见习任务</a
-          >
-          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/catalog/"
-            >魔法目录</a
-          >
-          <a
-            class="p-link"
-            target="_blank"
-            href="https://lcl-magicbook.sdutacm.cn/pleasant-gallery/"
-            >古怪展馆</a
-          >
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/missions/">见习任务</a>
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/catalog/">魔法目录</a>
+          <a class="p-link" target="_blank" href="https://lcl-magicbook.sdutacm.cn/pleasant-gallery/">古怪展馆</a>
         </div>
       </div>
     </div>
@@ -495,6 +432,8 @@ header {
       }
 
       &:hover {
+
+        // 当锁定时
         a,
         span {
           &::after {
@@ -1085,8 +1024,7 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-oj3-contests.png') no-repeat left /
-                cover;
+              url('../src/assets/img/sdutacm-homepage-project-oj3-contests.png') no-repeat left / cover;
           }
         }
 
@@ -1102,8 +1040,7 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-oj3-github.png') no-repeat left /
-                cover;
+              url('../src/assets/img/sdutacm-homepage-project-oj3-github.png') no-repeat left / cover;
           }
         }
       }
@@ -1121,8 +1058,7 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-rankland-home.png') no-repeat left /
-                cover;
+              url('../src/assets/img/sdutacm-homepage-project-rankland-home.png') no-repeat left / cover;
           }
         }
 
@@ -1130,8 +1066,7 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-rankland-search.png') no-repeat left /
-                cover;
+              url('../src/assets/img/sdutacm-homepage-project-rankland-search.png') no-repeat left / cover;
           }
         }
 
@@ -1139,8 +1074,7 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-rankland-collection.png') no-repeat
-                left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-rankland-collection.png') no-repeat left / cover;
           }
         }
 
@@ -1148,8 +1082,7 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-rankland-playground.png') no-repeat
-                left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-rankland-playground.png') no-repeat left / cover;
           }
         }
       }
@@ -1167,8 +1100,7 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-home@2.png') no-repeat left /
-                cover;
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-home@2.png') no-repeat left / cover;
           }
         }
 
@@ -1176,8 +1108,7 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-missions@2.png') no-repeat
-                left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-missions@2.png') no-repeat left / cover;
           }
         }
 
@@ -1185,8 +1116,7 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-catalog@2.png') no-repeat
-                left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-catalog@2.png') no-repeat left / cover;
           }
         }
 
@@ -1194,8 +1124,7 @@ main {
           &::before {
             background:
               var(--ah-bg-project),
-              url('../src/assets/img/sdutacm-homepage-project-magicbook-gallery@2.png') no-repeat
-                left / cover;
+              url('../src/assets/img/sdutacm-homepage-project-magicbook-gallery@2.png') no-repeat left / cover;
           }
         }
       }
