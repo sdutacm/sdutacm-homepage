@@ -1,5 +1,5 @@
 // 算法竞赛常用网站 -- by 凌乱之风
-const base_url = '../src/assets/icon/'
+const base_url = '../src/assets/logo/'
 
 const fastlinks = [
   {

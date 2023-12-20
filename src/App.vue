@@ -20,19 +20,19 @@ const ourLinks = [
     title: 'SDUT OJ',
     link: 'https://acm.sdut.edu.cn/onlinejudge3/',
     desc: '山东理工大学ACM实验室自研的第三代在线评测系统',
-    icon: '../src/assets/icon/sdutoj.ico'
+    icon: '../src/assets/logo/sdutoj.ico'
   },
   {
     title: 'RankLand',
     link: 'https://rl.algoux.cn/',
     desc: '由我们的开源组织algoUX开发、算法竞赛爱好者们自发维护的、专注于托管和分享任何竞赛榜单的宝地',
-    icon: '../src/assets/icon/rankland.ico'
+    icon: '../src/assets/logo/rankland.ico'
   },
   {
     title: '光之魔法书',
     link: 'https://lcl-magicbook.sdutacm.cn/',
     desc: '光锥实验室的入门魔法指南，你需要通过学习、实践、总结进而对web魔法体系有一个清晰的概念',
-    icon: '../src/assets/icon/magicbook.ico'
+    icon: '../src/assets/logo/magicbook.ico'
   }
 ]
 
@@ -43,6 +43,17 @@ const toggleTheme = () => {
   } else {
     HtmlElement.classList.remove('dark-theme')
   }
+}
+
+// 切换为圣诞主题
+const marryChristmas = () => {
+  if (HtmlElement.classList.contains('christmas-theme')) {
+    console.log('已经是圣诞主题啦')
+    return;
+  } else if (HtmlElement.classList.contains('dark-theme')) {
+    HtmlElement.classList.remove('dark-theme')
+  }
+  HtmlElement.classList.add('christmas-theme')
 }
 
 const clickProject = (target) => {
@@ -67,6 +78,10 @@ onMounted(() => {
   if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
     toggleTheme()
   }
+  // 绑定全局函数切换主题
+  window.magic = () => {
+    marryChristmas();
+  }
 })
 </script>
 
@@ -74,14 +89,12 @@ onMounted(() => {
   <header>
     <!-- 菜单(仅在移动端居左显示) -->
     <div class="menu" @click="isFastLinkShow = !isFastLinkShow">
-      <el-icon>
-        <Menu />
-      </el-icon>
+        <svg class="svg-icon" :style="{backgroundImage: `url('../src/assets/icon/menu.svg')`}"></svg>
     </div>
 
     <!-- LOGO(PC端居左, 移动端居中) -->
     <div class="logo">
-      <img src="./assets/icon/sdutacm_logo_colorful.svg" alt="logo" />
+      <img src="./assets/logo/sdutacm_logo_colorful.svg" alt="logo" />
       <h1>SDUTACM</h1>
     </div>
     <!-- 导航条(仅在PC端居中显示) -->
@@ -355,12 +368,17 @@ header {
     height: 0.6rem;
     cursor: pointer;
 
-    .el-icon {
+    .svg-icon {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 0.6rem;
-      color: var(--ah-c-text2);
+      width: 100%;
+      height: 100%;
+      color: #fff2df;
+      // stroke: var(--ah-c-text2); // todo 颜色控制
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
     }
   }
 
@@ -463,49 +481,6 @@ header {
   }
 }
 
-// 下拉窗口 - Mobile - 菜单
-.drop-down-menu {
-  position: fixed;
-  top: 1.2rem;
-  left: 0;
-  z-index: 50;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  overflow: hidden;
-  padding: 0.4rem;
-  width: 40%;
-  min-width: 6rem;
-  max-width: 8rem;
-  background-color: var(--ah-c-background-transparent-drop-down);
-  box-shadow: var(--ah-s-shadow-2);
-  backdrop-filter: blur(4rem);
-  transition: transform var(--ah-t-long);
-  transform: translate(0, 0);
-  gap: 0.2rem;
-
-  .ddm-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 1rem;
-
-    a,
-    span {
-      overflow: hidden;
-      font-size: 0.4rem;
-      font-weight: 500;
-      text-decoration: none;
-      color: var(--ah-c-text1);
-      transition: transform var(--ah-t-short);
-      line-height: 0.8rem;
-      user-select: none;
-    }
-  }
-}
-
 // 下拉窗口
 .dropdown {
   position: fixed;
@@ -522,7 +497,7 @@ header {
   gap: 0.2rem;
   min-width: var(--ah-breakpoint-xs);
   max-width: 28rem;
-  max-height: calc(100vh - 1.2rem);
+  // max-height: calc(100vh - 1.2rem);
   background-color: var(--ah-c-background-transparent-drop-down);
   box-shadow: var(--ah-s-shadow-2);
   backdrop-filter: blur(4rem);
@@ -545,15 +520,6 @@ header {
     align-items: flex-start;
     width: 100%;
     gap: 0.2rem;
-
-    .dropdown-title {
-      &::after {
-        content: "\276F";
-        text-align: center;
-        transform: rotate(270deg);
-        transition: transform var(--ah-t-long);
-      }
-    }
 
     .container {
       display: flex;
@@ -705,7 +671,6 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  overflow: auto;
   padding: 1.6rem 3.6rem;
   width: 100%;
   height: 100%;
@@ -736,21 +701,22 @@ main {
   align-items: center;
   width: 0.04rem;
   height: 6.4rem;
+  background-color: var(--ah-c-background-indicator);
   flex-direction: column;
   transform: translate(0, -50%);
-  background-color: var(--ah-c-background-transparent-drop-down);
 
   .dot {
     position: relative;
     border-radius: 50%;
     width: 0.28rem;
     height: 0.28rem;
-    background-color: var(--ah-c-background-transparent-drop-down);
-    transition: all var(--ah-t-short);
+    background-color: var(--ah-c-background-indicator);
+    transition: all var(--ah-t-long);
 
     &:hover {
+      border: var(--ah-c-background-indicator) 0.04rem solid;
       transform: scale(1.2);
-      background-color: var(--ah-c-background-button);
+      background-color: var(--ah-c-background-indicator-active);
     }
   }
 }
@@ -1264,6 +1230,15 @@ footer {
     .outside {
       flex-direction: column; // row
 
+      .dropdown-title {
+        &::after {
+          content: "\276F";
+          text-align: center;
+          transform: rotate(270deg);
+          transition: transform var(--ah-t-long);
+        }
+      }
+
       .container:not(.is-show) {
         .dropdown-title::after {
           transform: rotate(90deg);
@@ -1293,7 +1268,7 @@ footer {
     }
 
     .slogan {
-      font-size: 0.36rem; // 0.48rem
+      font-size: 0.32rem; // 0.48rem
     }
   }
 
@@ -1417,9 +1392,7 @@ footer {
   }
 
   .dropdown {
-    padding: 0.4rem;
-    padding-top: 1rem;
-    min-height: 40vh;
+    padding: 0.8rem 0.4rem;
 
     .dropdown-title {
       font-size: 0.36rem;
