@@ -5,11 +5,13 @@ import { throttle } from './utils'
 
 const isDarkTheme = ref(false) // 是否为深色主题
 const acitveProject = ref(0) // 在“我们的项目”板块中当前激活的项目
-const isMobileMenuShow = ref(false) // 是否显示下拉菜单 - 移动端
-const isPCFastLinkShow = ref(false) // 是否显示快速链接 - PC
-const isPCFastLinkHover = ref(false) // 是否鼠标悬浮在快速链接上 - PC
-const isPCDropDownHover = ref(false) // 是否鼠标悬浮在下拉菜单上 - PC
+const isFastLinkShow = ref(false) // 是否显示快速链接
+const isFastLinkHover = ref(false) // 是否鼠标悬浮在快速链接上
+const isDropDownHover = ref(false) // 是否鼠标悬浮在下拉菜单上
 const fastlinkShowIndex = ref(1) // 当前显示的快速链接组的索引
+const section1 = ref(null) // 页面位置指示器 - 第一节
+const section2 = ref(null) // 页面位置指示器 - 第二节
+const section3 = ref(null) // 页面位置指示器 - 第三节
 
 const HtmlElement = document.querySelector('html')
 
@@ -51,9 +53,13 @@ const clickFastLinkTitle = (index) => {
   fastlinkShowIndex.value = index === fastlinkShowIndex.value ? 0 : index
 }
 
-const clickMenuItem = (index) => {
-  fastlinkShowIndex.value = index
-  isPCFastLinkShow.value = true
+const scrollToAnchor = (anchor) => {
+  const rect = anchor.getBoundingClientRect();
+  window.scroll({
+    // top = 元素距离页面顶部的距离 + 页面滚动的距离 - 100
+    top: rect.top + window.scrollY - 100,
+    behavior: 'smooth'
+  });
 }
 
 onMounted(() => {
@@ -67,7 +73,7 @@ onMounted(() => {
 <template>
   <header>
     <!-- 菜单(仅在移动端居左显示) -->
-    <div class="menu" @click="isPCFastLinkShow = !isPCFastLinkShow">
+    <div class="menu" @click="isFastLinkShow = !isFastLinkShow">
       <el-icon>
         <Menu />
       </el-icon>
@@ -85,12 +91,12 @@ onMounted(() => {
           <span>{{ link.title }}</span>
         </a>
       </div>
-      <div class="nav-item" ref="pcFastLinkElement" @mouseover="isPCFastLinkHover = true" @mouseleave="
+      <div class="nav-item" ref="pcFastLinkElement" @mouseover="isFastLinkHover = true" @mouseleave="
         throttle(() => {
-          isPCFastLinkHover = false
+          isFastLinkHover = false
         }, 200)()
         ">
-        <span :class="{ 'is-show': isPCFastLinkShow }" @click="isPCFastLinkShow = !isPCFastLinkShow">快速链接</span>
+        <span :class="{ 'is-show': isFastLinkShow }" @click="isFastLinkShow = !isFastLinkShow">快速链接</span>
       </div>
     </div>
     <!-- 切换主题(居右显示) -->
@@ -104,30 +110,13 @@ onMounted(() => {
     </div>
   </header>
 
-  <!-- 下拉窗口 - Mobile - 菜单 -->
-  <div class="drop-down-menu" :style="{
-    transform: isMobileMenuShow ? '' : 'translate(0, -100%)'
-  }">
-    <div class="ddm-item">
-      <a target="_blank" rel="noopener noreferrer" href="https://acm.sdut.edu.cn/onlinejudge3/">SDUT OJ</a>
-    </div>
-    <div class="ddm-item">
-      <a target="_blank" rel="noopener noreferrer" href="https://rl.algoux.cn/">RankLand</a>
-    </div>
-    <div class="ddm-item">
-      <a target="_blank" rel="noopener noreferrer" href="https://lcl.sdutacm.cn/">光锥实验室</a>
-    </div>
-    <div v-for="groups in fastlinks" :key="groups.index" class="ddm-item" @click="clickMenuItem(groups.index)">
-      <span>{{ groups.title }}</span>
-    </div>
-  </div>
   <!-- 下拉窗口 - PC - 快速连接 -->
   <div class="dropdown" :style="{
     transform:
-      isPCFastLinkShow || isPCFastLinkHover || isPCDropDownHover ? '' : 'translate(-50%, -100%)'
-  }" @mouseover="isPCDropDownHover = true" @mouseleave="
+      isFastLinkShow || isFastLinkHover || isDropDownHover ? '' : 'translate(-50%, -100%)'
+  }" @mouseover="isDropDownHover = true" @mouseleave="
   throttle(() => {
-    isPCDropDownHover = false
+    isDropDownHover = false
   }, 200)()
   ">
     <!-- 内部快速链接 -->
@@ -182,9 +171,16 @@ onMounted(() => {
       <div class="jumbo"></div>
     </div>
 
+    <!-- 页面位置指示器 -->
+    <div class="indicator">
+      <div class="dot" @click="scrollToAnchor(section1)"></div>
+      <div class="dot" @click="scrollToAnchor(section2)"></div>
+      <div class="dot" @click="scrollToAnchor(section3)"></div>
+    </div>
+
     <!-- SDUTACM简介 -->
     <div class="summary">
-      <span class="title">山东理工大学ACM</span>
+      <span class="title" ref="section1">山东理工大学ACM</span>
       <span class="slogan">NO EFFORT GOES IN VAIN</span>
       <div class="text">
         <p>
@@ -199,7 +195,7 @@ onMounted(() => {
     </div>
 
     <!-- 最新动态 -->
-    <div class="section-title">最新动态</div>
+    <div class="section-title" ref="section2">最新动态</div>
     <div class="news">
       <!-- 新闻动态1 -->
       <div class="news-item1">
@@ -271,7 +267,7 @@ onMounted(() => {
     </div>
 
     <!-- 我们的项目 -->
-    <div class="section-title">我们的项目</div>
+    <div class="section-title" ref="section3">我们的项目</div>
     <div class="project">
       <div class="project-item1 project-item" :class="{ active: acitveProject === 1 }" @click="clickProject(1)">
         <div class="project-bubble"></div>
@@ -318,6 +314,16 @@ onMounted(() => {
         </div>
       </div>
     </div>
+
+    <!-- 时间线 -->
+    <!-- <div class="section-title">时间线</div>
+    <div class="time-line">
+      敬请期待
+    </div> -->
+
+    <!-- 加入我们 -->
+    <!-- <div class="section-title">加入我们</div>
+    <div class="join-us">敬请期待</div> -->
   </main>
 
   <footer>
@@ -520,7 +526,7 @@ header {
   background-color: var(--ah-c-background-transparent-drop-down);
   box-shadow: var(--ah-s-shadow-2);
   backdrop-filter: blur(4rem);
-  transition: transform var(--ah-t-long), height var(--ah-t-long);
+  transition: transform var(--ah-t-long);
   transform: translate(-50%, 0);
 
   // 内部快速链接
@@ -717,6 +723,36 @@ main {
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--ah-c-text1);
+}
+
+// 页面指示器
+.indicator {
+  position: fixed;
+  top: 50%;
+  right: 0.6rem;
+  z-index: 30;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 0.04rem;
+  height: 6.4rem;
+  flex-direction: column;
+  transform: translate(0, -50%);
+  background-color: var(--ah-c-background-transparent-drop-down);
+
+  .dot {
+    position: relative;
+    border-radius: 50%;
+    width: 0.28rem;
+    height: 0.28rem;
+    background-color: var(--ah-c-background-transparent-drop-down);
+    transition: all var(--ah-t-short);
+
+    &:hover {
+      transform: scale(1.2);
+      background-color: var(--ah-c-background-button);
+    }
+  }
 }
 
 // SDUTACM简介
@@ -1377,11 +1413,12 @@ footer {
 // 电脑 ❌ 平板 ❌ 手机 ✅
 @media screen and (width <=600px) {
   main {
-    padding: 1rem 0.4rem;
+    padding: 1rem 0.8rem;
   }
 
   .dropdown {
     padding: 0.4rem;
+    padding-top: 1rem;
     min-height: 40vh;
 
     .dropdown-title {
@@ -1390,6 +1427,15 @@ footer {
 
     .dropdown-content-title {
       font-size: 0.2rem;
+    }
+  }
+
+  .indicator {
+    right: 0.3rem;
+
+    .dot {
+      width: 0.22rem;
+      height: 0.22rem;
     }
   }
 
