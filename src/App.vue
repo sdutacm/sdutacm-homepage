@@ -2,8 +2,12 @@
 import { ref, onMounted } from 'vue'
 import { sdutlinks, fastlinks } from './data/fastlinks'
 import { throttle } from './utils'
+import MenuIcon from './components/icon/IconMenu.vue'
+// import SunIcon from './components/icon/IconSun.vue'
+// import MoonIcon from './components/icon/IconMoon.vue'
+// import ChristmasIcon from './components/icon/IconChristmas.vue'
+import ToggleThemeButton from './components/ToggleThemeButton.vue'
 
-const isDarkTheme = ref(false) // 是否为深色主题
 const acitveProject = ref(0) // 在“我们的项目”板块中当前激活的项目
 const isFastLinkShow = ref(false) // 是否显示快速链接
 const isFastLinkHover = ref(false) // 是否鼠标悬浮在快速链接上
@@ -12,28 +16,6 @@ const fastlinkShowIndex = ref(1) // 当前显示的快速链接组的索引
 const section1 = ref(null) // 页面位置指示器 - 第一节
 const section2 = ref(null) // 页面位置指示器 - 第二节
 const section3 = ref(null) // 页面位置指示器 - 第三节
-
-const HtmlElement = document.querySelector('html')
-
-const toggleTheme = () => {
-  isDarkTheme.value = !isDarkTheme.value
-  if (isDarkTheme.value) {
-    HtmlElement.classList.add('dark-theme')
-  } else {
-    HtmlElement.classList.remove('dark-theme')
-  }
-}
-
-// 切换为圣诞主题
-const marryChristmas = () => {
-  if (HtmlElement.classList.contains('christmas-theme')) {
-    console.log('已经是圣诞主题啦')
-    return
-  } else if (HtmlElement.classList.contains('dark-theme')) {
-    HtmlElement.classList.remove('dark-theme')
-  }
-  HtmlElement.classList.add('christmas-theme')
-}
 
 const clickProject = (target) => {
   acitveProject.value = target === acitveProject.value ? 0 : target
@@ -53,14 +35,13 @@ const scrollToAnchor = (anchor) => {
 }
 
 onMounted(() => {
-  // 页面加载时，判断是否为深色主题
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    toggleTheme()
-  }
-  // 绑定全局函数切换主题
-  window.magic = () => {
-    marryChristmas()
-  }
+  // todo: 彩蛋信息
+  console.log(
+    '主题食用说明：\n' +
+      '1. 使用 window.magic(\'<some>-theme\') 添加隐藏主题\n' +
+      '2. 使用 window.magicClear() 清空隐藏主题\n' +
+      '3. 使用 window.magic<特殊日期>() 快速添加主题\n'
+  )
 })
 </script>
 
@@ -68,10 +49,7 @@ onMounted(() => {
   <header>
     <!-- 菜单(仅在移动端居左显示) -->
     <div class="menu" @click="isFastLinkShow = !isFastLinkShow">
-      <svg
-        class="svg-icon"
-        :style="{ backgroundImage: `url('../src/assets/icon/menu.svg')` }"
-      ></svg>
+      <MenuIcon />
     </div>
 
     <!-- LOGO(PC端居左, 移动端居中) -->
@@ -102,14 +80,7 @@ onMounted(() => {
       </div>
     </div>
     <!-- 切换主题(居右显示) -->
-    <div class="toggle" @click="toggleTheme">
-      <el-icon v-show="!isDarkTheme">
-        <Sunny />
-      </el-icon>
-      <el-icon v-show="isDarkTheme">
-        <Moon />
-      </el-icon>
-    </div>
+    <ToggleThemeButton />
   </header>
 
   <!-- 下拉窗口 - PC - 快速连接 -->
@@ -430,19 +401,6 @@ header {
     width: 0.6rem;
     height: 0.6rem;
     cursor: pointer;
-
-    .svg-icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-      color: #fff2df;
-      // stroke: var(--ah-c-text2); // todo 颜色控制
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
   }
 
   .logo {
@@ -532,14 +490,6 @@ header {
     width: 0.6rem;
     height: 0.6rem;
     cursor: pointer;
-
-    .el-icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 0.6rem;
-      color: var(--ah-c-text1);
-    }
   }
 }
 

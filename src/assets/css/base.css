@@ -91,52 +91,6 @@ html {
   --ah-bg-project: linear-gradient(105deg, transparent 75%, var(--ah-c-background-card) 85%) center;
 }
 
-/* 深色主题 */
-.dark-theme {
-  /* 阴影 */
-  --ah-s-shadow-1: 0 0 0.4rem var(--ah-c-dark-2);
-  --ah-s-shadow-2: 0 .05rem .4rem var(--ah-tc-2);
-  
-  /* 颜色 */
-  --ah-c-text1: var(--ah-c-white); /* 特别深色 */
-  --ah-c-text2: var(--ah-c-light-1); /* 主要文字：标题，图标，文案 */
-  --ah-c-text3: var(--ah-c-light-2); /* 次要文字：小标题，标语 */
-  --ah-c-text4: var(--ah-c-gray-1); /* 弱提示：时间，提示 */
-  --ah-c-background-card: var(--ah-c-dark-secondary); /* 卡片 */
-  --ah-c-background-bg: var(--ah-c-dark-primary); /* 背景 */
-  --ah-c-background-header: var(--ah-c-dark-primary); /* 导航条 */
-  --ah-c-background-transparent-drop-down: var(--ah-tc-3); /* 透明背景-下拉菜单 */
-  --ah-c-background-transparent-drop-down-hover: var(--ah-tc-3); /* 按钮 */
-  --ah-c-background-button: var(--ah-c-dark-third); /* 按钮 */
-  --ah-c-background-indicator: var(--ah-c-6); /* 页面指示器 */
-  --ah-c-background-indicator-active: var(--ah-c-dark-third); /* 页面指示器 - 激活状态 */
-  --stripes-style: var(--stripes-dark);
-  --stripes-filter: var(--filter-dark);
-}
-
-/* 圣诞节配色 */
-.christmas-theme {
-  /* 阴影 */
-  --ah-s-shadow-1: 0 0 0.3rem #48a065;
-  --ah-s-shadow-2: 0 .05rem .4rem #2b624399;
-  
-  /* 颜色 */
-  --ah-c-text1: #eceff0; /* 特别深色 */
-  --ah-c-text2: #f9f2d1; /* 主要文字：标题，图标，文案 - 圣诞红 */
-  --ah-c-text3: #b9c471; /* 次要文字：小标题，标语 - 圣诞绿 */
-  --ah-c-text4: #94d2a9; /* 弱提示：时间，提示 */
-  --ah-c-background-card: #de3931; /* 卡片 */
-  --ah-c-background-bg: #2b6243; /* 背景 - 白色 */
-  --ah-c-background-header: #22412e; /* 导航条 - 圣诞红 */
-  --ah-c-background-transparent-drop-down: #48a06566; /* 透明背景-下拉菜单 */
-  --ah-c-background-transparent-drop-down-hover: #48a06544; /* 按钮 */
-  --ah-c-background-button: #008000; /* 按钮 - 圣诞绿 */
-  --ah-c-background-indicator: #309351; /* 页面指示器 */
-  --ah-c-background-indicator-active: #62ca85; /* 页面指示器 - 激活状态 */
-  --stripes-style: var(--stripes-dark);
-  --stripes-filter: var(--filter-dark);
-}
-
 *,
 *::before,
 *::after {
