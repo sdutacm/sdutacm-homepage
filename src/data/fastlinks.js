@@ -400,4 +400,25 @@ const fastlinks = [
   }
 ]
 
-export default fastlinks
+const sdutlinks = [
+  {
+    title: 'SDUT OJ',
+    link: 'https://acm.sdut.edu.cn/onlinejudge3/',
+    desc: '山东理工大学ACM实验室自研的第三代在线评测系统',
+    icon: '../src/assets/logo/sdutoj.ico'
+  },
+  {
+    title: 'RankLand',
+    link: 'https://rl.algoux.cn/',
+    desc: '由我们的开源组织algoUX开发、算法竞赛爱好者们自发维护的、专注于托管和分享任何竞赛榜单的宝地',
+    icon: '../src/assets/logo/rankland.ico'
+  },
+  {
+    title: '光之魔法书',
+    link: 'https://lcl-magicbook.sdutacm.cn/',
+    desc: '光锥实验室的入门魔法指南，你需要通过学习、实践、总结进而对web魔法体系有一个清晰的概念',
+    icon: '../src/assets/logo/magicbook.ico'
+  }
+]
+
+export { fastlinks, sdutlinks }
