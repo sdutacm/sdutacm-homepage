@@ -142,6 +142,7 @@ const clickProject = (target) => {
       flex-direction: column;
 
       .p-link {
+        // position: relative;
         z-index: 10;
         overflow: hidden;
         width: 30%;
@@ -150,6 +151,7 @@ const clickProject = (target) => {
         text-align: center;
         color: var(--ah-c-text2);
         line-height: 0.8rem;
+        transition: transform var(--ah-t-short);
 
         &::before {
           content: '';
@@ -168,15 +170,22 @@ const clickProject = (target) => {
         }
 
         &::after {
-          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
           display: block;
-          width: 110%;
+          width: 60%;
           height: 0.04rem;
-          background-color: var(--ah-c-text2);
-          animation: slide-out-to-tight var(--ah-t-short) ease-in-out forwards;
+          background-color: var(--ah-c-text1);
+          opacity: 0;
+          transition: transform var(--ah-t-short), opacity var(--ah-t-short);
+          content: '';
+          transform: translate(-50%, 0);
         }
 
         &:hover {
+          transform: translate(-0.1rem, 0);
+
           &::before {
             width: 150%;
             opacity: 1;
@@ -184,7 +193,8 @@ const clickProject = (target) => {
           }
 
           &::after {
-            animation: slide-in-from-left var(--ah-t-short) ease-in-out forwards;
+            transform: translate(-55%, 0);
+            opacity: 1;
           }
 
           .project-summary {
@@ -513,5 +523,4 @@ const clickProject = (target) => {
     transform: translateX(110%);
   }
 }
-
 </style>

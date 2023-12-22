@@ -32,3 +32,16 @@
     font-size: 0.6rem;
   }
 }
+
+@keyframes show-animation {
+  50% {
+    width: 40%;
+  }
+}
+
+
+@keyframes hide-animation {
+  50% {
+    width: 40%;
+  }
+}

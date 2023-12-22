@@ -34,12 +34,13 @@ const clickFastLinkTitle = (index) => {
           <span>{{ link.title }}</span>
         </a>
       </div>
-      <div class="nav-item" ref="pcFastLinkElement" @mouseover="isFastLinkHover = true" @mouseleave="
-        throttle(() => {
-          isFastLinkHover = false
-        }, 200)()
-        ">
-        <span :class="{ 'is-show': isFastLinkShow }" @click="isFastLinkShow = !isFastLinkShow">快速链接</span>
+      <div class="nav-item" :class="{ 'is-show': isFastLinkShow }" ref="pcFastLinkElement"
+        @mouseover="isFastLinkHover = true" @mouseleave="
+          throttle(() => {
+            isFastLinkHover = false
+          }, 200)()
+          ">
+        <span @click="isFastLinkShow = !isFastLinkShow">快速链接</span>
       </div>
     </div>
     <!-- 切换主题(居右显示) -->
@@ -162,51 +163,54 @@ header {
     transform: translate(-50%, -50%);
 
     .nav-item {
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
       width: 2.5rem;
       height: 100%;
-      flex-direction: column;
       cursor: pointer;
 
       a,
       span {
-        overflow: hidden;
         font-size: 0.36rem;
         font-weight: 500;
         text-decoration: none;
         color: var(--ah-c-text1);
         transition: transform var(--ah-t-short);
-        line-height: 0.8rem;
         user-select: none;
+      }
 
-        &::after {
-          content: '';
-          display: block;
-          width: 110%;
-          height: 0.04rem;
-          background-color: var(--ah-c-text1);
-          animation: slide-out-to-tight var(--ah-t-short) ease-in-out forwards;
-        }
-
-        // 当锁定时
-        &.is-show {
-          &::after {
-            animation: slide-in-from-left var(--ah-t-short) ease-in-out forwards;
-          }
-        }
+      &::after {
+        position: absolute;
+        bottom: 20%;
+        left: 50%;
+        display: block;
+        width: 60%;
+        height: 0.04rem;
+        background-color: var(--ah-c-text1);
+        opacity: 0;
+        transition: transform var(--ah-t-short), opacity var(--ah-t-short);
+        content: '';
+        transform: translate(-50%, 0);
+        animation: hide-animation 0.3s forwards;
       }
 
       &:hover {
+        &::after {
+          transform: translate(-50%, -0.1rem);
+          opacity: 1;
+        }
 
-        // 当锁定时
         a,
         span {
-          &::after {
-            animation: slide-in-from-left var(--ah-t-short) ease-in-out forwards;
-          }
+          transform: translate(0, -12%);
         }
+      }
+
+      &.is-show::after {
+        opacity: 1;
+        animation: show-animation 0.3s forwards;
       }
     }
   }
