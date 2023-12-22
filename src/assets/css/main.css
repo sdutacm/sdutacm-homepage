@@ -5,6 +5,14 @@
   margin: 0 auto;
 }
 
+/* 板块标题 */
+.section-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ah-c-text1);
+}
+
+/* svg图标属性 */
 .svg-icon {
   display: flex;
   justify-content: center;
@@ -14,6 +22,13 @@
   height: 0.6rem;
 }
 
+/* svg图标颜色随主题切换 */
 .svg-icon-color {
   fill: var(--ah-c-text1);
+}
+
+@media screen and (width <=1100px) {
+  .section-title {
+    font-size: 0.6rem;
+  }
 }
