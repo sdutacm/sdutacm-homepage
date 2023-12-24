@@ -520,6 +520,19 @@ header {
   .dropdown {
     padding: 0.8rem 0.4rem;
 
+    .dropdown-group .dropdown-item .dropdown-icon {
+
+      img,
+      span {
+        display: block;
+        border-radius: 10%;
+        width: 0.40rem;
+        height: 0.40rem;
+        font-size: 0.36rem;
+        font-weight: 700;
+      }
+    }
+
     .dropdown-title {
       font-size: 0.36rem;
     }

@@ -7,7 +7,7 @@ import { useThemeStore } from '../store/themeStore'
 
 let HtmlElement = null
 const themeList = ['light-theme', 'dark-theme', 'christmas-theme'] // tips: light-theme是默认主题, 这个类下面并没有属性, 默认如此
-const currentThemeList = ref(themeList.slice(0, 2))
+const currentThemeList = ref(themeList.slice(0, 3)) // todo 
 const themeStore = useThemeStore() // 主题仓库
 const wrongWords = [
   '🤔学徒, 你的主题名字写错了吧?',

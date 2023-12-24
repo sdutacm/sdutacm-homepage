@@ -533,7 +533,7 @@ const clickProject = (target) => {
 
         .link-item .link {
           z-index: 0;
-          font-size: 0.28rem;
+          font-size: 0.24rem;
           line-height: 0.64rem;
           background-color: var(--ah-c-background-button);
           border-radius: 0.2rem;
