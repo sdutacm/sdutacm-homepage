@@ -274,12 +274,12 @@ const fastlinks = [
         desc: '翻译工具'
       },
       {
-        title: 'latexlive',
+        title: 'LaTeX Live',
         net_icon: '', // ? base64数据
         local_icon: base_url + 'latex.png',
         icon: IconLatex,
         link: 'https://www.latexlive.com/',
-        desc: '在线 latex 公式'
+        desc: '在线 LaTeX 公式'
       },
       {
         title: 'texpage',
