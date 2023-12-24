@@ -3,11 +3,12 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import SunIcon from './icon/IconSun.vue'
 import MoonIcon from './icon/IconMoon.vue'
 import ChristmasIcon from './icon/IconChristmas.vue'
+import { useThemeStore } from '../store/themeStore'
 
 const HtmlElement = document.querySelector('html')
 const themeList = ['light-theme', 'dark-theme', 'christmas-theme'] // tips: light-theme是默认主题, 这个类下面并没有属性, 默认如此
 const currentThemeList = ref(themeList.slice(0, 2))
-const currentTheme = ref('light-theme')
+const themeStore = useThemeStore() // 主题仓库
 const wrongWords = [
   '🤔学徒, 你的主题名字写错了吧?',
   '😤好好检查你的咒语！',
@@ -53,16 +54,12 @@ const addTheme = (theme) => {
     console.log('你觉得我应该做点什么？...')
     setTimeout(() => {
       console.log('😤📱原神，启动！')
-    }, 5000)
+    }, 3000)
     return
-  }
-  // 检查如果合法, 则修改为该主题
-  if (!theme.endsWith('-theme')) {
-    theme += '-theme'
   }
   // 判断后缀是否为-theme
   if (themeList.includes(theme)) {
-    currentTheme.value = theme
+    themeStore.setTheme(theme)
     HtmlElement.classList.remove(...themeList)
     HtmlElement.classList.add(theme)
     if (theme === 'light-theme') {
@@ -93,7 +90,7 @@ const clearAllTheme = () => {
 // 切换主题
 const toggleTheme = () => {
   // 选择主题: 如果当前主题是最后一个, 则切换到第一个, 否则切换到下一个
-  const nextIndex = currentThemeList.value.indexOf(currentTheme.value) + 1
+  const nextIndex = currentThemeList.value.indexOf(themeStore.getTheme()) + 1
   const nextTheme =
     nextIndex === currentThemeList.value.length
       ? currentThemeList.value[0]
@@ -101,15 +98,15 @@ const toggleTheme = () => {
   // 切换主题
   HtmlElement.classList.remove(...themeList)
   HtmlElement.classList.add(nextTheme)
-  currentTheme.value = nextTheme
+  themeStore.setTheme(nextTheme)
 }
 </script>
 
 <template>
   <div class="icon" @click="toggleTheme()">
-    <SunIcon v-if="currentTheme === themeList[0]" />
-    <MoonIcon v-else-if="currentTheme === themeList[1]" />
-    <ChristmasIcon v-else-if="currentTheme === themeList[2]" />
+    <SunIcon v-if="themeStore.getTheme() === themeList[0]" />
+    <MoonIcon v-else-if="themeStore.getTheme() === themeList[1]" />
+    <ChristmasIcon v-else-if="themeStore.getTheme() === themeList[2]" />
   </div>
 </template>
 

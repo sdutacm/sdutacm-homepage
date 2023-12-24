@@ -137,6 +137,7 @@ header {
     height: 100%;
     flex-direction: row;
     gap: 0.2rem;
+    user-select: none;
     cursor: pointer;
 
     img {
@@ -232,11 +233,10 @@ header {
   gap: 0.2rem;
   min-width: var(--ah-breakpoint-xs);
   max-width: 28rem;
-  // max-height: calc(100vh - 1.2rem);
   background-color: var(--ah-c-background-transparent-drop-down);
   box-shadow: var(--ah-s-shadow-2);
   backdrop-filter: blur(4rem);
-  transition: transform var(--ah-t-long);
+  transition: transform var(--ah-t-long) ease-in-out;
   transform: translate(-50%, 0);
 
   // 内部快速链接

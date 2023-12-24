@@ -43,3 +43,7 @@
   --stripes-style: var(--stripes-dark);
   --stripes-filter: var(--filter-dark);
 }
+
+.christmas-theme .jumbo-container {
+  display: none;
+}

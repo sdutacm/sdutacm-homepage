@@ -4,7 +4,10 @@ import NavigationBar from './components/NavigationBar.vue'
 import GodRays from './components/GodRays.vue'
 import SectionNews from './components/SectionNews.vue'
 import SectionProject from './components/SectionProject.vue'
+import SnowBackground from './components/SnowBackground.vue'
+import { useThemeStore } from './store/themeStore'
 
+const themeStore = useThemeStore() // 主题仓库
 const section1 = ref(null) // 页面位置指示器 - 第一节
 const section2 = ref(null) // 页面位置指示器 - 第二节
 const section3 = ref(null) // 页面位置指示器 - 第三节
@@ -22,10 +25,11 @@ onMounted(() => {
   // todo: 彩蛋信息
   console.log(
     '主题食用说明：\n' +
-    '1. 使用 window.magic(\'<some>-theme\') 添加隐藏主题\n' +
-    '2. 使用 window.magicClear() 清空隐藏主题\n' +
-    '3. 使用 window.magic<特殊日期>() 快速添加主题\n'
+      "1. 使用 window.magic('<some>-theme') 添加隐藏主题\n" +
+      '2. 使用 window.magicClear() 清空隐藏主题\n' +
+      '3. 使用 window.magic<特殊日期>() 快速添加主题\n'
   )
+  console.log('当前主题：', themeStore.theme)
 })
 </script>
 
@@ -34,7 +38,10 @@ onMounted(() => {
   <NavigationBar />
 
   <!-- 极光背景 -->
-  <GodRays />
+  <GodRays v-if="themeStore.theme === 'light-theme' || themeStore.theme === 'dark-theme'" />
+
+  <!-- 下雪背景 -->
+  <SnowBackground v-if="themeStore.theme === 'christmas-theme'" />
 
   <main>
     <!-- 页面位置指示器 -->
