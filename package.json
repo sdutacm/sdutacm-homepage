@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite-ssg build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.3.3",
+    "@unhead/vue": "^1.8.9",
     "@vitejs/plugin-vue": "^4.4.0",
     "@vue/eslint-config-prettier": "^8.0.0",
     "eslint": "^8.56.0",
@@ -26,11 +27,12 @@
     "less": "^4.2.0",
     "postcss-less": "^6.0.0",
     "prettier": "^3.0.3",
-    "stylelint": "^16.0.0",
+    "stylelint": "^16.0.2",
     "stylelint-config-recommended-vue": "^1.5.0",
     "stylelint-config-standard": "^35.0.0",
     "stylelint-less": "^3.0.0",
     "stylelint-order": "^6.0.4",
-    "vite": "^4.4.11"
+    "vite": "^4.4.11",
+    "vite-ssg": "^0.23.5"
   }
 }
