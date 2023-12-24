@@ -5,7 +5,7 @@ import MoonIcon from './icon/IconMoon.vue'
 import ChristmasIcon from './icon/IconChristmas.vue'
 import { useThemeStore } from '../store/themeStore'
 
-const HtmlElement = document.querySelector('html')
+let HtmlElement = null
 const themeList = ['light-theme', 'dark-theme', 'christmas-theme'] // tips: light-theme是默认主题, 这个类下面并没有属性, 默认如此
 const currentThemeList = ref(themeList.slice(0, 2))
 const themeStore = useThemeStore() // 主题仓库
@@ -19,6 +19,7 @@ const wrongWords = [
 ]
 
 onMounted(() => {
+  HtmlElement = document.querySelector('html')
   // 检查localStorage中是否有主题设置
   const theme = JSON.parse(localStorage.getItem('theme'))
   if (theme) {
