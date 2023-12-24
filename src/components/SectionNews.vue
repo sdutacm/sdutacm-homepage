@@ -35,7 +35,7 @@
         <div class="news-info">
           <span class="news-title">ICPC济南站 双铜牌</span>
           <span class="news-summary">恭喜「开发9G」&「清纯白毛小萝莉」!</span>
-          <span class="news-date">2023-12-3</span>
+          <span class="news-date">2023-12-03</span>
         </div>
       </a>
     </div>

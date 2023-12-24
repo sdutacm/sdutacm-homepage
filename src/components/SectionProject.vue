@@ -408,6 +408,8 @@ const clickProject = (target) => {
     }
 
     &:hover:not(.active) {
+      cursor: pointer;
+
       .project-bubble {
         transform: scale(1.2);
         box-shadow: var(--ah-s-shadow-1);
@@ -452,14 +454,6 @@ const clickProject = (target) => {
           line-height: 0.4rem; // 0.48rem
         }
       }
-
-      // .project-links {
-      //   .p-link {
-      //     width: 50%; // 30%
-      //     font-size: 0.28rem; // 0.32rem
-      //     line-height: 0.6rem; // 0.8rem
-      //   }
-      // }
 
       .project-links {
         width: 30%; // 40%
@@ -508,6 +502,7 @@ const clickProject = (target) => {
       background-size: 60%;
 
       .project-bubble {
+        z-index: 10;
         top: 80%;
         left: 50%;
         width: 12rem;
@@ -516,12 +511,14 @@ const clickProject = (target) => {
       }
 
       .project-title {
+        z-index: 50;
         top: 70%;
         right: 50%;
         transform: translate(50%, -20%);
       }
 
       .project-summary {
+        z-index: 20;
         padding: 0 0.4rem;
         width: 100%;
       }
@@ -535,6 +532,7 @@ const clickProject = (target) => {
         gap: 0.2rem;
 
         .link-item .link {
+          z-index: 0;
           font-size: 0.28rem;
           line-height: 0.64rem;
           background-color: var(--ah-c-background-button);
@@ -561,9 +559,23 @@ const clickProject = (target) => {
         }
 
         .project-links {
-          z-index: 30;
+          z-index: 50;
           opacity: 1;
           transition: opacity var(--ah-t-long) var(--ah-t-short);
+        }
+      }
+
+      &:hover:not(.active) {
+        .project-bubble {
+          transform: translate(-50%, -24%) scale(1.05);
+          box-shadow: var(--ah-s-shadow-1);
+        }
+      }
+
+      &:hover {
+        box-shadow: var(--ah-s-shadow-1);
+        .project-bubble {
+          box-shadow: var(--ah-s-shadow-1);
         }
       }
     }
