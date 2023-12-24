@@ -34,13 +34,18 @@ const clickFastLinkTitle = (index) => {
           <span>{{ link.title }}</span>
         </a>
       </div>
-      <div class="nav-item" :class="{ 'is-show': isFastLinkShow }" ref="pcFastLinkElement"
-        @mouseover="isFastLinkHover = true" @mouseleave="
+      <div
+        class="nav-item"
+        :class="{ 'is-show': isFastLinkShow }"
+        ref="pcFastLinkElement"
+        @mouseover="isFastLinkHover = true"
+        @mouseleave="
           throttle(() => {
             isFastLinkHover = false
           }, 200)()
-          ">
-        <span @click="isFastLinkShow = !isFastLinkShow">快速链接</span>
+        "
+      >
+        <span>快速链接</span>
       </div>
     </div>
     <!-- 切换主题(居右显示) -->
@@ -48,22 +53,34 @@ const clickFastLinkTitle = (index) => {
   </header>
 
   <!-- 下拉窗口 -->
-  <div class="dropdown" :style="{
-    transform:
-      isFastLinkShow || isFastLinkHover || isDropDownHover ? '' : 'translate(-50%, -100%)'
-  }" @mouseover="isDropDownHover = true" @mouseleave="
-  throttle(() => {
-    isDropDownHover = false
-  }, 200)()
-  ">
+  <div
+    class="dropdown"
+    :style="{
+      transform:
+        isFastLinkShow || isFastLinkHover || isDropDownHover ? '' : 'translate(-50%, -100%)'
+    }"
+    @mouseover="isDropDownHover = true"
+    @mouseleave="
+      throttle(() => {
+        isDropDownHover = false
+      }, 200)()
+    "
+  >
     <!-- 内部快速链接 -->
     <div class="inside">
       <span class="dropdown-title">我们的项目</span>
       <div class="dropdown-group">
-        <a v-for="item in sdutlinks" :key="item.link" :href="item.link" class="dropdown-item" target="_blank"
-          rel="noopener noreferrer">
+        <a
+          v-for="item in sdutlinks"
+          :key="item.link"
+          :href="item.link"
+          class="dropdown-item"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <div class="dropdown-icon">
-            <span :style="{ backgroundImage: `url(${item.icon})` }"></span>
+            <!-- <span :style="{ backgroundImage: `url(${item.icon})` }"></span> -->
+            <img :src="item.icon" alt="" />
           </div>
           <div class="dropdown-content">
             <span class="dropdown-content-title">{{ item.title }}</span>
@@ -77,14 +94,27 @@ const clickFastLinkTitle = (index) => {
     <!-- 外部快速链接 -->
     <div class="outside">
       <!-- 外部容器 -->
-      <div v-for="groups in fastlinks" :key="groups.index" class="container"
-        :class="{ 'is-show': fastlinkShowIndex === groups.index }">
-        <span class="dropdown-title" @click="clickFastLinkTitle(groups.index)">算法竞赛{{ groups.title }}</span>
+      <div
+        v-for="groups in fastlinks"
+        :key="groups.index"
+        class="container"
+        :class="{ 'is-show': fastlinkShowIndex === groups.index }"
+      >
+        <span class="dropdown-title" @click="clickFastLinkTitle(groups.index)"
+          >算法竞赛{{ groups.title }}</span
+        >
         <div class="dropdown-group">
-          <a v-for="item in groups.links" :key="item.link" :href="item.link" class="dropdown-item" target="_blank"
-            rel="noopener noreferrer">
+          <a
+            v-for="item in groups.links"
+            :key="item.link"
+            :href="item.link"
+            class="dropdown-item"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div class="dropdown-icon">
-              <span v-if="item.local_icon" :style="{ backgroundImage: `url(${item.local_icon})` }"></span>
+              <!-- <span v-if="item.local_icon" :style="{ backgroundImage: `url(${item.local_icon})` }"></span> -->
+              <img v-if="item.icon" :src="item.icon" alt="" />
               <span v-else>
                 {{ item.title[0] }}
               </span>
@@ -191,7 +221,9 @@ header {
         height: 0.04rem;
         background-color: var(--ah-c-text1);
         opacity: 0;
-        transition: transform var(--ah-t-short), opacity var(--ah-t-short);
+        transition:
+          transform var(--ah-t-short),
+          opacity var(--ah-t-short);
         content: '';
         transform: translate(-50%, 0);
         animation: hide-animation 0.3s forwards;
@@ -304,6 +336,7 @@ header {
         overflow: hidden;
         width: 18%;
 
+        img,
         span {
           display: block;
           border-radius: 10%;
@@ -492,7 +525,7 @@ header {
     }
 
     .dropdown-content-title {
-      font-size: 0.2rem;
+      font-size: 0.28rem;
     }
   }
 }
