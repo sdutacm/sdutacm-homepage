@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import NavigationBar from './components/NavigationBar.vue'
-import GodRays from './components/GodRays.vue'
+// import GodRays from './components/GodRays.vue'
 import SectionNews from './components/SectionNews.vue'
 import SectionProject from './components/SectionProject.vue'
 import SnowBackground from './components/SnowBackground.vue'
@@ -38,7 +38,7 @@ onMounted(() => {
   <NavigationBar />
 
   <!-- 极光背景 -->
-  <GodRays v-if="themeStore.theme === 'light-theme' || themeStore.theme === 'dark-theme'" />
+  <!-- <GodRays v-if="themeStore.theme === 'light-theme' || themeStore.theme === 'dark-theme'" /> -->
 
   <!-- 下雪背景 -->
   <SnowBackground v-if="themeStore.theme === 'christmas-theme'" />

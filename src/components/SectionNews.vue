@@ -1,20 +1,20 @@
 <template>
   <div class="news">
     <!-- 新闻动态1 -->
-    <div class="news-item1">
+    <div class="news-item news-item1">
       <a class="n-link" target="_blank" rel="noopener noreferrer" href="https://acm.sdut.edu.cn/onlinejudge3/posts/35">
         <div class="news-img">
           <img src="../../src/assets/img/sdutacm-homepage-news-1.png" alt="" />
         </div>
         <div class="news-info">
           <span class="news-title">蔚蓝系列赛</span>
-          <span class="news-summary">OJ3作者bLue同学用爱赞助，火热报名中！</span>
+          <span class="news-summary">OJ3 作者 bLue 同学用爱赞助，火热报名中！</span>
           <span class="news-date">2023-12-01</span>
         </div>
       </a>
     </div>
     <!-- 新闻动态2 -->
-    <div class="news-item2">
+    <div class="news-item news-item2">
       <a class="n-link">
         <div class="news-img">
           <img src="../../src/assets/img/sdutacm-homepage-news-2.png" alt="" />
@@ -27,7 +27,7 @@
       </a>
     </div>
     <!-- 新闻动态3 -->
-    <div class="news-item3">
+    <div class="news-item news-item3">
       <a class="n-link">
         <div class="news-img">
           <img src="../../src/assets/img/sdutacm-homepage-news-3.png" alt="" />
@@ -40,28 +40,28 @@
       </a>
     </div>
     <!-- 新闻动态4 -->
-    <div class="news-item4">
+    <div class="news-item news-item4">
       <a class="n-link" target="_blank" rel="noopener noreferrer"
         href="https://mp.weixin.qq.com/s/Qe6mxR_qBC1l7gA2XzVjOg">
         <div class="news-img">
           <img src="../../src/assets/img/sdutacm-homepage-news-5.png" alt="" />
         </div>
         <div class="news-info">
-          <span class="news-title">SDUTACM十五周年庆典</span>
-          <span class="news-summary">15载时光荏苒</span>
+          <span class="news-title">SDUTACM 十五周年庆典</span>
+          <span class="news-summary">15 载时光荏苒</span>
           <span class="news-date">2023-10-15</span>
         </div>
       </a>
     </div>
     <!-- 新闻动态5 -->
-    <div class="news-item5">
+    <div class="news-item news-item5">
       <a class="n-link" target="_blank" rel="noopener noreferrer"
         href="https://mp.weixin.qq.com/s/QZiaCEux-yAhlRo4adSg6A">
         <div class="news-img">
           <img src="../../src/assets/img/sdutacm-homepage-news-4.png" alt="" />
         </div>
         <div class="news-info">
-          <span class="news-title">第十五届SDUTACM校赛</span>
+          <span class="news-title">第十五届 SDUTACM 校赛</span>
           <!-- <span class="news-summary">2023年山东理工大学程序设计竞赛（SDUT校赛）于2023年5月28日举行</span> -->
           <span class="news-date">2023-05-28</span>
         </div>
@@ -83,7 +83,7 @@
     'no4 no5 no5' / 147fr 57fr 84fr;
   gap: 0.52rem 0.48rem;
 
-  .news-item() {
+  .news-item {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -160,32 +160,22 @@
   }
 
   .news-item1 {
-    .news-item();
-
     grid-area: no1;
   }
 
   .news-item2 {
-    .news-item();
-
     grid-area: no2;
   }
 
   .news-item3 {
-    .news-item();
-
     grid-area: no3;
   }
 
   .news-item4 {
-    .news-item();
-
     grid-area: no4;
   }
 
   .news-item5 {
-    .news-item();
-
     grid-area: no5;
   }
 }
@@ -210,7 +200,11 @@
       'no2'
       'no3'
       'no4'
-      'no5' / 1fr;
+      'no5';
+    
+    .news-item {
+      height: 5.5rem;
+    }
   }
 }
 </style>
