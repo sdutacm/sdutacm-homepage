@@ -521,7 +521,6 @@ header {
     padding: 0.8rem 0.4rem;
 
     .dropdown-group .dropdown-item .dropdown-icon {
-
       img,
       span {
         display: block;

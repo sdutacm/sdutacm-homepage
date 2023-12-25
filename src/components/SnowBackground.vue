@@ -49,16 +49,16 @@ export default {
 <style scoped>
 .snow-background {
   position: fixed;
+  z-index: 1;
+  overflow: hidden;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
-  z-index: 1;
 }
 
 .flake {
   position: absolute;
-  background-color: #ffffff;
   border-radius: 50%;
+  background-color: #ffffff;
   pointer-events: none;
   animation: snowfall linear infinite;
 }
@@ -67,6 +67,7 @@ export default {
   0% {
     transform: translateY(-100%);
   }
+
   100% {
     transform: translateY(100vh);
   }
