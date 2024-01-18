@@ -200,9 +200,15 @@ header {
       align-items: center;
       width: 2.5rem;
       height: 100%;
-      cursor: pointer;
 
-      a,
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 46%;
+        text-decoration: none;
+      }
+
       span {
         font-size: 0.36rem;
         font-weight: 500;
@@ -235,7 +241,6 @@ header {
           opacity: 1;
         }
 
-        a,
         span {
           transform: translate(0, -12%);
         }

@@ -53,6 +53,7 @@ import IconVisualgo from '../assets/logo/visualgo.png'
 import IconSDUTOJ from '../assets/logo/sdutoj.ico'
 import IconRankland from '../assets/logo/rankland.ico'
 import IconMagicbook from '../assets/logo/magicbook.ico'
+import IconStepByStep from '../assets/logo/stepbystep.png'
 
 const fastlinks = [
   {
@@ -528,6 +529,13 @@ const sdutlinks = [
     desc: '光锥实验室的入门魔法指南，你需要通过学习、实践、总结进而对web魔法体系有一个清晰的概念',
     // icon: '../src/assets/logo/magicbook.ico'
     icon: IconMagicbook
+  },
+  {
+    title: '训练计划',
+    link: 'https://stepbystep.sdutacm.cn/',
+    desc: '训练计划（ step by step ）现已服务 20 余所国内高校学生，可参考题单在不同平台练习和跟进进度',
+    // icon: '../src/assets/logo/stepbystep.ico'
+    icon: IconStepByStep
   }
 ]
 
