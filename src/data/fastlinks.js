@@ -53,7 +53,7 @@ import IconVisualgo from '../assets/logo/visualgo.png'
 import IconSDUTOJ from '../assets/logo/sdutoj.ico'
 import IconRankland from '../assets/logo/rankland.ico'
 import IconMagicbook from '../assets/logo/magicbook.ico'
-import IconStepByStep from '../assets/logo/stepbystep.png'
+import IconStepByStep from '../assets/logo/sbs.png'
 
 const fastlinks = [
   {
