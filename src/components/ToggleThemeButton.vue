@@ -108,6 +108,7 @@ const toggleTheme = () => {
     <SunIcon v-if="themeStore.getTheme() === themeList[0]" />
     <MoonIcon v-else-if="themeStore.getTheme() === themeList[1]" />
     <ChristmasIcon v-else-if="themeStore.getTheme() === themeList[2]" />
+    <!-- todo add new theme icon here -->
   </div>
 </template>
 

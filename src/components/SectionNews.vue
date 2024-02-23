@@ -1,74 +1,45 @@
 <template>
   <div class="news">
-    <!-- 新闻动态1 -->
-    <div class="news-item news-item1">
-      <a class="n-link" target="_blank" rel="noopener noreferrer" href="https://acm.sdut.edu.cn/onlinejudge3/posts/35">
+    <div
+      v-for="(item, index) in newsItems"
+      :key="index"
+      :class="'news-item news-item' + (index + 1)"
+    >
+      <a
+        v-if="item.link && item.link !== '#'"
+        class="n-link"
+        :href="item.link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <div class="news-img">
-          <img src="../../src/assets/img/sdutacm-homepage-news-1.png" alt="" />
+          <img :src="item.imgSrc" :alt="'新闻 ' + item.title" />
         </div>
         <div class="news-info">
-          <span class="news-title">蔚蓝系列赛</span>
-          <span class="news-summary">OJ3 作者 bLue 同学用爱赞助，火热报名中！</span>
-          <span class="news-date">2023-12-01</span>
+          <span class="news-title">{{ item.title }}</span>
+          <span class="news-summary">{{ item.summary }}</span>
+          <span class="news-date">{{ item.date }}</span>
         </div>
       </a>
-    </div>
-    <!-- 新闻动态2 -->
-    <div class="news-item news-item2">
-      <a class="n-link">
+      <a v-else class="n-link">
         <div class="news-img">
-          <img src="../../src/assets/img/sdutacm-homepage-news-2.png" alt="" />
+          <img :src="item.imgSrc" alt="" />
         </div>
         <div class="news-info">
-          <span class="news-title">ICPC杭州站 银牌</span>
-          <span class="news-summary">恭喜「张鱼小丸子」!</span>
-          <span class="news-date">2023-12-10</span>
-        </div>
-      </a>
-    </div>
-    <!-- 新闻动态3 -->
-    <div class="news-item news-item3">
-      <a class="n-link">
-        <div class="news-img">
-          <img src="../../src/assets/img/sdutacm-homepage-news-3.png" alt="" />
-        </div>
-        <div class="news-info">
-          <span class="news-title">ICPC济南站 双铜牌</span>
-          <span class="news-summary">恭喜「开发9G」&「清纯白毛小萝莉」!</span>
-          <span class="news-date">2023-12-03</span>
-        </div>
-      </a>
-    </div>
-    <!-- 新闻动态4 -->
-    <div class="news-item news-item4">
-      <a class="n-link" target="_blank" rel="noopener noreferrer"
-        href="https://mp.weixin.qq.com/s/Qe6mxR_qBC1l7gA2XzVjOg">
-        <div class="news-img">
-          <img src="../../src/assets/img/sdutacm-homepage-news-5.png" alt="" />
-        </div>
-        <div class="news-info">
-          <span class="news-title">SDUTACM 十五周年庆典</span>
-          <span class="news-summary">15 载时光荏苒</span>
-          <span class="news-date">2023-10-15</span>
-        </div>
-      </a>
-    </div>
-    <!-- 新闻动态5 -->
-    <div class="news-item news-item5">
-      <a class="n-link" target="_blank" rel="noopener noreferrer"
-        href="https://mp.weixin.qq.com/s/QZiaCEux-yAhlRo4adSg6A">
-        <div class="news-img">
-          <img src="../../src/assets/img/sdutacm-homepage-news-4.png" alt="" />
-        </div>
-        <div class="news-info">
-          <span class="news-title">第十五届 SDUTACM 校赛</span>
-          <!-- <span class="news-summary">2023年山东理工大学程序设计竞赛（SDUT校赛）于2023年5月28日举行</span> -->
-          <span class="news-date">2023-05-28</span>
+          <span class="news-title">{{ item.title }}</span>
+          <span class="news-summary">{{ item.summary }}</span>
+          <span class="news-date">{{ item.date }}</span>
         </div>
       </a>
     </div>
   </div>
 </template>
+
+<script setup>
+import { last5News } from '../data/news'
+
+const newsItems = last5News
+</script>
 
 <style lang="less" scoped>
 // 最新动态
@@ -201,7 +172,7 @@
       'no3'
       'no4'
       'no5';
-    
+
     .news-item {
       height: 5.5rem;
     }

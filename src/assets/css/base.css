@@ -74,15 +74,15 @@ html {
   --ah-s-shadow-2: 0 .05rem .4rem var(--ah-tc-4);
   
   /* 颜色 */
-  --ah-c-text1: var(--ah-c-dark-3); /* 特别深色 */
-  --ah-c-text2: var(--ah-c-dark-1); /* 主要文字：标题，图标，文案 */
-  --ah-c-text3: var(--ah-c-gray-3); /* 次要文字：小标题，标语 */
-  --ah-c-text4: var(--ah-c-light-3); /* 弱提示：时间，提示 */
+  --ah-c-text1: var(--ah-c-dark-3); /* 一级标题，图标 */
+  --ah-c-text2: var(--ah-c-dark-1); /* 正文 */
+  --ah-c-text3: var(--ah-c-gray-3); /* 二级标题 */
+  --ah-c-text4: var(--ah-c-light-3); /* 辅助文本 */
   --ah-c-background-card: var(--ah-c-light-1); /* 卡片 */
   --ah-c-background-bg: var(--ah-c-light-primary); /* 背景 */
   --ah-c-background-header: var(--ah-c-light-primary); /* 导航条 */
   --ah-c-background-transparent-drop-down: var(--ah-tc-4); /* 透明背景-下拉菜单 */
-  --ah-c-background-transparent-drop-down-hover: var(--ah-tc-5); /* 按钮 */
+  --ah-c-background-transparent-drop-down-hover: var(--ah-tc-5); /* 透明背景-下拉菜单-hover状态 */
   --ah-c-background-button: var(--ah-c-light-third); /* 按钮 */
   --ah-c-background-indicator: var(--ah-c-light-third); /* 页面指示器 */
   --ah-c-background-indicator-active: var(--ah-c-light-secondary); /* 页面指示器 - 激活状态 */
