@@ -24,12 +24,14 @@ const scrollToAnchor = (anchor) => {
 onMounted(() => {
   // todo: 彩蛋信息
   console.log(
-    '主题食用说明：\n' +
-      "1. 使用 window.magic('<some>-theme') 添加隐藏主题\n" +
-      '2. 使用 window.magicClear() 清空隐藏主题\n' +
-      '3. 使用 window.magic<特殊日期>() 快速添加主题\n'
+    String.raw`      _/_/_/  _/_/_/    _/    _/  _/_/_/_/_/    _/_/      _/_/_/  _/      _/   `+"\n"+
+    String.raw`   _/        _/    _/  _/    _/      _/      _/    _/  _/        _/_/  _/_/    `+"\n"+
+    String.raw`    _/_/    _/    _/  _/    _/      _/      _/_/_/_/  _/        _/  _/  _/     `+"\n"+
+    String.raw`       _/  _/    _/  _/    _/      _/      _/    _/  _/        _/      _/      `+"\n"+
+    String.raw`_/_/_/    _/_/_/      _/_/        _/      _/    _/    _/_/_/  _/      _/       `+"\n\n"+
+    "🎉欢迎来到 SDUTACM 官网🤔💡🎈"
   )
-  console.log('当前主题：', themeStore.theme)
+  // console.log('当前主题：', themeStore.theme)
 })
 </script>
 
@@ -87,7 +89,7 @@ onMounted(() => {
   </main>
 
   <footer>
-    <span> © 2008-2023 SDUTACM. All Rights Reserved. </span>
+    <span> © 2008-2024 SDUTACM. All Rights Reserved. </span>
   </footer>
 </template>
 
