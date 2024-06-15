@@ -50,7 +50,7 @@ const newsItems = [
   {
     title: '捧杯！CCPC 山东省省赛亚军',
     summary: '恭喜「清纯白毛小萝莉」在 2024 济南邀请赛 & 山东省赛斩获佳绩！',
-    data: '2024-05-26',
+    date: '2024-05-26',
     imgSrc: imgUrl20240526,
     link: 'https://mp.weixin.qq.com/s/ESO3wY2sJvN5iYzphkOz7g'
   },
