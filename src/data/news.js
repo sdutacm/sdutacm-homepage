@@ -6,6 +6,7 @@ import img1Url from '../assets/img/sdutacm-homepage-news-1.png'
 import imgUrl16th from '../assets/img/sdutacm-homepage-news-16th.jpg'
 import imgUrl20240317 from '../assets/img/sdutacm-homepage-news-20240317.jpg'
 import imgUrl20240526 from '../assets/img/sdutacm-homepage-news-20240526.jpg'
+import imgUrl20240630 from '../assets/img/sdutacm-homepage-news-20240630.png'
 
 const newsItems = [
   {
@@ -60,6 +61,13 @@ const newsItems = [
     date: '2024-05-29',
     imgSrc: imgUrl16th,
     link: 'https://mp.weixin.qq.com/s/7T3TDDV9r8q1JJPo-sN7RQ'
+  },
+  {
+    title: '光锥实验室纳新啦',
+    summary: '2024 暑期纳新报名开放，欢迎加入！',
+    date: '2024-06-30',
+    imgSrc: imgUrl20240630,
+    link: 'https://lcl.sdutacm.cn/'
   }
   // todo add more news here
 ]
