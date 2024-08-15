@@ -19,7 +19,7 @@ jobs:
       - uses: pnpm/action-setup@v4
         with:
           version: 8.6.3
-      - run: pnpm i --frozen-lockfile
+      - run: pnpm i
       - run: pnpm run build && rm dist/ssr-manifest.json
       - name: Upload to COS
         uses: zkqiang/tencent-cos-action@v0.1.0
