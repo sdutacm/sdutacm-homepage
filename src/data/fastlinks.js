@@ -54,6 +54,8 @@ import IconSDUTOJ from '../assets/logo/sdutoj.ico'
 import IconRankland from '../assets/logo/rankland.ico'
 import IconMagicbook from '../assets/logo/magicbook.ico'
 import IconStepByStep from '../assets/logo/sbs.png'
+import IconCpcfinder from '../assets/logo/cpcfinder.png'
+import IconYuantiji from '../assets/logo/yuantiji_favicon.ico'
 
 const fastlinks = [
   {
@@ -503,6 +505,22 @@ const fastlinks = [
         icon: IconVisualgo,
         link: 'https://visualgo.net/zh/',
         desc: '通过动画将数据结构和算法可视化'
+      },
+      {
+        title: 'cpcfinder',
+        net_icon: 'https://cpcfinder.com/logo.png',
+        local_icon: base_url + 'cpcfinder.png',
+        icon: IconCpcfinder,
+        link: 'https://cpcfinder.com/',
+        desc: 'Acmer 数据库'
+      },
+      {
+        title: '原题机',
+        net_icon: '',
+        local_icon: base_url + 'yuantiji_favicon.ico',
+        icon: IconYuantiji,
+        link: 'http://yuantiji.ac/zh/',
+        desc: '原题查找工具'
       }
     ]
   }
