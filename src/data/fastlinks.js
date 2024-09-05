@@ -512,7 +512,7 @@ const fastlinks = [
         local_icon: base_url + 'cpcfinder.png',
         icon: IconCpcfinder,
         link: 'https://cpcfinder.com/',
-        desc: 'Acmer 数据库'
+        desc: 'ACMer 数据库'
       },
       {
         title: '原题机',
