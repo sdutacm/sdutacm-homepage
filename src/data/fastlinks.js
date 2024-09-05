@@ -371,6 +371,14 @@ const fastlinks = [
         icon: IconPolygon,
         link: 'https://polygon.codeforces.com/',
         desc: '最规范的命题工具'
+      },
+      {
+        title: '原题机',
+        net_icon: '',
+        local_icon: base_url + 'yuantiji_favicon.ico',
+        icon: IconYuantiji,
+        link: 'http://yuantiji.ac/zh/',
+        desc: '原题查找工具'
       }
     ]
   },
@@ -513,14 +521,6 @@ const fastlinks = [
         icon: IconCpcfinder,
         link: 'https://cpcfinder.com/',
         desc: 'ACMer 数据库'
-      },
-      {
-        title: '原题机',
-        net_icon: '',
-        local_icon: base_url + 'yuantiji_favicon.ico',
-        icon: IconYuantiji,
-        link: 'http://yuantiji.ac/zh/',
-        desc: '原题查找工具'
       }
     ]
   }
