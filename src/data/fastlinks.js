@@ -230,12 +230,12 @@ const fastlinks = [
     title: '工具箱',
     links: [
       {
-        title: 'OEIS',
-        net_icon: 'http://oeis.org/favicon.ico',
-        local_icon: base_url + 'oeis.ico',
-        icon: IconOEIS,
-        link: 'http://oeis.org/',
-        desc: '数列工具'
+        title: 'Paste then AC',
+        net_icon: 'https://thenac.cdn.blueverse.cc/dist/paste/favicon.ico',
+        local_icon: base_url + 'PastethenAC.ico',
+        icon: IconPastethenAC,
+        link: 'https://paste.then.ac/',
+        desc: '适合算竟的自由剪贴板'
       },
       {
         title: 'paste.ubuntu',
@@ -260,6 +260,14 @@ const fastlinks = [
         icon: IconPasteLuogu,
         link: 'https://www.luogu.com.cn/paste',
         desc: '代码粘贴板'
+      },
+      {
+        title: 'OEIS',
+        net_icon: 'http://oeis.org/favicon.ico',
+        local_icon: base_url + 'oeis.ico',
+        icon: IconOEIS,
+        link: 'http://oeis.org/',
+        desc: '数列工具'
       },
       {
         title: 'diffchecker',
@@ -380,14 +388,6 @@ const fastlinks = [
         icon: IconYuantiji,
         link: 'http://yuantiji.ac/zh/',
         desc: '原题查找工具'
-      },
-      {
-        title: 'Paste then AC',
-        net_icon: 'https://thenac.cdn.blueverse.cc/dist/paste/favicon.ico',
-        local_icon: base_url + 'PastethenAC.ico',
-        icon: IconPastethenAC,
-        link: 'https://paste.then.ac/',
-        desc: '适合算竟的自由剪贴板'
       }
     ]
   },
