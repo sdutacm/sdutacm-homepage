@@ -8,6 +8,7 @@ import imgUrl20240317 from '../assets/img/sdutacm-homepage-news-20240317.jpg'
 import imgUrl20240526 from '../assets/img/sdutacm-homepage-news-20240526.jpg'
 // import imgUrl20240630 from '../assets/img/sdutacm-homepage-news-20240630.png'
 import imgUrl20240814 from '../assets/img/sdutacm-homepage-news-20240814.png'
+import imgUrl20241005 from '../assets/img/sdutacm-homepage-news-20241005.png'
 
 const newsItems = [
   {
@@ -69,6 +70,13 @@ const newsItems = [
     date: '2024-08-14',
     imgSrc: imgUrl20240814,
     link: 'https://acm.sdut.edu.cn/onlinejudge3/posts/40' // 可选
+  },
+  {
+    title: '快来领取专属训练鼓励师🫵',
+    summary: '训练监督、上分鞭策、Bug 帮查、做题鼓励的好帮手🤓',
+    date: '2024-10-05',
+    imgSrc: imgUrl20241005,
+    link: 'https://acm.sdut.edu.cn/onlinejudge3/posts/41'
   },
   // 纳新时添加
   // {
