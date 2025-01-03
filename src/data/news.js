@@ -8,7 +8,8 @@ import imgUrl20240317 from '../assets/img/sdutacm-homepage-news-20240317.jpg'
 import imgUrl20240526 from '../assets/img/sdutacm-homepage-news-20240526.jpg'
 // import imgUrl20240630 from '../assets/img/sdutacm-homepage-news-20240630.png'
 import imgUrl20240814 from '../assets/img/sdutacm-homepage-news-20240814.png'
-import imgUrl20241005 from '../assets/img/sdutacm-homepage-news-20241005.png'
+// import imgUrl20241005 from '../assets/img/sdutacm-homepage-news-20241005.png'
+import imgUrl20241215 from '../assets/img/sdutacm-homepage-news-20241215.png'
 
 const newsItems = [
   {
@@ -72,11 +73,11 @@ const newsItems = [
     link: 'https://acm.sdut.edu.cn/onlinejudge3/posts/40' // 可选
   },
   {
-    title: '快来领取专属训练鼓励师🫵',
-    summary: '训练监督、上分鞭策、Bug 帮查、做题鼓励的好帮手🤓',
-    date: '2024-10-05',
-    imgSrc: imgUrl20241005,
-    link: 'https://acm.sdut.edu.cn/onlinejudge3/posts/41'
+    title: 'SDUT 第十六届 ACM 网络编程擂台赛圆满结束！🏆',
+    summary: '点此进入 SDUTPMC 精彩瞬间。',
+    date: '2024-12-15',
+    imgSrc: imgUrl20241215,
+    link: 'https://mp.weixin.qq.com/s/r1scoAPixp8TnENMZIrH8Q'
   },
   // 纳新时添加
   // {
