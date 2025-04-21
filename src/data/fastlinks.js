@@ -538,7 +538,7 @@ const fastlinks = [
 const sdutlinks = [
   {
     title: 'SDUT OJ',
-    link: 'https://acm.sdut.edu.cn/onlinejudge3/',
+    link: 'https://oj.sdutacm.cn/onlinejudge3/',
     desc: '山东理工大学ACM实验室自研的第三代在线评测系统',
     // icon: '../src/assets/logo/sdutoj.ico'
     icon: IconSDUTOJ
