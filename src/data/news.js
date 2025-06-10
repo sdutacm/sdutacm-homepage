@@ -1,3 +1,5 @@
+import img7Url from '../assets/img/sdutacm-homepage-news-7.png'
+import img6Url from '../assets/img/sdutacm-homepage-news-6.jpg'
 import img5Url from '../assets/img/sdutacm-homepage-news-5.png'
 import img4Url from '../assets/img/sdutacm-homepage-news-4.png'
 import img3Url from '../assets/img/sdutacm-homepage-news-3.png'
@@ -79,6 +81,20 @@ const newsItems = [
     imgSrc: imgUrl20241215,
     link: 'https://mp.weixin.qq.com/s/r1scoAPixp8TnENMZIrH8Q'
   },
+  {
+    title: "再创佳绩！山东省赛燃情开赛，代码争锋智启未来",
+    summary: "我校学子在2025山东省赛斩获2金3银3铜！",
+    date: "2025-06-05",
+    imgSrc: img6Url,
+    link: "https://mp.weixin.qq.com/s/M6dC__mHZFVZru_hvQrcug?poc_token=HPcqSGijTGwD_808qfHpmaC5SP3pdVtX46k2Qqhs"
+  },
+  {
+    title: "SDUTACM第十七届校赛圆满结束",
+    summary: "让我们一起回望比赛期间的精彩瞬间吧！",
+    date: "2025-06-07",
+    imgSrc: img7Url,
+    link: "https://mp.weixin.qq.com/s/yoSxgeF-YSARrQVa8Hr6kQ"
+  }
   // 纳新时添加
   // {
   //   title: '光锥实验室纳新啦',
